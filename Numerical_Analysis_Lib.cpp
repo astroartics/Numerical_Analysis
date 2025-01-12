@@ -8,7 +8,7 @@ class BisectionMethod
 public:
     double f(double x)
     {
-        return (x * x * x) - (3 * x) - 5;
+        return (x * x * x) - (2 * x) - 5;
     }
 
 public:
