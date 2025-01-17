@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#define TOL 0.000001
+#define TOL 0.000001 // 10^6 for maximum accuracy
 
 using namespace std;
 
