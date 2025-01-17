@@ -109,8 +109,8 @@ public:
 int main()
 {
     Roots bisection, newtonRaphson;
-    bisection.BisectionMethod();
 
+    bisection.BisectionMethod();
     newtonRaphson.NewtonRaphsonMethod();
 
     return 0;
