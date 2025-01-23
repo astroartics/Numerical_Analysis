@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <bits/stdc++.h>
 #define TOL 0.000001 // 10^6 for maximum accuracy
 
 using namespace std;
@@ -20,13 +20,13 @@ public:
     // Bisection Method
     void BisectionMethod()
     {
-        double a, b;
+        double a = -999, b = -999;
         int itrCount = 0;
 
         int flag = 0;
-        for (int i = 0; i < 50; i++)
+        for (int i = -20; i < 50; i++)
         {
-            for (int j = 1; j < 50; j++)
+            for (int j = 20; j < 50; j++)
             {
                 if (f(i) < 0.0 && f(j) > 0.0)
                 {
@@ -47,28 +47,41 @@ public:
             }
         }
 
-        double c = a;
-        while ((b - a) >= TOL)
+        if (a != -999 && b != -999)
         {
-            c = (a + b) / 2;
+            double c = a;
 
-            if (f(c) == 0.0)
+            cout << "\n\033[33ma\t\t\tb\t\t\tx\t\t\tf(a)\t\t\tf(b)\t\t\tf(x)\033[0m\n";
+            cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
+            while ((b - a) >= TOL)
             {
-                break;
+                c = (a + b) / 2;
+
+                if (f(c) == 0.0)
+                {
+                    break;
+                }
+
+                cout << fixed << setprecision(6) << a << "\t\t" << b << "\t\t" << c << "\t\t" << f(a) << "\t\t" << f(b) << "\t\t" << f(c) << endl;
+
+                if ((f(a) > 0 && f(c) < 0) || (f(a) < 0 && f(c) > 0))
+                {
+                    b = c;
+                }
+                else
+                {
+                    a = c;
+                }
+                itrCount++;
             }
 
-            if ((f(a) > 0 && f(c) < 0) || (f(a) < 0 && f(c) > 0))
-            {
-                b = c;
-            }
-            else
-            {
-                a = c;
-            }
-            itrCount++;
+            cout << "\nThe value of root is (Bisection Method) : " << c << endl;
+            cout << "Number of iterations required : " << itrCount << endl;
         }
-        cout << "The value of root is (Bisection Method) : " << c << endl;
-        cout << "Number of iterations required : " << itrCount << endl;
+        else
+        {
+            cout << "\033[31mBracketing interval does not exist between -20 to 20.\033[0m" << endl;
+        }
     }
 
     // ---------------------------------------------------
