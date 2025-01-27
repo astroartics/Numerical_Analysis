@@ -20,6 +20,7 @@ public:
     }
 
     ComplexNumbers complexInput();
+    void displayComplex(string resultType);
     ComplexNumbers add(ComplexNumbers y);
     ComplexNumbers multiply(ComplexNumbers y);
     ComplexNumbers complexConjugate();

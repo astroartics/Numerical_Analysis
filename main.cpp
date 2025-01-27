@@ -14,16 +14,16 @@ int main()
     complexNum2.complexInput();
 
     addResult = complexNum1.add(complexNum2);
-    cout << "\nResult : " << addResult.real << " + " << addResult.imaginary << "i\n";
+    addResult.displayComplex("Addition");
 
     mulResult = complexNum1.multiply(complexNum2);
-    cout << "\nResult : " << mulResult.real << " + " << mulResult.imaginary << "i\n";
+    mulResult.displayComplex("Multiplication");
 
     conjugateRes = complexNum1.complexConjugate();
-    cout << "\nResult : " << conjugateRes.real << (conjugateRes.imaginary > 0 ? " + " : "") << conjugateRes.imaginary << "i\n";
+    conjugateRes.displayComplex("Conjugate");
 
     double normResult = complexNum1.norm();
-    cout << "\nResult : " << normResult << "\n\n";
+    cout << "\nNorm : " << normResult << "\n\n";
 
     return 0;
 }

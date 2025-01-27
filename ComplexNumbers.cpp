@@ -10,6 +10,11 @@ ComplexNumbers ComplexNumbers::complexInput()
     return *this;
 }
 
+void ComplexNumbers::displayComplex(string resultType)
+{
+    cout << "\n" << resultType << " : " << this->real << (this->imaginary > 0 ? " + " : "") << this->imaginary << "i\n";
+}
+
 ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
 {
     ComplexNumbers result;
