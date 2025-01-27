@@ -80,7 +80,7 @@ void RootFinding::BisectionMethod()
 // Newton-Raphson Method
 void RootFinding::NewtonRaphsonMethod()
 {
-    double xn, xn_1, tempStart;
+    double xn, xn1;
     int itrCount = 0;
 
     do
@@ -91,16 +91,16 @@ void RootFinding::NewtonRaphsonMethod()
         cout << "\n\033[33mx_n\t\t\tf(x)\t\t\tf'(x)\t\t\tx_n+1\n\033[0m";
         cout << "----------------------------------------------------------------------------------\n";
 
-        double temp_xn = xn;
+        double tempXn = xn;
 
-        while (abs(temp_xn - xn_1) >= TOL)
+        while (abs(tempXn - xn1) >= TOL)
         {
-            temp_xn = xn;
+            tempXn = xn;
             if (f_derivative(xn) != 0)
             {
-                xn_1 = xn - (f(xn) / f_derivative(xn));
-                cout << temp_xn << "\t\t" << f(xn) << "\t\t" << f_derivative(xn) << "\t\t" << xn_1 << "\n";
-                xn = xn_1;
+                xn1 = xn - (f(xn) / f_derivative(xn));
+                cout << tempXn << "\t\t" << f(xn) << "\t\t" << f_derivative(xn) << "\t\t" << xn1 << "\n";
+                xn = xn1;
                 itrCount++;
             }
             else

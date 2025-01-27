@@ -12,7 +12,8 @@ ComplexNumbers ComplexNumbers::complexInput()
 
 void ComplexNumbers::displayComplex(string resultType)
 {
-    cout << "\n" << resultType << " : " << this->real << (this->imaginary > 0 ? " + " : "") << this->imaginary << "i\n";
+    cout << "\n"
+         << resultType << " : " << this->real << (this->imaginary > 0 ? " + " : "") << this->imaginary << "i\n";
 }
 
 ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
@@ -26,7 +27,7 @@ ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
 
 ComplexNumbers ComplexNumbers::multiply(ComplexNumbers y)
 {
-    // (ac - bd) + i(ad + bc)
+    // (ac - bd) + (ad + bc)i
     ComplexNumbers result;
     result.real = (this->real * y.real) - (this->imaginary * y.imaginary);
     result.imaginary = (this->real * y.imaginary) + (this->imaginary * y.real);
