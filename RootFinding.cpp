@@ -1,7 +1,5 @@
 #include "RootFinding.hpp"
 
-using namespace std;
-
 // Bisection Method
 void RootFinding::BisectionMethod()
 {
