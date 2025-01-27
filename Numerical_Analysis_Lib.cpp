@@ -94,8 +94,10 @@ public:
 
         do
         {
-            cout << "\nProvide a starting point (x0) for finding the root : ";
+            cout << "\n\nProvide a starting point (x0) for finding the root : ";
             cin >> xn;
+            cout << "\n\033[33mx_n\t\t\tf(x)\t\t\tf'(x)\t\t\tx_n+1\n\033[0m";
+            cout << "----------------------------------------------------------------------------------\n";
             if (xn > 0)
             {
                 double temp_xn = xn;
@@ -104,12 +106,13 @@ public:
                 {
                     temp_xn = xn;
                     xn_1 = xn - (f(xn) / f_derivative(xn));
+                    cout << temp_xn << "\t\t" << f(xn) << "\t\t" << f_derivative(xn) << "\t\t" << xn_1 << "\n";
                     xn = xn_1;
                     itrCount++;
                 }
 
-                cout << "The value of root is (Newton-Raphson Method) : " << xn << endl;
-                cout << "Number of iterations required : " << itrCount << endl;
+                cout << "\nThe value of root is (Newton-Raphson Method) : " << xn << endl;
+                cout << "Number of iterations required : " << itrCount << "\n\n";
             }
             else
             {
