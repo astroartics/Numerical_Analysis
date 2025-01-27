@@ -2,29 +2,6 @@
 
 using namespace std;
 
-double f(double x)
-{
-    return (2 * x * x) - 1;
-    // return (x * x) + (2 * x) - 3;
-    // return (x + 2) * (x + 3) * (x + 4);
-}
-
-double f_derivative(double x)
-{
-    return (4 * x);
-    // return (2 * x) + 2;
-    // return (3 * x * x) + (18 * x) + 26;
-}
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
-// .
 // Bisection Method
 void RootFinding::BisectionMethod()
 {
@@ -59,6 +36,7 @@ void RootFinding::BisectionMethod()
     {
         double c = a;
 
+        cout << "\nBracketing interval : [" << a << " to " << b << "]\n";
         cout << "\n\033[33ma\t\t\tb\t\t\tx\t\t\tf(a)\t\t\tf(b)\t\t\tf(x)\033[0m\n";
         cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
         while ((b - a) >= TOL)
