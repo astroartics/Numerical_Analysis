@@ -96,10 +96,10 @@ void RootFinding::NewtonRaphsonMethod()
         while (abs(tempXn - xn1) >= TOL)
         {
             tempXn = xn;
-            if (f_derivative(xn) != 0)
+            if (fDerivative(xn) != 0)
             {
-                xn1 = xn - (f(xn) / f_derivative(xn));
-                cout << tempXn << "\t\t" << f(xn) << "\t\t" << f_derivative(xn) << "\t\t" << xn1 << "\n";
+                xn1 = xn - (f(xn) / fDerivative(xn));
+                cout << tempXn << "\t\t" << f(xn) << "\t\t" << fDerivative(xn) << "\t\t" << xn1 << "\n";
                 xn = xn1;
                 itrCount++;
             }
@@ -113,5 +113,5 @@ void RootFinding::NewtonRaphsonMethod()
         cout << "\nThe value of root is (Newton-Raphson Method) : " << xn << endl;
         cout << "Number of iterations required : " << itrCount << "\n\n";
 
-    } while (f_derivative(xn) == 0); // Continue till f'(x) is becoming 0 in some iteration.
+    } while (fDerivative(xn) == 0); // Continue till f'(x) is becoming 0 in some iteration.
 }

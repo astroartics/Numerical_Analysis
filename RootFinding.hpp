@@ -7,6 +7,16 @@ using namespace std;
 class RootFinding
 {
 public:
+    // void hornersRule(double x, int count...)
+    // {
+    //     va_list coeff;
+    //     va_start(coeff, count);
+    //     for (int i = 0; i < count; i++)
+    //         x *= (va_arg(coeff, double) + x);
+    //     cout << x << "\n\n";
+    //     va_end(coeff);
+    // }
+
     double f(double x)
     {
         return (2 * x * x) - 1;
@@ -14,7 +24,7 @@ public:
         // return (x + 2) * (x + 3) * (x + 4);
     }
 
-    double f_derivative(double x)
+    double fDerivative(double x)
     {
         return (4 * x);
         // return (2 * x) + 2;

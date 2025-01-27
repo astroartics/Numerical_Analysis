@@ -10,6 +10,11 @@ public:
 
         bisection.BisectionMethod();
         newtonRaphson.NewtonRaphsonMethod();
+
+        // int highestPow;
+        // cout << "\nEnter the degree of polynomial : ";
+        // cin >> highestPow;
+        // bisection.hornersRule(1, highestPow + 1, 2, -1);
     }
 
     void complex()
@@ -36,7 +41,8 @@ public:
 int main()
 {
     CallFunctions func;
-    func.complex();
+    func.roots();
+    // func.complex();
 
     return 0;
 }
