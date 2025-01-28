@@ -53,16 +53,15 @@ void RootFinding::BisectionMethod()
     double a = -999, b = -999;
     int flag = 0;
 
-    for (int i = -20; i < 50; i++)
+    for (int i = -20; i <= 20; i++)
     {
-        for (int j = 20; j < 50; j++)
+        for (int j = 20; j >= -20; j--)
         {
             if (f(i) < 0.0 && f(j) > 0.0)
             {
                 flag = 1;
                 a = i;
                 b = j;
-                // cout << a << " " << b << ":" << f(a) << " " << f(b) << endl;
                 break;
             }
             else
