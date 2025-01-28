@@ -6,10 +6,11 @@ class CallFunctions
 public:
     void roots()
     {
-        RootFinding bisection, newtonRaphson;
+        RootFinding findRoot;
 
-        bisection.BisectionMethod();
-        newtonRaphson.NewtonRaphsonMethod();
+        findRoot.BisectionMethod();
+        findRoot.NewtonRaphsonMethod();
+        findRoot.FixedPoint();
     }
 
     void complex()

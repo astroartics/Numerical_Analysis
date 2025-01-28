@@ -83,7 +83,7 @@ void RootFinding::BisectionMethod()
         cout << "\nBracketing interval : [" << a << " to " << b << "]\n";
         cout << "\n\033[33ma\t\t\tb\t\t\tx\t\t\tf(a)\t\t\tf(b)\t\t\tf(x)\033[0m\n";
         cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
-        while ((b - a) >= TOL)
+        while (abs(b - a) >= TOL)
         {
             c = (a + b) / 2;
 
@@ -161,4 +161,41 @@ void RootFinding::NewtonRaphsonMethod()
         cout << "Number of iterations required : " << itrCount << "\n\n";
 
     } while (fDerivative(xn) == 0); // Continue till f'(x) is becoming 0 in some iteration.
+}
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// Fixed-point Method
+void RootFinding::FixedPoint()
+{
+    int itrCnt = 0;
+    double xn = 2.5;
+
+    cout << "\n\033[33mx_n\t\t\tf(x_n)\n\033[0m";
+    cout << "--------------------------------\n";
+
+    while (abs(xn - q(xn)) >= TOL)
+    {
+        if (q(xn) == INFINITY || q(xn) > 1000000)
+        {
+            cout << "\n\nThe function is diverging with the given starting point...\n\n";
+            exit(0);
+        }
+        q(xn);
+        cout << xn << "\t\t" << q(xn) << endl;
+        xn = q(xn);
+        itrCnt++;
+        if (itrCnt > 100)
+            break;
+    }
+
+    cout << "\nValue of root using Fixed Point Iteration Method : " << xn << endl;
+    cout << "Number of iterations required : " << itrCnt << "\n\n";
 }
