@@ -49,10 +49,10 @@ void RootFinding::BisectionMethod()
 {
     // acceptCoefficients();
 
-    double a = -999, b = -999;
     int itrCount = 0;
-
+    double a = -999, b = -999;
     int flag = 0;
+
     for (int i = -20; i < 50; i++)
     {
         for (int j = 20; j < 50; j++)
