@@ -7,15 +7,7 @@ using namespace std;
 class RootFinding
 {
 public:
-    // void hornersRule(double x, int count...)
-    // {
-    //     va_list coeff;
-    //     va_start(coeff, count);
-    //     for (int i = 0; i < count; i++)
-    //         x *= (va_arg(coeff, double) + x);
-    //     cout << x << "\n\n";
-    //     va_end(coeff);
-    // }
+    vector<double> coefficients;
 
     double f(double x)
     {
@@ -31,6 +23,8 @@ public:
         // return (3 * x * x) + (18 * x) + 26;
     }
 
+    void acceptCoefficients();
+    double HornersRule(double x);
     void BisectionMethod();
     void NewtonRaphsonMethod();
 };

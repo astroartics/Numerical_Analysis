@@ -1,8 +1,54 @@
 #include "RootFinding.hpp"
 
+void RootFinding::acceptCoefficients()
+{
+    int degree;
+    double coeff;
+    cout << "\nEnter degree of the polynomial : ";
+    cin >> degree;
+
+    for (int i = degree; i >= 0; i--)
+    {
+        cout << "Coefficient for x^" << i << " = ";
+        cin >> coeff;
+        coefficients.push_back(coeff);
+    }
+}
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+double RootFinding::HornersRule(double x)
+{
+    // double coeff[3] = {2, 0, -1};
+    double result = coefficients[0];
+    for (int i = 1; i < coefficients.size(); i++)
+    {
+        result = result * x + coefficients[i];
+    }
+    return result;
+}
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
 // Bisection Method
 void RootFinding::BisectionMethod()
 {
+    // acceptCoefficients();
+
     double a = -999, b = -999;
     int itrCount = 0;
 
@@ -48,6 +94,7 @@ void RootFinding::BisectionMethod()
 
             cout << fixed << setprecision(6) << a << "\t\t" << b << "\t\t" << c << "\t\t" << f(a) << "\t\t" << f(b) << "\t\t" << f(c) << endl;
 
+            // if ((HornersRule(a) > 0 && HornersRule(c) < 0) || HornersRule(a) < 0 && HornersRule(c) > 0)
             if ((f(a) > 0 && f(c) < 0) || (f(a) < 0 && f(c) > 0))
             {
                 b = c;
