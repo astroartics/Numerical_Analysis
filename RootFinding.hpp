@@ -11,18 +11,22 @@ public:
 
     double f(double x)
     {
-        return (2 * x * x) - 1;
+        return x + 2;
+        // return (2 * x * x) - 1;
         // return (x * x) + (2 * x) - 3;
         // return (x + 2) * (x + 3) * (x + 4);
         // return (x * x) - (5 * x) + 5;
+        // return (2 * x * x) + (3 * x) - 2;
     }
 
     double fDerivative(double x)
     {
-        return (4 * x);
+        return 1;
+        // return (4 * x);
         // return (2 * x) + 2;
         // return (3 * x * x) + (18 * x) + 26;
         // return (2 * x) - 5;
+        // return (4 * x) + 3;
     }
 
     double q(double x)
