@@ -55,7 +55,7 @@ void Numerical_Analysis::complex()
 
     default:
     {
-        "\nInvalid option!\n";
+        cout << "\nInvalid option!\n";
         break;
     }
     }
