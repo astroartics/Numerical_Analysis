@@ -16,15 +16,44 @@ void Numerical_Analysis::complex()
     complexNum1.complexInput();
     complexNum2.complexInput();
 
-    addResult = complexNum1.add(complexNum2);
-    addResult.displayComplex("Addition");
+    int operation;
+    cout << "\n1) Add\n2) Multiply\n3) Complex Conjugate\n4) Norm\n\nChoose an option : ";
+    cin >> operation;
 
-    mulResult = complexNum1.multiply(complexNum2);
-    mulResult.displayComplex("Multiplication");
+    switch (operation)
+    {
+    case 1:
+    {
+        addResult = complexNum1.add(complexNum2);
+        addResult.displayComplex("Addition");
+        break;
+    }
 
-    conjugateRes = complexNum1.complexConjugate();
-    conjugateRes.displayComplex("Conjugate");
+    case 2:
+    {
+        mulResult = complexNum1.multiply(complexNum2);
+        mulResult.displayComplex("Multiplication");
+        break;
+    }
 
-    double normResult = complexNum1.norm();
-    cout << "\nNorm : " << normResult << "\n\n";
+    case 3:
+    {
+        conjugateRes = complexNum1.complexConjugate();
+        conjugateRes.displayComplex("Conjugate");
+        break;
+    }
+
+    case 4:
+    {
+        double normResult = complexNum1.norm();
+        cout << "\nNorm : " << normResult << "\n\n";
+        break;
+    }
+
+    default:
+    {
+        "\nInvalid option!\n";
+        break;
+    }
+    }
 }
