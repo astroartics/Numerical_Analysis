@@ -49,7 +49,7 @@ void Numerical_Analysis::complex()
     case 4:
     {
         double normResult = complexNum1.norm();
-        cout << "\nNorm : " << normResult << "\n\n";
+        cout << "\n\033[32mNorm : " << normResult << "\033[0m\n\n";
         break;
     }
 

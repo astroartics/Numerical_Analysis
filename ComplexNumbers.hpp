@@ -18,7 +18,7 @@ public:
 
     void ComplexNumFormat()
     {
-        cout << "\nFormat of Complex numbers : a + bi (a-Real part, b-imaginary part)\n";
+        cout << "\n\033[33mFormat of Complex numbers : a + bi (a-Real part, b-imaginary part)\033[0m\n";
     }
 
     ComplexNumbers complexInput();

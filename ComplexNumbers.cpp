@@ -12,8 +12,10 @@ ComplexNumbers ComplexNumbers::complexInput()
 
 void ComplexNumbers::displayComplex(string resultType)
 {
-    cout << "\n"
-         << resultType << " : " << this->real << (this->imaginary > 0 ? " + " : "") << this->imaginary << "i\n";
+    cout << "\n\033[32m"
+         << resultType << " : " << this->real << (this->imaginary > 0 ? " + " : "");
+    this->imaginary != 0 ? (cout << this->imaginary << "i\n") : cout << endl;
+    cout << "\033[0m\n";
 }
 
 ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
