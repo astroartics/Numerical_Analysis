@@ -38,7 +38,10 @@ void Numerical_Analysis::complex()
 
     case 3:
     {
-        conjugateRes = complexNum1.complexConjugate();
+        int num;
+        cout << "\nComplex conjugate of number 1 or 2 : ";
+        cin >> num;
+        conjugateRes = num == 1 ? complexNum1.complexConjugate() : complexNum2.complexConjugate();
         conjugateRes.displayComplex("Conjugate");
         break;
     }
