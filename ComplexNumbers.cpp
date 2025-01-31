@@ -26,6 +26,15 @@ ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
     return result;
 }
 
+ComplexNumbers ComplexNumbers::subtract(ComplexNumbers y)
+{
+    ComplexNumbers result;
+    result.real = this->real - y.real;
+    result.imaginary = this->imaginary - y.imaginary;
+
+    return result;
+}
+
 ComplexNumbers ComplexNumbers::multiply(ComplexNumbers y)
 {
     // (ac - bd) + (ad + bc)i

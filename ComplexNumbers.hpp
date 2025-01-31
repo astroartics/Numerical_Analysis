@@ -24,6 +24,7 @@ public:
     ComplexNumbers complexInput();
     void displayComplex(string resultType);
     ComplexNumbers add(ComplexNumbers y);
+    ComplexNumbers subtract(ComplexNumbers y);
     ComplexNumbers multiply(ComplexNumbers y);
     ComplexNumbers complexConjugate();
     double norm();
