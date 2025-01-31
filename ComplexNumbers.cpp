@@ -9,14 +9,20 @@ ComplexNumbers ComplexNumbers::complexInput()
 
     return *this;
 }
-
+//.
+//.
+//.
+//.
 void ComplexNumbers::displayComplex(string resultType)
 {
     cout << "\n\033[32m" << resultType << " : " << this->real << (this->imaginary > 0 ? " + " : "");
     this->imaginary != 0 ? (cout << this->imaginary << "i\n") : cout << endl;
     cout << "\033[0m\n";
 }
-
+//.
+//.
+//.
+//.
 ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
 {
     ComplexNumbers result;
@@ -25,7 +31,10 @@ ComplexNumbers ComplexNumbers::add(ComplexNumbers y)
 
     return result;
 }
-
+//.
+//.
+//.
+//.
 ComplexNumbers ComplexNumbers::subtract(ComplexNumbers y)
 {
     ComplexNumbers result;
@@ -34,7 +43,10 @@ ComplexNumbers ComplexNumbers::subtract(ComplexNumbers y)
 
     return result;
 }
-
+//.
+//.
+//.
+//.
 ComplexNumbers ComplexNumbers::multiply(ComplexNumbers y)
 {
     // (ac - bd) + (ad + bc)i
@@ -44,7 +56,24 @@ ComplexNumbers ComplexNumbers::multiply(ComplexNumbers y)
 
     return result;
 }
+//.
+//.
+//.
+//.
+ComplexNumbers ComplexNumbers::division(ComplexNumbers y)
+{
+    // ((ac + bd) + (bc-ad)i)/(c^2 + d^2)
+    ComplexNumbers result;
+    result.real = ((this->real * y.real) + (this->imaginary * y.imaginary)) / ((y.real * y.real) + (y.imaginary * y.imaginary));
+    result.imaginary = ((this->imaginary * y.real) - (this->real * y.imaginary)) / ((y.real * y.real) + (y.imaginary * y.imaginary));
+    cout << "\nReal : " << result.real << "\tImg : " << result.imaginary << endl;
 
+    return result;
+}
+//.
+//.
+//.
+//.
 ComplexNumbers ComplexNumbers::complexConjugate()
 {
     ComplexNumbers conjugate;
@@ -53,7 +82,10 @@ ComplexNumbers ComplexNumbers::complexConjugate()
 
     return conjugate;
 }
-
+//.
+//.
+//.
+//.
 double ComplexNumbers::norm()
 {
     double result;

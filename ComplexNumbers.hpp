@@ -24,6 +24,7 @@ public:
     ComplexNumbers add(ComplexNumbers y);
     ComplexNumbers subtract(ComplexNumbers y);
     ComplexNumbers multiply(ComplexNumbers y);
+    ComplexNumbers division(ComplexNumbers y);
     ComplexNumbers complexConjugate();
     double norm();
 };

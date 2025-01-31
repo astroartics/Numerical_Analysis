@@ -11,13 +11,13 @@ void Numerical_Analysis::roots()
 
 void Numerical_Analysis::complex()
 {
-    ComplexNumbers complexNum1, complexNum2, addResult, subResult, mulResult, conjugateRes;
+    ComplexNumbers complexNum1, complexNum2, addResult, subResult, mulResult, divResult, conjugateRes;
     complexNum1.ComplexNumFormat();
     complexNum1.complexInput();
     complexNum2.complexInput();
 
     int operation;
-    cout << "\n1) Add\n2) Multiply\n3) Subtract\n4) Complex Conjugate\n4) Norm\n\nChoose an option : ";
+    cout << "\n1) Add\n2) Subtract\n3) Multiply\n4) Division\n5) Complex Conjugate\n6) Norm\n\nChoose an option : ";
     cin >> operation;
 
     switch (operation)
@@ -31,17 +31,26 @@ void Numerical_Analysis::complex()
 
     case 2:
     {
+        subResult = complexNum1.subtract(complexNum2);
+        subResult.displayComplex("Subtraction");
+        break;
+    }
+
+    case 3:
+    {
         mulResult = complexNum1.multiply(complexNum2);
         mulResult.displayComplex("Multiplication");
         break;
     }
 
-    case 3:
-        subResult = complexNum1.subtract(complexNum2);
-        subResult.displayComplex("Subtraction");
-        break;
-
     case 4:
+    {
+        divResult = complexNum1.division(complexNum2);
+        divResult.displayComplex("Division");
+        break;
+    }
+
+    case 5:
     {
         int num;
         cout << "\nComplex conjugate of number 1 or 2 : ";
@@ -51,7 +60,7 @@ void Numerical_Analysis::complex()
         break;
     }
 
-    case 5:
+    case 6:
     {
         double normResult = complexNum1.norm();
         cout << "\n\033[32mNorm : " << normResult << "\033[0m\n\n";
