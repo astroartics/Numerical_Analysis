@@ -7,13 +7,11 @@ class ComplexNumbers
 {
 public:
     double real, imaginary;
-    int operation;
 
     ComplexNumbers()
     {
         real = 0.0;
         imaginary = 0.0;
-        operation = 1;
     }
 
     void ComplexNumFormat()
