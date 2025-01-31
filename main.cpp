@@ -1,11 +1,8 @@
-#include "Numerical_Analysis.hpp"
+#include "RootFinding.hpp"
+#include "ComplexNumbers.hpp"
 
 int main()
 {
-    Numerical_Analysis func;
-
-    // func.roots();
-
     ComplexNumbers complexNum1, complexNum2, result;
     complexNum1.ComplexNumFormat();
     complexNum1.complexInput();
