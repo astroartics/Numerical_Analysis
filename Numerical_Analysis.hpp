@@ -5,5 +5,4 @@ class Numerical_Analysis
 {
 public:
     void roots();
-    void complex();
 };
