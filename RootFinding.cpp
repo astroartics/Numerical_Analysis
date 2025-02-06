@@ -188,11 +188,10 @@ void RootFinding::FixedPoint()
             cout << "\n\nThe function is diverging with the given starting point...\n\n";
             exit(0);
         }
-        q(xn);
         cout << xn << "\t\t" << q(xn) << endl;
         xn = q(xn);
         itrCnt++;
-        if (itrCnt > 100)
+        if (itrCnt > 300)
             break;
     }
 
