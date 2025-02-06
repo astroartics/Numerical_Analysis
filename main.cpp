@@ -3,6 +3,20 @@
 
 int main()
 {
+    RootFinding roots;
+    roots.acceptCoefficients();
+    cout << "Value of polynomial after evaluating it using Horner's method : " << roots.HornersRule(2.0) << "\n\n";
+
+    roots.BisectionMethod();
+    roots.NewtonRaphsonMethod();
+    roots.FixedPoint();
+
+    return 0;
+}
+
+/*
+Complex class main code
+
     ComplexNumbers complexNum1, complexNum2, result;
     complexNum1.ComplexNumFormat();
     complexNum1.complexInput();
@@ -66,4 +80,4 @@ int main()
     }
 
     return 0;
-}
+ */

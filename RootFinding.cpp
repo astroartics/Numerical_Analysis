@@ -26,7 +26,6 @@ void RootFinding::acceptCoefficients()
 // .
 double RootFinding::HornersRule(double x)
 {
-    // double coeff[3] = {2, 0, -1};
     double result = coefficients[0];
     for (int i = 1; i < coefficients.size(); i++)
     {
@@ -84,7 +83,7 @@ void RootFinding::BisectionMethod()
         cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
         while (abs(b - a) >= TOL)
         {
-            c = (a + b) / 2;
+            c = (a + b) / 2.0;
 
             if (f(c) == 0.0)
             {
@@ -175,13 +174,15 @@ void RootFinding::NewtonRaphsonMethod()
 void RootFinding::FixedPoint()
 {
     int itrCnt = 0;
-    double xn = 2.5;
+    double xn = 2.5, temp;
 
     cout << "\n\033[33mx_n\t\t\tf(x_n)\n\033[0m";
     cout << "--------------------------------\n";
 
-    while (abs(xn - q(xn)) >= TOL)
+    // while (abs(xn - q(xn)) >= TOL)
+    while (abs(temp - xn) >= TOL)
     {
+        temp = xn;
         if (q(xn) == INFINITY || q(xn) > 1000000)
         {
             cout << "\n\nThe function is diverging with the given starting point...\n\n";
