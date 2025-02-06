@@ -174,7 +174,7 @@ void RootFinding::NewtonRaphsonMethod()
 void RootFinding::FixedPoint()
 {
     int itrCnt = 0;
-    double xn = 2.5, temp;
+    double xn = 2, temp;
 
     cout << "\n\033[33mx_n\t\t\tf(x_n)\n\033[0m";
     cout << "--------------------------------\n";
@@ -182,17 +182,17 @@ void RootFinding::FixedPoint()
     // while (abs(xn - q(xn)) >= TOL)
     while (abs(temp - xn) >= TOL)
     {
+        if (itrCnt > 199)
+            break;
         temp = xn;
         if (q(xn) == INFINITY || q(xn) > 1000000)
         {
             cout << "\n\nThe function is diverging with the given starting point...\n\n";
             exit(0);
         }
-        cout << xn << "\t\t" << q(xn) << endl;
         xn = q(xn);
+        cout << xn << "\t\t" << q(xn) << endl;
         itrCnt++;
-        if (itrCnt > 300)
-            break;
     }
 
     cout << "\nValue of root using Fixed Point Iteration Method : " << xn << endl;

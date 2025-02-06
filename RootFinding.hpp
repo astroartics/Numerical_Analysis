@@ -34,7 +34,7 @@ public:
         // return (1 / (sqrt(2) * x));
         return (3 - (x * x)) / 2;
         // return ((x * x + 5) / 5);
-        // return 2 * (sqrt(x - 1));
+        // return (2 * (sqrt(x - 1)));
     }
 
     void acceptCoefficients();
