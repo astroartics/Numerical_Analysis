@@ -1,6 +1,6 @@
 #include <cmath>
-#include <bits/stdc++.h> // Use to include all the standard libraries
-#define TOL 0.000001     // 10^6 Tolerance for maximum accuracy
+#include <bits/stdc++.h> // Used to include all the standard libraries
+#define TOL 0.000001     // 10^(-6) tolerance for maximum accuracy
 
 using namespace std;
 
@@ -39,7 +39,7 @@ public:
 
     void acceptCoefficients();
     double HornersRule(double x);
-    void BisectionMethod();
-    void NewtonRaphsonMethod();
-    void FixedPoint();
+    double BisectionMethod(int lb, int ub);
+    double NewtonRaphsonMethod(double sp);
+    double FixedPoint();
 };

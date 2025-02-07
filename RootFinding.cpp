@@ -24,6 +24,7 @@ void RootFinding::acceptCoefficients()
 // .
 // .
 // .
+// Horner's Rule
 double RootFinding::HornersRule(double x)
 {
     double result = coefficients[0];
@@ -44,17 +45,17 @@ double RootFinding::HornersRule(double x)
 // .
 // .
 // Bisection Method
-void RootFinding::BisectionMethod()
+double RootFinding::BisectionMethod(int lb, int ub)
 {
     // acceptCoefficients();
 
     int itrCount = 0;
-    double a = -999, b = -999;
+    double a = -999, b = -999, c;
     int flag = 0;
 
-    for (int i = -20; i <= 20; i++)
+    for (int i = lb; i <= ub; i++)
     {
-        for (int j = 20; j >= -20; j--)
+        for (int j = ub; j >= lb; j--)
         {
             if (f(i) < 0.0 && f(j) > 0.0)
             {
@@ -76,7 +77,7 @@ void RootFinding::BisectionMethod()
 
     if (a != -999 && b != -999)
     {
-        double c = a;
+        c = a;
 
         cout << "\nBracketing interval : [" << a << " to " << b << "]\n";
         cout << "\n\033[33ma\t\t\tb\t\t\tx\t\t\tf(a)\t\t\tf(b)\t\t\tf(x)\033[0m\n";
@@ -104,12 +105,13 @@ void RootFinding::BisectionMethod()
             itrCount++;
         }
 
-        cout << "\nThe value of root is (Bisection Method) : " << c << endl;
-        cout << "Number of iterations required : " << itrCount << endl;
+        cout << "\nNumber of iterations required : " << itrCount << endl;
+        return c;
     }
     else
     {
-        cout << "\033[31mBracketing interval does not exist between -20 to 20.\033[0m" << endl;
+        cout << "\033[31mBracketing interval does not exist between " << lb << " to " << ub << ".\033[0m" << endl;
+        exit(0);
     }
 }
 // .
@@ -123,16 +125,13 @@ void RootFinding::BisectionMethod()
 // .
 // .
 // Newton-Raphson Method
-void RootFinding::NewtonRaphsonMethod()
+double RootFinding::NewtonRaphsonMethod(double sp)
 {
-    double xn, xn1;
+    double xn = sp, xn1;
     int itrCount = 0;
 
     do
     {
-        cout << "\n\nProvide a starting point (x0) for finding the root : ";
-        cin >> xn;
-
         cout << "\n\033[33mx_n\t\t\tf(x)\t\t\tf'(x)\t\t\tx_n+1\n\033[0m";
         cout << "----------------------------------------------------------------------------------\n";
 
@@ -155,10 +154,11 @@ void RootFinding::NewtonRaphsonMethod()
             }
         }
 
-        cout << "\nThe value of root is (Newton-Raphson Method) : " << xn << endl;
-        cout << "Number of iterations required : " << itrCount << "\n\n";
+        cout << "\nNumber of iterations required : " << itrCount << "\n";
 
     } while (fDerivative(xn) == 0); // Continue till f'(x) is becoming 0 in some iteration.
+
+    return xn;
 }
 // .
 // .
@@ -171,7 +171,7 @@ void RootFinding::NewtonRaphsonMethod()
 // .
 // .
 // Fixed-point Method
-void RootFinding::FixedPoint()
+double RootFinding::FixedPoint()
 {
     int itrCnt = 0;
     double xn = 2, temp;
@@ -195,6 +195,7 @@ void RootFinding::FixedPoint()
         itrCnt++;
     }
 
-    cout << "\nValue of root using Fixed Point Iteration Method : " << xn << endl;
-    cout << "Number of iterations required : " << itrCnt << "\n\n";
+    cout << "\nNumber of iterations required : " << itrCnt << "\n";
+
+    return xn;
 }

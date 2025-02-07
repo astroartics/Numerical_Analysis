@@ -4,12 +4,25 @@
 int main()
 {
     RootFinding roots;
+    double result, startingPoint;
+    int lb, ub;
+
     roots.acceptCoefficients();
     cout << "Value of polynomial after evaluating it using Horner's method : " << roots.HornersRule(2.0) << "\n\n";
 
-    roots.BisectionMethod();
-    roots.NewtonRaphsonMethod();
-    roots.FixedPoint();
+    cout << "Enter lowerbound and upperbound for an interval : ";
+    cin >> lb;
+    cin >> ub;
+    result = roots.BisectionMethod(lb, ub);
+    cout << "The value of root is (Bisection Method) : " << result << endl;
+
+    cout << "\n\nProvide a starting point (x0) for finding the root : ";
+    cin >> startingPoint;
+    result = roots.NewtonRaphsonMethod(startingPoint);
+    cout << "The value of root is (Newton-Raphson Method) : " << result << endl;
+
+    result = roots.FixedPoint();
+    cout << "Value of root using Fixed Point Iteration Method : " << result << endl;
 
     return 0;
 }
