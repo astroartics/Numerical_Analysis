@@ -45,7 +45,7 @@ double RootFinding::HornersRule(double x)
 // .
 // .
 // Bisection Method
-double RootFinding::BisectionMethod(int lb, int ub)
+double RootFinding::BisectionMethod(int lb, int ub, int printItr)
 {
     // acceptCoefficients();
 
@@ -80,8 +80,13 @@ double RootFinding::BisectionMethod(int lb, int ub)
         c = a;
 
         cout << "\nBracketing interval : [" << a << " to " << b << "]\n";
-        cout << "\n\033[33ma\t\t\tb\t\t\tx\t\t\tf(a)\t\t\tf(b)\t\t\tf(x)\033[0m\n";
-        cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
+
+        if (printItr)
+        {
+            cout << "\n\033[33ma\t\t\tb\t\t\tx\t\t\tf(a)\t\t\tf(b)\t\t\tf(x)\033[0m\n";
+            cout << "-----------------------------------------------------------------------------------------------------------------------------------\n";
+        }
+
         while (abs(b - a) >= TOL)
         {
             c = (a + b) / 2.0;
@@ -91,7 +96,10 @@ double RootFinding::BisectionMethod(int lb, int ub)
                 break;
             }
 
-            cout << fixed << setprecision(6) << a << "\t\t" << b << "\t\t" << c << "\t\t" << f(a) << "\t\t" << f(b) << "\t\t" << f(c) << endl;
+            if (printItr)
+            {
+                cout << fixed << setprecision(6) << a << "\t\t" << b << "\t\t" << c << "\t\t" << f(a) << "\t\t" << f(b) << "\t\t" << f(c) << endl;
+            }
 
             // if ((HornersRule(a) > 0 && HornersRule(c) < 0) || HornersRule(a) < 0 && HornersRule(c) > 0)
             if ((f(a) > 0 && f(c) < 0) || (f(a) < 0 && f(c) > 0))
@@ -125,15 +133,18 @@ double RootFinding::BisectionMethod(int lb, int ub)
 // .
 // .
 // Newton-Raphson Method
-double RootFinding::NewtonRaphsonMethod(double sp)
+double RootFinding::NewtonRaphsonMethod(double sp, int printItr)
 {
     double xn = sp, xn1;
     int itrCount = 0;
 
     do
     {
-        cout << "\n\033[33mx_n\t\t\tf(x)\t\t\tf'(x)\t\t\tx_n+1\n\033[0m";
-        cout << "----------------------------------------------------------------------------------\n";
+        if (printItr)
+        {
+            cout << "\n\033[33mx_n\t\t\tf(x)\t\t\tf'(x)\t\t\tx_n+1\n\033[0m";
+            cout << "----------------------------------------------------------------------------------\n";
+        }
 
         double tempXn = xn;
 
@@ -143,7 +154,10 @@ double RootFinding::NewtonRaphsonMethod(double sp)
             if (fDerivative(xn) != 0)
             {
                 xn1 = xn - (f(xn) / fDerivative(xn));
-                cout << tempXn << "\t\t" << f(xn) << "\t\t" << fDerivative(xn) << "\t\t" << xn1 << "\n";
+                if (printItr)
+                {
+                    cout << tempXn << "\t\t" << f(xn) << "\t\t" << fDerivative(xn) << "\t\t" << xn1 << "\n";
+                }
                 xn = xn1;
                 itrCount++;
             }
@@ -171,13 +185,16 @@ double RootFinding::NewtonRaphsonMethod(double sp)
 // .
 // .
 // Fixed-point Method
-double RootFinding::FixedPoint()
+double RootFinding::FixedPoint(int printItr)
 {
     int itrCnt = 0;
     double xn = 2, temp;
 
-    cout << "\n\033[33mx_n\t\t\tf(x_n)\n\033[0m";
-    cout << "--------------------------------\n";
+    if (printItr)
+    {
+        cout << "\n\033[33mx_n\t\t\tf(x_n)\n\033[0m";
+        cout << "--------------------------------\n";
+    }
 
     // while (abs(xn - q(xn)) >= TOL)
     while (abs(temp - xn) >= TOL)
@@ -191,7 +208,12 @@ double RootFinding::FixedPoint()
             exit(0);
         }
         xn = q(xn);
-        cout << xn << "\t\t" << q(xn) << endl;
+
+        if (printItr)
+        {
+            cout << xn << "\t\t" << q(xn) << endl;
+        }
+
         itrCnt++;
     }
 

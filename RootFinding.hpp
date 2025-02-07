@@ -13,9 +13,9 @@ public:
     {
         // return x + 2;
         // return (2 * x * x) - 1;
-        return (x * x) + (2 * x) - 3;
+        // return (x * x) + (2 * x) - 3;
         // return (x + 2) * (x + 3) * (x + 4);
-        // return (x * x) - (5 * x) + 5;
+        return (x * x) - (5 * x) + 5;
         // return (2 * x * x) + (3 * x) - 2;
     }
 
@@ -23,23 +23,23 @@ public:
     {
         // return 1;
         // return (4 * x);
-        return (2 * x) + 2;
+        // return (2 * x) + 2;
         // return (3 * x * x) + (18 * x) + 26;
-        // return (2 * x) - 5;
+        return (2 * x) - 5;
         // return (4 * x) + 3;
     }
 
     double q(double x)
     {
         // return (1 / (sqrt(2) * x));
-        return (3 - (x * x)) / 2;
-        // return ((x * x + 5) / 5);
+        // return (3 - (x * x)) / 2;
+        return (((x * x) + 5) / 5);
         // return (2 * (sqrt(x - 1)));
     }
 
     void acceptCoefficients();
     double HornersRule(double x);
-    double BisectionMethod(int lb, int ub);
-    double NewtonRaphsonMethod(double sp);
-    double FixedPoint();
+    double BisectionMethod(int lb, int ub, int printItr);
+    double NewtonRaphsonMethod(double sp, int printItr);
+    double FixedPoint(int printItr);
 };
