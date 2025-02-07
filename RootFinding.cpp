@@ -210,7 +210,6 @@ double RootFinding::FixedPoint(int printItr)
         cout << "--------------------------------\n";
     }
 
-    // while (abs(xn - q(xn)) >= TOL)
     while (abs(temp - xn) >= TOL)
     {
         if (itrCnt > 199)
