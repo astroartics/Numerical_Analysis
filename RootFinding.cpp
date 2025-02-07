@@ -1,5 +1,19 @@
 #include "RootFinding.hpp"
 
+void RootFinding::setTolerance(double tol)
+{
+    TOL = pow(10, -tol);
+}
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// .
 void RootFinding::acceptCoefficients()
 {
     int degree;

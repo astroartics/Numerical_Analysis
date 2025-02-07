@@ -1,6 +1,6 @@
 #include <cmath>
 #include <bits/stdc++.h> // Used to include all the standard libraries
-#define TOL 0.000001     // 10^(-6) tolerance for maximum accuracy
+// #define TOL 0.000001     // 10^(-6) tolerance for maximum accuracy
 
 using namespace std;
 
@@ -8,6 +8,12 @@ class RootFinding
 {
 public:
     vector<double> coefficients;
+    double TOL;
+
+    RootFinding()
+    {
+        TOL = 0.000001;
+    }
 
     double f(double x)
     {
@@ -38,6 +44,7 @@ public:
     }
 
     void acceptCoefficients();
+    void setTolerance(double tol);
     double HornersRule(double x);
     double BisectionMethod(int lb, int ub, int printItr);
     double NewtonRaphsonMethod(double sp, int printItr);

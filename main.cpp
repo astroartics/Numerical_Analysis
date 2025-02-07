@@ -4,7 +4,7 @@
 int main()
 {
     RootFinding roots;
-    double result, startingPoint, x;
+    double result, startingPoint, x, tol;
     int lb, ub, printItr;
 
     roots.acceptCoefficients();
@@ -12,13 +12,16 @@ int main()
     cin >> x;
     cout << "Value of polynomial : " << roots.HornersRule(x) << "\n\n";
 
-    cout << "Enter lowerbound and upperbound for an interval : ";
-    cin >> lb;
-    cin >> ub;
-
     cout << "Do you want to print the iterations (0 for No/ 1 for Yes) : ";
     cin >> printItr;
 
+    cout << "Enter the value for positive power (t) for tolerance (10^(-t)) : ";
+    cin >> tol;
+    roots.setTolerance(tol);
+
+    cout << "\nEnter lowerbound and upperbound for an interval : ";
+    cin >> lb;
+    cin >> ub;
     result = roots.BisectionMethod(lb, ub, printItr);
     cout << "The value of root using Bisection Method : " << result << endl;
 
