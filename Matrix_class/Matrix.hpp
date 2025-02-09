@@ -9,7 +9,7 @@ public:
     int rows, cols;
     double **mat;
 
-    Matrix(int, int);
+    Matrix(int r, int c);
     Matrix();
     Matrix(std::string filename);
     ~Matrix();
