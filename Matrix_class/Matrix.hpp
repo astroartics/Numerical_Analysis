@@ -6,4 +6,4 @@ class Matrix
 public:
     int rows, cols;
     double **mat;
-}
+};
