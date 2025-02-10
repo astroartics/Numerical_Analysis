@@ -13,6 +13,7 @@ public:
     Matrix(int, int);
     Matrix(std::string);
     Matrix(const Matrix &);
+    Matrix &operator=(const Matrix &);
     double **createMatrix();
     void displayMat();
     ~Matrix();

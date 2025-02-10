@@ -80,15 +80,38 @@ void Matrix::displayMat()
     }
 }
 
-// Copy constructor
-// Matrix::Matrix(const Matrix &matrix)
-// {
-//     mat = new double *[rows];
-//     for (int i = 0; i < rows; i++)
-//     {
-//         mat[i] = new double[cols];
-//     }
-// }
+Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) // Member initializer list initializes the data members of the new object
+{
+    mat = new double *[rows];
+    for (int i = 0; i < rows; ++i)
+    {
+        mat[i] = new double[cols];
+        copy(other.mat[i], other.mat[i] + cols, mat[i]); // Copying ith row till (i+cols)th column of other matrix to ith row of mat
+    }
+}
+
+Matrix &Matrix::operator=(const Matrix &other)
+{
+    if (this != &other)
+    {
+        for (int i = 0; i < this->rows; i++)
+        {
+            delete[] this->mat[i];
+        }
+        delete[] this->mat;
+
+        rows = other.rows;
+        cols = other.cols;
+
+        mat = new double *[rows];
+        for (int i = 0; i < rows; i++)
+        {
+            mat[i] = new double[cols];
+            copy(other.mat[i], other.mat[i] + cols, mat[i]);
+        }
+    }
+    return *this;
+}
 
 Matrix::~Matrix()
 {
