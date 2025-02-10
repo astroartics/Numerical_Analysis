@@ -9,8 +9,10 @@ public:
     int rows, cols;
     double **mat;
 
-    Matrix(int r, int c);
     Matrix();
+    Matrix(int r, int c);
     Matrix(std::string filename);
+    double **createMatrix();
+    void displayMat();
     ~Matrix();
 };

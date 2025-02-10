@@ -2,25 +2,30 @@
 
 using namespace std;
 
-Matrix::Matrix(int r, int c)
+double **Matrix::createMatrix()
 {
-    this->rows = r;
-    this->cols = c;
+    mat = new double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
+    for (int i = 0; i < this->rows; i++)
+    {
+        mat[i] = new double[this->cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
+    }
+    return mat;
 }
 
 Matrix::Matrix()
 {
-    mat = new double *[rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
-    for (int i = 0; i < rows; i++)
-    {
-        mat[i] = new double[cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
-    }
+    this->mat = createMatrix();
+}
+
+Matrix::Matrix(int r, int c)
+{
+    this->rows = r;
+    this->cols = c;
+    mat = createMatrix();
 }
 
 Matrix::Matrix(string filename)
 {
-    Matrix();
-
     ifstream matFile(filename);
 
     if (!matFile)
@@ -35,21 +40,36 @@ Matrix::Matrix(string filename)
     getline(matFile, firstLine);
 
     istringstream sStream(firstLine);
-    int rows, cols;
-    if (!(sStream >> rows >> cols)) // sStream >> rows >> cols; extracts the first two integers from the stream and assigns them to rows and cols.
+    if (!(sStream >> this->rows >> this->cols)) // sStream >> rows >> cols; extracts the first two integers from the stream and assigns them to rows and cols.
     {
         std::cerr << "Error reading dimensions." << std::endl;
         exit(0);
     }
-    cout << rows << " " << cols << endl;
 
-    Matrix();
+    mat = createMatrix();
 
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < this->rows; ++i)
     {
-        for (int j = 0; j < rows; j++)
+        getline(matFile, firstLine);
+        istringstream sStream(firstLine);
+        double num = 0.0;
+        for (int j = 0; j < this->cols; ++j)
         {
+            sStream >> num;
+            mat[i][j] = num;
         }
+    }
+}
+
+void Matrix::displayMat()
+{
+    for (int i = 0; i < this->rows; ++i)
+    {
+        for (int j = 0; j < this->cols; ++j)
+        {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
     }
 }
 
