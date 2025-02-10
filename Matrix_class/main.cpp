@@ -74,4 +74,9 @@ int main()
     Matrix symmetric(sym, 3, 3);
     symmetric.displayMat();
     cout << symmetric.isSymmetric() << endl;
+
+    // Multiply
+    cout << "Multiplication : " << endl;
+    result = identity.multiply(symmetric);
+    result.displayMat();
 }
