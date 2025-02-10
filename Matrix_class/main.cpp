@@ -41,4 +41,8 @@ int main()
     cout << "Addition : \n";
     Matrix result = defMat.add(pMat);
     result.displayMat();
+
+    cout << "Subtraction : \n";
+    result = defMat.subtract(pMat);
+    result.displayMat();
 }

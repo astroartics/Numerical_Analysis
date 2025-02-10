@@ -19,4 +19,5 @@ public:
     ~Matrix();
 
     Matrix add(Matrix);
+    Matrix subtract(Matrix);
 };
