@@ -77,6 +77,6 @@ int main()
 
     // Multiply
     cout << "Multiplication : " << endl;
-    result = identity.multiply(symmetric);
+    result = defMat.multiply(symmetric);
     result.displayMat();
 }
