@@ -45,7 +45,6 @@ Matrix::Matrix(string filename)
         exit(0);
     }
 
-    char fileChar;
     string firstLine = "";
 
     getline(matFile, firstLine);

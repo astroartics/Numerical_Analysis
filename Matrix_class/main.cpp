@@ -28,8 +28,9 @@ int main()
             pMat.mat[i][j] = i + j;
         }
     }
+    pMat.displayMat();
 
-    // Parameterized constructor with filename as parameter
-    Matrix m("Matrix.txt");
-    m.displayMat();
+    // Parameterized constructor with just filename as parameter
+    Matrix fMat("Matrix.txt");
+    fMat.displayMat();
 }

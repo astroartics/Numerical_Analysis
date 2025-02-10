@@ -10,8 +10,8 @@ public:
     double **mat;
 
     Matrix();
-    Matrix(int r, int c);
-    Matrix(std::string filename);
+    Matrix(int, int);
+    Matrix(std::string);
     double **createMatrix();
     void displayMat();
     ~Matrix();
