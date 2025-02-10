@@ -33,6 +33,20 @@ Matrix::Matrix(int r, int c)
     mat = createMatrix();
 }
 
+Matrix::Matrix(double **other, int r, int c) // Constructor for converting a matrix to an object
+{
+    this->rows = r;
+    this->cols = c;
+    mat = createMatrix();
+    for (int i = 0; i < this->rows; ++i)
+    {
+        for (int j = 0; j < this->cols; ++j)
+        {
+            mat[i][j] = other[i][j];
+        }
+    }
+}
+
 Matrix::Matrix(string filename)
 {
     ifstream matFile(filename);

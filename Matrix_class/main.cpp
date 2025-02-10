@@ -45,4 +45,33 @@ int main()
     cout << "Subtraction : \n";
     result = defMat.subtract(pMat);
     result.displayMat();
+
+    // isIdentity
+    Matrix identity(3, 3);
+    for (int i = 0; i < identity.rows; ++i)
+    {
+        for (int j = 0; j < identity.cols; ++j)
+        {
+            i == j ? identity.mat[i][j] = 1 : identity.mat[i][j] = 0;
+        }
+    }
+    identity.displayMat();
+    cout << identity.isIdentity() << endl;
+
+    // isSymmetric
+    double **sym = new double *[3];
+    for (int i = 0; i < 3; i++)
+    {
+        sym[i] = new double[3];
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            i != j ? (sym[i][j] = sym[j][i] = j + 1) : sym[i][j] = 4;
+        }
+    }
+    Matrix symmetric(sym, 3, 3);
+    symmetric.displayMat();
+    cout << symmetric.isSymmetric() << endl;
 }

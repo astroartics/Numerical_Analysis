@@ -11,6 +11,7 @@ public:
 
     Matrix();
     Matrix(int, int);
+    Matrix(double **, int, int);
     Matrix(std::string);
     Matrix(const Matrix &);
     Matrix &operator=(const Matrix &);
@@ -20,4 +21,7 @@ public:
 
     Matrix add(Matrix);
     Matrix subtract(Matrix);
+    Matrix multiply(Matrix);
+    bool isIdentity();
+    bool isSymmetric();
 };
