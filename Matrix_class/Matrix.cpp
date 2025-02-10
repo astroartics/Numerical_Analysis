@@ -10,7 +10,6 @@ Matrix::Matrix(int r, int c)
 
 Matrix::Matrix()
 {
-    cout << "here";
     mat = new double *[rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
     for (int i = 0; i < rows; i++)
     {
@@ -31,25 +30,27 @@ Matrix::Matrix(string filename)
     }
 
     char fileChar;
-    string firstLine;
+    string firstLine = "";
 
     getline(matFile, firstLine);
-    this->rows = firstLine[0] - '0';
-    this->cols = firstLine[2] - '0';
 
-    cout << this->rows << " " << this->cols << endl;
+    istringstream sStream(firstLine);
+    int rows, cols;
+    if (!(sStream >> rows >> cols)) // sStream >> rows >> cols; extracts the first two integers from the stream and assigns them to rows and cols.
+    {
+        std::cerr << "Error reading dimensions." << std::endl;
+        exit(0);
+    }
+    cout << rows << " " << cols << endl;
 
-    // Matrix();
+    Matrix();
 
-    // while (matFile)
-    // {
-    //     fileChar = matFile.get();
-    //     if (fileChar >= '0' && fileChar <= '9')
-    //     {
-    //         // int num = fileChar - '0';
-    //         // cout << num << " ";
-    //     }
-    // }
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < rows; j++)
+        {
+        }
+    }
 }
 
 Matrix::~Matrix()
