@@ -22,10 +22,8 @@ double **Matrix::createMatrix()
 
 Matrix::Matrix()
 {
-    cout << "Enter the number of rows and columns for the matrix : ";
-    cin >> rows;
-    cin >> cols;
-    mat = createMatrix();
+    rows = 0;
+    cols = 0;
 }
 
 Matrix::Matrix(int r, int c)
@@ -81,6 +79,16 @@ void Matrix::displayMat()
         cout << endl;
     }
 }
+
+// Copy constructor
+// Matrix::Matrix(const Matrix &matrix)
+// {
+//     mat = new double *[rows];
+//     for (int i = 0; i < rows; i++)
+//     {
+//         mat[i] = new double[cols];
+//     }
+// }
 
 Matrix::~Matrix()
 {

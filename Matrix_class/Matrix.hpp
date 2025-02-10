@@ -12,7 +12,10 @@ public:
     Matrix();
     Matrix(int, int);
     Matrix(std::string);
+    Matrix(const Matrix &);
     double **createMatrix();
     void displayMat();
     ~Matrix();
+
+    Matrix add(Matrix);
 };

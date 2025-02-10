@@ -6,6 +6,10 @@ int main()
 {
     // Default constructor
     Matrix defMat;
+    cout << "Enter the number of rows and columns for the matrix : ";
+    cin >> defMat.rows;
+    cin >> defMat.cols;
+    defMat.createMatrix();
     for (int i = 0; i < defMat.rows; ++i)
     {
         for (int j = 0; j < defMat.cols; ++j)
@@ -33,4 +37,7 @@ int main()
     // Parameterized constructor with just filename as parameter
     Matrix fMat("Matrix.txt");
     fMat.displayMat();
+
+    // Matrix result(defMat.add(pMat));
+    // result.displayMat();
 }
