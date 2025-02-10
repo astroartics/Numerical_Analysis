@@ -4,7 +4,6 @@ using namespace std;
 
 double **Matrix::createMatrix()
 {
-    cout << this->rows << " " << this->cols << endl;
     mat = new double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
     for (int i = 0; i < this->rows; i++)
     {
@@ -59,8 +58,7 @@ Matrix::Matrix(string filename)
         double num = 0.0;
         for (int j = 0; j < this->cols; ++j)
         {
-            sStream >> num;
-            mat[i][j] = num;
+            sStream >> mat[i][j];
         }
     }
 }
@@ -79,9 +77,9 @@ void Matrix::displayMat()
 
 Matrix::~Matrix()
 {
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < this->rows; i++)
     {
-        delete[] mat[i]; // De-allocating the memory held by row pointers first
+        delete[] this->mat[i]; // De-allocating the memory held by row pointers first
     }
-    delete[] mat; // Then de-allocating the memory held by the double pointer
+    delete[] this->mat; // Then de-allocating the memory held by the double pointer
 }

@@ -4,19 +4,31 @@ using namespace std;
 
 int main()
 {
-    Matrix m;
-    int r, c;
+    // Default constructor
+    Matrix defMat;
+    for (int i = 0; i < defMat.rows; ++i)
+    {
+        for (int j = 0; j < defMat.cols; ++j)
+        {
+            defMat.mat[i][j] = i + j;
+        }
+    }
 
+    // Parameterized constructor with rows and cols as parameters
+    // int r, c;
     // cout << "Enter the number of rows and columns for the matrix : ";
     // cin >> r;
     // cin >> c;
-    // Matrix matrix(r, c);
-    for (int i = 0; i < m.rows; ++i)
-    {
-        for (int j = 0; j < m.cols; ++j)
-        {
-            m.mat[i][j] = i + j;
-        }
-    }
+    // Matrix pMat(r, c);
+    // for (int i = 0; i < pMat.rows; ++i)
+    // {
+    //     for (int j = 0; j < pMat.cols; ++j)
+    //     {
+    //         pMat.mat[i][j] = i + j;
+    //     }
+    // }
+
+    // Parameterized constructor with filename as parameter
+    Matrix m("Matrix.txt");
     m.displayMat();
 }
