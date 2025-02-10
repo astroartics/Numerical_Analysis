@@ -4,15 +4,19 @@ using namespace std;
 
 int main()
 {
-    Matrix matr;
-    matr.rows = 3;
-    matr.cols = 3;
-    for (int i = 0; i < matr.rows; ++i)
+    Matrix m;
+    int r, c;
+
+    // cout << "Enter the number of rows and columns for the matrix : ";
+    // cin >> r;
+    // cin >> c;
+    // Matrix matrix(r, c);
+    for (int i = 0; i < m.rows; ++i)
     {
-        for (int j = 0; j < matr.cols; ++j)
+        for (int j = 0; j < m.cols; ++j)
         {
-            matr.mat[i][j] = i + j;
+            m.mat[i][j] = i + j;
         }
     }
-    matr.displayMat();
+    m.displayMat();
 }

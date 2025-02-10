@@ -4,6 +4,7 @@ using namespace std;
 
 double **Matrix::createMatrix()
 {
+    cout << this->rows << " " << this->cols << endl;
     mat = new double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
     for (int i = 0; i < this->rows; i++)
     {
@@ -14,7 +15,10 @@ double **Matrix::createMatrix()
 
 Matrix::Matrix()
 {
-    this->mat = createMatrix();
+    cout << "Enter the number of rows and columns for the matrix : ";
+    cin >> rows;
+    cin >> cols;
+    mat = createMatrix();
 }
 
 Matrix::Matrix(int r, int c)
