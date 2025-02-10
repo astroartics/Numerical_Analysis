@@ -4,12 +4,20 @@ using namespace std;
 
 double **Matrix::createMatrix()
 {
-    mat = new double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
-    for (int i = 0; i < this->rows; i++)
+    if (rows > 0 && cols > 0)
     {
-        mat[i] = new double[this->cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
+        mat = new double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
+        for (int i = 0; i < this->rows; i++)
+        {
+            mat[i] = new double[this->cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
+        }
+        return mat;
     }
-    return mat;
+    else
+    {
+        cerr << "Number of rows and columns mmust be greater than 0!" << endl;
+        exit(0);
+    }
 }
 
 Matrix::Matrix()
