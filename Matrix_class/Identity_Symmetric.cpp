@@ -4,30 +4,46 @@ using namespace std;
 
 bool Matrix::isIdentity()
 {
-    for (int i = 0; i < this->rows; i++)
+    if (this->rows == this->cols)
     {
-        for (int j = 0; j < this->cols; j++)
+        for (int i = 0; i < this->rows; i++)
         {
-            if ((i == j && (mat[i][j] != 1)) || (i != j && (mat[i][j] != 0)))
+            for (int j = 0; j < this->cols; j++)
             {
-                return false;
+                if ((i == j && (mat[i][j] != 1)) || (i != j && (mat[i][j] != 0)))
+                {
+                    return false;
+                }
             }
         }
+        return true;
     }
-    return true;
+    else
+    {
+        cout << "Identity matrix has to be a square (nxn) matrix!" << endl;
+        return false;
+    }
 }
 
 bool Matrix::isSymmetric()
 {
-    for (int i = 0; i < this->rows; i++)
+    if (this->rows == this->cols)
     {
-        for (int j = 0; j < this->cols; j++)
+        for (int i = 0; i < this->rows; i++)
         {
-            if (i != j && (mat[i][j] != mat[j][i]))
+            for (int j = 0; j < this->cols; j++)
             {
-                return false;
+                if (i != j && (mat[i][j] != mat[j][i]))
+                {
+                    return false;
+                }
             }
         }
+        return true;
     }
-    return true;
+    else
+    {
+        cout << "Symmetric matrix has to be a square (nxn) matrix!" << endl;
+        return false;
+    }
 }
