@@ -94,16 +94,18 @@ void Matrix::displayMat()
     }
 }
 
+// Copy constructor
 Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) // Member initializer list initializes the data members of the new object
 {
     mat = new double *[rows];
     for (int i = 0; i < rows; ++i)
     {
         mat[i] = new double[cols];
-        copy(other.mat[i], other.mat[i] + cols, mat[i]); // Copying ith row till (i+cols)th column of other matrix to ith row of mat
+        copy(other.mat[i], other.mat[i] + cols, mat[i]); // Copying complete ith row (ith row till (i+cols)th column) of 'other' matrix to ith row of mat
     }
 }
 
+// Assignment operator overloading
 Matrix &Matrix::operator=(const Matrix &other)
 {
     if (this != &other)
