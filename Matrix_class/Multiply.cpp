@@ -23,7 +23,7 @@ Matrix Matrix::multiply(Matrix B)
     }
     else
     {
-        cout << "Matrices cannot be multiplied!" << endl;
+        cerr << "Matrices cannot be multiplied!" << endl;
         exit(0);
     }
 }
