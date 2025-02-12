@@ -102,20 +102,23 @@ Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) // Memb
     {
         mat[i] = new double[cols];
         copy(other.mat[i], other.mat[i] + cols, mat[i]); // Copying complete ith row (ith row till (i+cols)th column) of 'other' matrix to ith row of mat
+        // copy(begin, end, copy_to)
     }
 }
 
 // Assignment operator overloading
 Matrix &Matrix::operator=(const Matrix &other)
 {
-    if (this != &other)
+    if (this != &other) // Avoiding assigning same object to itself which will create errors after de-allocating memory
     {
+        // De-allocating memory for the current object as it is to be filled with new values of the 'other' object
         for (int i = 0; i < this->rows; i++)
         {
             delete[] this->mat[i];
         }
         delete[] this->mat;
 
+        // Creating new object
         rows = other.rows;
         cols = other.cols;
 
@@ -126,7 +129,7 @@ Matrix &Matrix::operator=(const Matrix &other)
             copy(other.mat[i], other.mat[i] + cols, mat[i]);
         }
     }
-    return *this;
+    return *this; // Returning a reference to the current object, i.e. the values of the current object
 }
 
 Matrix::~Matrix()
