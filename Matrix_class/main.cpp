@@ -42,6 +42,10 @@ int main()
     Matrix result = defMat.add(pMat);
     result.displayMat();
 
+    cout << "Addition using operator : \n";
+    result = defMat + pMat;
+    result.displayMat();
+
     cout << "Subtraction : \n";
     result = defMat.subtract(pMat);
     result.displayMat();

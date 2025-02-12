@@ -20,9 +20,10 @@ public:
     ~Matrix();
 
     Matrix add(Matrix);
-    Matrix operator+(Matrix B);
+    Matrix operator+(Matrix);
 
     Matrix subtract(Matrix);
+    Matrix operator-(Matrix);
 
     Matrix multiply(Matrix);
     Matrix operator*(Matrix);

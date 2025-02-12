@@ -26,7 +26,8 @@ Matrix Matrix::add(Matrix B)
 
 Matrix Matrix::operator+(Matrix B)
 {
-    Matrix result = 
+    Matrix result = (*this).add(B);
+    return result;
 }
 
 Matrix Matrix::subtract(Matrix B)
@@ -49,4 +50,10 @@ Matrix Matrix::subtract(Matrix B)
         cerr << "Matrices cannot be subtracted!" << endl;
         exit(0);
     }
+}
+
+Matrix Matrix::operator-(Matrix B)
+{
+    Matrix result = (*this).add(B);
+    return result;
 }
