@@ -74,7 +74,7 @@ Matrix::Matrix(string filename)
     {
         getline(matFile, firstLine);
         istringstream sStream(firstLine);
-        double num = 0.0;
+
         for (int j = 0; j < this->cols; ++j)
         {
             sStream >> mat[i][j];
