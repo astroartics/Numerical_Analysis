@@ -129,7 +129,7 @@ Matrix &Matrix::operator=(const Matrix &other)
             copy(other.mat[i], other.mat[i] + cols, mat[i]);
         }
     }
-    return *this; // Returning a reference to the current object, i.e. the values of the current object
+    return *this; // Returning a reference to the current object, i.e. the values of the current object (*this has the address of the current object)
 }
 
 Matrix::~Matrix()
