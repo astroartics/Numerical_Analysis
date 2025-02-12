@@ -62,7 +62,7 @@ Matrix::Matrix(string filename)
     getline(matFile, firstLine);
 
     istringstream sStream(firstLine);
-    if (!(sStream >> this->rows >> this->cols)) // sStream >> rows >> cols; extracts the first two integers from the stream and assigns them to rows and cols.
+    if (!(sStream >> this->rows >> this->cols)) // 'sStream >> rows >> cols;' extracts the first two integers from the stream and assigns them to rows and cols.
     {
         std::cerr << "Error reading dimensions." << std::endl;
         exit(0);
