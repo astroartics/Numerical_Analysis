@@ -54,6 +54,6 @@ Matrix Matrix::subtract(Matrix B)
 
 Matrix Matrix::operator-(Matrix B)
 {
-    Matrix result = (*this).add(B);
+    Matrix result = (*this).subtract(B);
     return result;
 }

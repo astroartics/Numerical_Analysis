@@ -50,6 +50,10 @@ int main()
     result = defMat.subtract(pMat);
     result.displayMat();
 
+    cout << "Subtraction using operator : \n";
+    result = defMat - pMat;
+    result.displayMat();
+
     // isIdentity
     Matrix identity(3, 3);
     for (int i = 0; i < identity.rows; ++i)
