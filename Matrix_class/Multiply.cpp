@@ -27,3 +27,9 @@ Matrix Matrix::multiply(Matrix B)
         exit(0);
     }
 }
+
+Matrix Matrix::operator*(Matrix B)
+{
+    Matrix result = (*this).multiply(B);
+    return result;
+}

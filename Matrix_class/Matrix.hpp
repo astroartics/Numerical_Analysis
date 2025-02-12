@@ -20,8 +20,13 @@ public:
     ~Matrix();
 
     Matrix add(Matrix);
+    Matrix operator+(Matrix B);
+
     Matrix subtract(Matrix);
+
     Matrix multiply(Matrix);
+    Matrix operator*(Matrix);
+
     bool isIdentity();
     bool isSymmetric();
 };

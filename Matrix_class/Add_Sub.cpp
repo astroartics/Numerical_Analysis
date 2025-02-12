@@ -24,6 +24,11 @@ Matrix Matrix::add(Matrix B)
     }
 }
 
+Matrix Matrix::operator+(Matrix B)
+{
+    Matrix result = 
+}
+
 Matrix Matrix::subtract(Matrix B)
 {
     if ((this->rows == B.rows) && (this->cols == B.cols))

@@ -79,4 +79,8 @@ int main()
     cout << "Multiplication : " << endl;
     result = defMat.multiply(symmetric);
     result.displayMat();
+
+    cout << "Multiplication using operator : " << endl;
+    result = defMat * symmetric;
+    result.displayMat();
 }
