@@ -15,7 +15,7 @@ double **Matrix::createMatrix()
     }
     else
     {
-        cerr << "Number of rows and columns mmust be greater than 0!" << endl;
+        cerr << "Number of rows and columns must be greater than 0!" << endl;
         exit(0);
     }
 }
