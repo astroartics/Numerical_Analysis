@@ -17,7 +17,7 @@ int main()
             defMat.mat[i][j] = i + j;
         }
     }
-    // defMat.displayMat();
+    defMat.displayMat();
 
     // Parameterized constructor with rows and cols as parameters
     int r, c;
@@ -32,7 +32,7 @@ int main()
             pMat.mat[i][j] = i + j;
         }
     }
-    // pMat.displayMat();
+    pMat.displayMat();
 
     // Parameterized constructor with just filename as parameter
     Matrix fMat("Matrix.txt");
