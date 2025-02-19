@@ -93,5 +93,4 @@ int main()
     result.displayMat();
 
     Matrix obj;
-    obj.timeStamp();
 }
