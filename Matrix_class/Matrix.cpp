@@ -4,6 +4,8 @@ using namespace std;
 
 void Matrix::timeStamp()
 {
+    time_t timestmp = time(NULL);
+    cout << ctime(&timestmp) << endl;
 }
 
 double **Matrix::createMatrix()
