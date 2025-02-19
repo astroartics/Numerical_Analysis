@@ -2,6 +2,10 @@
 
 using namespace std;
 
+void Matrix::timeStamp()
+{
+}
+
 double **Matrix::createMatrix()
 {
     if (rows > 0 && cols > 0)

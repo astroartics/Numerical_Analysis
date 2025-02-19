@@ -17,6 +17,7 @@ public:
     Matrix &operator=(const Matrix &);
     double **createMatrix();
     void displayMat();
+    void timeStamp();
     ~Matrix();
 
     Matrix add(Matrix);
