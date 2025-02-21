@@ -17,7 +17,6 @@ double **Matrix::createMatrix()
             exit(0);
         }
         return mat;
-        // Add condition if to check if memory not allocated
     }
     else
     {
