@@ -29,14 +29,14 @@ int main()
     {
         for (int j = 0; j < pMat.cols; ++j)
         {
-            pMat.mat[i][j] = i + j;
+            pMat.mat[i][j] = i - j;
         }
     }
     pMat.displayMat();
 
     // Parameterized constructor with just filename as parameter
     Matrix fMat("Matrix.txt");
-    // fMat.displayMat();
+    fMat.displayMat();
 
     cout << "Addition : \n";
     Matrix result = defMat.add(pMat);
