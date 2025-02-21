@@ -1,6 +1,4 @@
-#include <cmath>
 #include <bits/stdc++.h>
-#include <string>
 #include <fstream>
 
 class Matrix

@@ -91,6 +91,4 @@ int main()
     cout << "Multiplication using operator : " << endl;
     result = defMat * symmetric;
     result.displayMat();
-
-    Matrix obj;
 }

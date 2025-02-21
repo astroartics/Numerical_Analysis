@@ -95,7 +95,7 @@ void Matrix::displayMat()
 }
 
 // Copy constructor
-Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) // Member initializer list initializes the data members of the new object
+Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) // Member initializer list (the part after ':') initializes the data members of the new object
 {
     mat = new double *[rows];
     for (int i = 0; i < rows; ++i)
