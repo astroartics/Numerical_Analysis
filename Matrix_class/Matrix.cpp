@@ -16,7 +16,7 @@ double **Matrix::createMatrix()
     else
     {
         cerr << "Number of rows and columns must be greater than 0!" << endl;
-        exit(0);
+        // exit(0);
     }
 }
 
@@ -54,7 +54,7 @@ Matrix::Matrix(string filename)
     if (!matFile)
     {
         cout << "Error opening the matrix file!" << endl;
-        exit(0);
+        // exit(0);
     }
 
     string firstLine = "";
@@ -65,7 +65,7 @@ Matrix::Matrix(string filename)
     if (!(sStream >> this->rows >> this->cols)) // 'sStream >> rows >> cols;' extracts the first two integers from the stream and assigns them to rows and cols.
     {
         std::cerr << "Error reading dimensions." << std::endl;
-        exit(0);
+        // exit(0);
     }
 
     mat = createMatrix();
