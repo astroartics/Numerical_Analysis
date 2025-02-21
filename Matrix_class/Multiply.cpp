@@ -24,7 +24,7 @@ Matrix Matrix::multiply(Matrix B)
     else
     {
         cerr << "Matrices cannot be multiplied!" << endl;
-        // exit(0);
+        exit(0);
     }
 }
 

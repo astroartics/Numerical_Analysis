@@ -11,12 +11,18 @@ double **Matrix::createMatrix()
         {
             mat[i] = new double[this->cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
         }
+        if (!mat)
+        {
+            cerr << "Memory cannot be allocated" << endl;
+            exit(0);
+        }
         return mat;
+        // Add condition if to check if memory not allocated
     }
     else
     {
         cerr << "Number of rows and columns must be greater than 0!" << endl;
-        // exit(0);
+        exit(0);
     }
 }
 
@@ -54,7 +60,7 @@ Matrix::Matrix(string filename)
     if (!matFile)
     {
         cout << "Error opening the matrix file!" << endl;
-        // exit(0);
+        exit(0);
     }
 
     string firstLine = "";
@@ -65,7 +71,7 @@ Matrix::Matrix(string filename)
     if (!(sStream >> this->rows >> this->cols)) // 'sStream >> rows >> cols;' extracts the first two integers from the stream and assigns them to rows and cols.
     {
         std::cerr << "Error reading dimensions." << std::endl;
-        // exit(0);
+        exit(0);
     }
 
     mat = createMatrix();
@@ -134,9 +140,12 @@ Matrix &Matrix::operator=(const Matrix &other)
 
 Matrix::~Matrix()
 {
-    for (int i = 0; i < this->rows; i++)
+    if (mat != NULL)
     {
-        delete[] this->mat[i]; // De-allocating the memory held by row pointers first
+        for (int i = 0; i < this->rows; i++)
+        {
+            delete[] this->mat[i]; // De-allocating the memory held by row pointers first
+        }
+        delete[] this->mat; // Then de-allocating the memory held by the double pointer
     }
-    delete[] this->mat; // Then de-allocating the memory held by the double pointer
 }

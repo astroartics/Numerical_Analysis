@@ -20,7 +20,7 @@ Matrix Matrix::add(Matrix B)
     else
     {
         cerr << "Matrices cannot be added!" << endl;
-        // exit(0);
+        exit(0);
     }
 }
 
@@ -48,7 +48,7 @@ Matrix Matrix::subtract(Matrix B)
     else
     {
         cerr << "Matrices cannot be subtracted!" << endl;
-        // exit(0);
+        exit(0);
     }
 }
 
