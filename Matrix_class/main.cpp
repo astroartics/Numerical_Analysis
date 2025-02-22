@@ -4,6 +4,20 @@ using namespace std;
 
 int main()
 {
+    int n;
+    cout << "Enter count of variables : ";
+    cin >> n;
+    Matrix mat(n, n);
+    double *arr;
+    arr = mat.GaussianElimination(n);
+    int i = 0;
+    for (i = 0; i < 3; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+/*
     // Default constructor
     Matrix defMat;
     cout << "Enter the number of rows and columns for the matrix : ";
@@ -91,4 +105,4 @@ int main()
     cout << "Multiplication using operator : " << endl;
     result = defMat * symmetric;
     result.displayMat();
-}
+*/

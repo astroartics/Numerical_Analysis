@@ -28,4 +28,6 @@ public:
 
     bool isIdentity();
     bool isSymmetric();
+
+    double *GaussianElimination(int);
 };
