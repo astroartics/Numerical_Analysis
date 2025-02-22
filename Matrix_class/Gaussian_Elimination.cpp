@@ -5,10 +5,13 @@ using namespace std;
 double *Matrix::GaussianElimination(int n)
 {
     double *ans = new double[n]; // static keyword is used to ensure that the array's lifetime extends beyond the scope of the function, which would otherwise be limited to the function's execution.
-    for (int i = 0; i < 3; i++)
-    {
-        ans[i] = i + 1;
-    }
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     ans[i] = i + 1;
+    // }
+
+    
+
     return ans;
 }
 
