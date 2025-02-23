@@ -29,7 +29,7 @@ public:
     bool isIdentity();
     bool isSymmetric();
 
-    Matrix transpose(Matrix);
+    Matrix transpose();
 
     double *GaussianElimination(int);
 };

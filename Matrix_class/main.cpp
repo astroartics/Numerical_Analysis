@@ -4,17 +4,29 @@ using namespace std;
 
 int main()
 {
-    int n;
+    int m, n;
     cout << "Enter count of variables : ";
+    cin >> m;
     cin >> n;
-    Matrix mat(n, n);
+    Matrix mat(m, n);
     double *arr;
     arr = mat.GaussianElimination(n);
-    int i = 0;
-    for (i = 0; i < 3; i++)
+
+    for (int i = 0; i < 3; i++)
     {
         cout << arr[i] << endl;
     }
+
+    for (int i = 0; i < mat.rows; ++i)
+    {
+        for (int j = 0; j < mat.cols; ++j)
+        {
+            mat.mat[i][j] = i + j;
+        }
+    }
+
+    Matrix transpose = mat.transpose();
+    transpose.displayMat();
 }
 
 /*
