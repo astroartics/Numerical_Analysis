@@ -1,5 +1,14 @@
+#include "Matrix.hpp"
+
+using namespace std;
+
+Matrix Matrix::transpose(Matrix B)
+{
+
+}    
+
 /*
-int rows = matrix.size();
+        int rows = matrix.size();
         int cols = matrix[0].size();
 
         vector<vector<int>> transpose(cols, vector<int> (rows,0));
