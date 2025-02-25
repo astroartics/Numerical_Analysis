@@ -2,6 +2,38 @@
 
 using namespace std;
 
+void Matrix::basicPivoting(int n, int currIndex)
+{
+    int j = 0;
+
+    for (int i = currIndex; i < n - 1; i++)
+    {
+        for (j = i + 1; j < n; j++)
+        {
+            if (mat[j][i] != 0)
+            {
+                break;
+            }
+        }
+    }
+
+    int temp[n + 1];
+    for (int i = 0; i <= n; i++)
+    {
+        temp[i] = mat[currIndex][i];
+    }
+
+    for (int i = 0; i <= n; i++)
+    {
+        mat[currIndex][i] = mat[j][i];
+    }
+
+    for (int i = 0; i <= n; i++)
+    {
+        mat[j][i] = temp[i];
+    }
+}
+
 void Matrix::upperTriangular(int n)
 {
     for (int i = 0; i < n - 1; i++) // Going till the last row
@@ -9,7 +41,8 @@ void Matrix::upperTriangular(int n)
         if (mat[i][i] == 0)
         {
             cout << "\n\n0 on diagonal!\n\n";
-            exit(0);
+            basicPivoting(n, i);
+            // exit(0);
         }
 
         for (int j = i + 1; j < n; j++) // Going till the last row after ith row
@@ -42,13 +75,14 @@ void Matrix::backSubstitution(int n)
 {
     for (int i = n - 1; i >= 0; i--)
     {
-        double diagonalEle;
         mat[i][i] = mat[i][n];
 
         for (int j = i + 1; j < n; j++)
         {
-            mat[i][i] -= (mat[i][j] * mat[i + 1][j]);
+            mat[i][i] -= (mat[i][j] * mat[j][j]);
         }
+        cout << endl
+             << mat[i][i] << endl;
     }
 }
 
