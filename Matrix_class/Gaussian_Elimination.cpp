@@ -2,17 +2,55 @@
 
 using namespace std;
 
-double *Matrix::GaussianElimination(int n)
+void Matrix::upperTriangular(int n)
 {
-    double *ans = new double[n]; // static keyword is used to ensure that the array's lifetime extends beyond the scope of the function, which would otherwise be limited to the function's execution.
+    for (int i = 0; i < n - 1; i++) // Going till the last row
+    {
+        if (mat[i][i] == 0)
+        {
+            cout << "\n\n0 on diagonal!\n\n";
+            exit(0);
+        }
+
+        for (int j = i + 1; j < n; j++) // Going till the last row after ith row
+        {
+            double firstEleBelow = mat[j][i];
+            double ratio = firstEleBelow / mat[i][i];
+            for (int k = 0; k <= n; k++) // Going from the first column till the last
+            {
+                mat[j][k] -= (ratio * mat[i][k]);
+            }
+        }
+    }
+
+    // Making the diagonal elements 1
+    for (int i = 0; i < n; i++)
+    {
+        int diagonalEle = mat[i][i];
+        for (int j = i; j <= n; j++)
+        {
+            mat[i][j] /= diagonalEle;
+        }
+    }
+
+    displayMat();
+}
+
+void Matrix::backSubstitution(int n)
+{
+    
+}
+
+double *Matrix::GaussianElimination(int rows, int cols)
+{
+    // double *ans = new double[n]; // static keyword is used to ensure that the array's lifetime extends beyond the scope of the function, which would otherwise be limited to the function's execution.
     // for (int i = 0; i < 3; i++)
     // {
     //     ans[i] = i + 1;
     // }
 
-    
-
-    return ans;
+    upperTriangular(rows);
+    return 0;
 }
 
 /*

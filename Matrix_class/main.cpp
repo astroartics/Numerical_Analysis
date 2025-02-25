@@ -4,29 +4,32 @@ using namespace std;
 
 int main()
 {
-    int m, n;
-    cout << "Enter count of variables : ";
-    cin >> m;
-    cin >> n;
-    Matrix mat(m, n);
-    double *arr;
-    arr = mat.GaussianElimination(n);
+    int n = 4;
+    // Matrix mat(n, n);
+    // double *arr;
 
-    for (int i = 0; i < 3; i++)
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << arr[i] << endl;
+    // }
+
+    double tempMat[4][5] = {{4, 8, 4, 0, 8}, {1, 5, 4, -3, -4}, {1, 4, 7, 2, 10}, {1, 3, 0, -2, -4}};
+    double **matrix = new double *[n];
+    for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << endl;
+        matrix[i] = new double[n + 1];
     }
-
-    for (int i = 0; i < mat.rows; ++i)
+    for (int i = 0; i < n; ++i)
     {
-        for (int j = 0; j < mat.cols; ++j)
+        for (int j = 0; j < n + 1; ++j)
         {
-            mat.mat[i][j] = i + j;
+            matrix[i][j] = tempMat[i][j];
         }
     }
 
-    Matrix transpose = mat.transpose();
-    transpose.displayMat();
+    Matrix mat(matrix, n, n + 1);
+    // mat.GaussianElimination(n, n + 1);
+    mat.upperTriangular(n);
 }
 
 /*
@@ -117,4 +120,16 @@ int main()
     cout << "Multiplication using operator : " << endl;
     result = defMat * symmetric;
     result.displayMat();
+
+    Matrix mat(m, n);
+    for (int i = 0; i < mat.rows; ++i)
+    {
+        for (int j = 0; j < mat.cols; ++j)
+        {
+            mat.mat[i][j] = i + j;
+        }
+    }
+
+    Matrix transpose = mat.transpose();
+    transpose.displayMat();
 */

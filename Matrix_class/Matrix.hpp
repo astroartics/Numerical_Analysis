@@ -31,5 +31,7 @@ public:
 
     Matrix transpose();
 
-    double *GaussianElimination(int);
+    void upperTriangular(int);
+    void backSubstitution(int);
+    double *GaussianElimination(int, int);
 };
