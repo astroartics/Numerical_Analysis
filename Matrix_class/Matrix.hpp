@@ -33,5 +33,5 @@ public:
 
     void upperTriangular(int);
     void backSubstitution(int);
-    void GaussianElimination(int);
+    double *GaussianElimination(int);
 };

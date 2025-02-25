@@ -52,18 +52,19 @@ void Matrix::backSubstitution(int n)
     }
 }
 
-void Matrix::GaussianElimination(int n)
+double *Matrix::GaussianElimination(int n)
 {
-    
-    
+    static double *result = new double[n];
+
     upperTriangular(n);
     backSubstitution(n);
 
     for (int i = 0; i < n; i++)
     {
-        cout << "x" << (i + 1) << " : " << mat[i][i] << endl;
+        result[i] = mat[i][i];
     }
-    cout << endl;
+
+    return result;
 }
 
 /*

@@ -28,7 +28,12 @@ int main()
     }
 
     Matrix mat(matrix, n, n + 1);
-    mat.GaussianElimination(n);
+    double *result = mat.GaussianElimination(n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << "x" << (i + 1) << " : " << result[i] << endl;
+    }
+    cout << endl;
 }
 
 /*
