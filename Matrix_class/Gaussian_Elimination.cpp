@@ -47,11 +47,10 @@ void Matrix::upperTriangular(int n)
 
         for (int j = i + 1; j < n; j++) // Going till the last row after ith row
         {
-            double firstEleBelow = mat[j][i];
-            double ratio = firstEleBelow / mat[i][i];
-            for (int k = 0; k <= n; k++) // Going from the first column till the last
+            double ratio = mat[j][i] / mat[i][i]; // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element in the diagonal will be 1).
+            for (int k = 0; k <= n; k++)          // Going from the first column till the last
             {
-                mat[j][k] -= (ratio * mat[i][k]);
+                mat[j][k] -= (ratio * mat[i][k]); // Multiplying the ratio with the entire previous row elements ans subtracting from the current row to make the elements below current element 0.
             }
         }
     }
