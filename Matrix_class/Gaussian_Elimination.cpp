@@ -34,23 +34,36 @@ void Matrix::upperTriangular(int n)
     }
 
     displayMat();
+    cout << endl;
+    backSubstitution(n);
 }
 
 void Matrix::backSubstitution(int n)
 {
-    
+    for (int i = n - 1; i >= 0; i--)
+    {
+        double diagonalEle;
+        mat[i][i] = mat[i][n];
+
+        for (int j = i + 1; j < n; j++)
+        {
+            mat[i][i] -= (mat[i][j] * mat[i + 1][j]);
+        }
+    }
 }
 
-double *Matrix::GaussianElimination(int rows, int cols)
+void Matrix::GaussianElimination(int n)
 {
-    // double *ans = new double[n]; // static keyword is used to ensure that the array's lifetime extends beyond the scope of the function, which would otherwise be limited to the function's execution.
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     ans[i] = i + 1;
-    // }
+    
+    
+    upperTriangular(n);
+    backSubstitution(n);
 
-    upperTriangular(rows);
-    return 0;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "x" << (i + 1) << " : " << mat[i][i] << endl;
+    }
+    cout << endl;
 }
 
 /*

@@ -28,8 +28,7 @@ int main()
     }
 
     Matrix mat(matrix, n, n + 1);
-    // mat.GaussianElimination(n, n + 1);
-    mat.upperTriangular(n);
+    mat.GaussianElimination(n);
 }
 
 /*
