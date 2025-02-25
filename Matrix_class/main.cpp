@@ -5,13 +5,6 @@ using namespace std;
 int main()
 {
     int n = 3;
-    // Matrix mat(n, n);
-    // double *arr;
-
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << arr[i] << endl;
-    // }
 
     // double tempMat[4][5] = {{4, 8, 4, 0, 8}, {1, 5, 4, -3, -4}, {1, 4, 7, 2, 10}, {1, 3, 0, -2, -4}};
     double tempMat[3][4] = {{1, 0, 1, 5}, {2, 0, 4, -1}, {0, 3, 1, 2}};
