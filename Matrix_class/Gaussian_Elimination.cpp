@@ -5,6 +5,7 @@ using namespace std;
 void Matrix::basicPivoting(int n, int currIndex)
 {
     int j = 0;
+    int zeroRowFlag = 0;
 
     for (int i = currIndex; i < n - 1; i++)
     {
@@ -12,9 +13,16 @@ void Matrix::basicPivoting(int n, int currIndex)
         {
             if (mat[j][i] != 0)
             {
+                zeroRowFlag = 1;
                 break;
             }
         }
+    }
+
+    if (zeroRowFlag == 0)
+    {
+        cout << "System is not solvable." << endl;
+        exit(0);
     }
 
     int temp[n + 1];
@@ -40,9 +48,8 @@ void Matrix::upperTriangular(int n)
     {
         if (mat[i][i] == 0)
         {
-            cout << "\n\n0 on diagonal!\n\n";
+            // cout << "\n\n0 on diagonal!\n\n";
             basicPivoting(n, i);
-            // exit(0);
         }
 
         for (int j = i + 1; j < n; j++) // Going till the last row after ith row
@@ -65,8 +72,6 @@ void Matrix::upperTriangular(int n)
         }
     }
 
-    displayMat();
-    cout << endl;
     backSubstitution(n);
 }
 
@@ -80,8 +85,6 @@ void Matrix::backSubstitution(int n)
         {
             mat[i][i] -= (mat[i][j] * mat[j][j]);
         }
-        cout << endl
-             << mat[i][i] << endl;
     }
 }
 

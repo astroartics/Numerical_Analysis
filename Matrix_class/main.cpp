@@ -27,7 +27,6 @@ int main()
     {
         cout << "x" << (i + 1) << " : " << result[i] << endl;
     }
-    cout << endl;
 }
 
 /*
