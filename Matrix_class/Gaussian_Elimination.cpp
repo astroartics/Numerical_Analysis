@@ -21,7 +21,8 @@ void Matrix::basicPivoting(int n, int currIndex)
 
     if (zeroRowFlag == 0)
     {
-        cout << "System is not solvable." << endl;
+        cout << "\nSystem is not solvable as x" << (j - 1) << " has no corresponding non-zero element in the matrix.\n"
+             << endl;
         exit(0);
     }
 
