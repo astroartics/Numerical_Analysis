@@ -137,11 +137,6 @@ Matrix &Matrix::operator=(const Matrix &other)
     return *this; // Returning a reference to the current object, i.e. the values of the current object (*this has the address of the current object)
 }
 
-// Matrix Matrix::copy2DMat(double**)
-// {
-
-// }
-
 Matrix::~Matrix()
 {
     if (mat != NULL)
