@@ -35,4 +35,6 @@ public:
     void upperTriangular(int);
     void backSubstitution(int);
     double *GaussianElimination(int);
+
+    void CroutsMethod(Matrix, Matrix, int);
 };
