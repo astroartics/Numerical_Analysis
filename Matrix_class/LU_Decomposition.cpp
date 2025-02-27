@@ -33,7 +33,7 @@ void Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
                 }
                 if (L.mat[i][i] == 0)
                 {
-                    cout << "Determinant of L is zero." << endl;
+                    cout << "Zero in denominator!" << endl;
                     exit(0);
                 }
                 U.mat[i][j] = (this->mat[i][j] - sum) / L.mat[i][i];
@@ -73,7 +73,7 @@ void Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
                 }
                 if (U.mat[i][i] == 0)
                 {
-                    cout << "Determinant of U is zero." << endl;
+                    cout << "Zero in denominator!" << endl;
                     exit(0);
                 }
                 L.mat[j][i] = (this->mat[j][i] - sum) / U.mat[i][i];
