@@ -40,7 +40,8 @@ int main()
         }
     }
     Matrix L(n, n), U(n, n);
-    AMat.CroutsMethod(L, U, 2);
+    // AMat.CroutsMethod(L, U, n);
+    AMat.DooLittlesMethod(L, U, n);
 }
 
 /*

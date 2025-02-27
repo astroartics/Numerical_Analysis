@@ -36,5 +36,6 @@ public:
     void backSubstitution(int);
     double *GaussianElimination(int);
 
-    void CroutsMethod(Matrix, Matrix, int);
+    void CroutsMethod(Matrix &, Matrix &, int);
+    void DooLittlesMethod(Matrix &, Matrix &, int);
 };

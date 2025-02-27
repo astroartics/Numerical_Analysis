@@ -17,6 +17,8 @@ void Matrix::basicPivoting(int n, int currIndex)
                 break;
             }
         }
+        if (zeroRowFlag == 1)
+            break;
     }
 
     if (zeroRowFlag == 0)
