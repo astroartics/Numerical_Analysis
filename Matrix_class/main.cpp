@@ -27,6 +27,20 @@ int main()
     {
         cout << "x" << (i + 1) << " : " << result[i] << endl;
     }
+
+    n = 2;
+    Matrix AMat(2, 2);
+    double tempA[2][2] = {{2, 5}, {1, 2}};
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            AMat.mat[i][j] = tempA[i][j];
+        }
+    }
+    Matrix L(n, n), U(n, n);
+    AMat.CroutsMethod(L, U, 2);
 }
 
 /*

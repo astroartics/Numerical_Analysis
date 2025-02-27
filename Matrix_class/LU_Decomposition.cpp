@@ -10,16 +10,34 @@ void Matrix::CroutsMethod(Matrix L, Matrix U, int n)
     }
 
     double sum = 0;
-    for (int j = 0; j < n; j++)
+    for (int i = 0; i < n; i++)
     {
-        for (int i = j; i < n; i++)
+        for (int j = i; j < n; j++)
         {
             sum = 0;
-            for (int k = 0; k < j; k++)
+            for (int k = 0; k < i; k++)
+            {
+                sum += L.mat[j][k] * U.mat[k][i];
+            }
+            L.mat[j][i] = this->mat[j][i] - sum;
+        }
+
+        for (int j = i; j < n; j++)
+        {
+            sum = 0;
+            for (int k = 0; k < i; k++)
             {
                 sum += L.mat[i][k] * U.mat[k][j];
             }
-            L.mat[i][j] = this->mat[i][j] - sum;
+            if (L.mat[i][i] == 0)
+            {
+                cout << "Determinant of L is zero." << endl;
+                exit(0);
+            }
+            U.mat[i][j] = (this->mat[i][j] - sum) / L.mat[i][i];
         }
     }
+
+    L.displayMat();
+    U.displayMat();
 }
