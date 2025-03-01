@@ -38,5 +38,5 @@ public:
 
     void CroutsMethod(Matrix &, Matrix &, int);
     void DooLittlesMethod(Matrix &, Matrix &, int);
-    void CholeskiMethod();
+    void CholeskiMethod(Matrix &, Matrix &, int);
 };
