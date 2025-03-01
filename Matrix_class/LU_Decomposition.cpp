@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
+int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -42,7 +42,7 @@ void Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
     }
 }
 
-void Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
+int Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
 {
     for (int i = 0; i < n; i++)
     {
