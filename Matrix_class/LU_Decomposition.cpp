@@ -81,3 +81,7 @@ void Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
         }
     }
 }
+
+void Matrix::CholeskiMethod(Matrix &, Matrix &, int)
+{
+}
