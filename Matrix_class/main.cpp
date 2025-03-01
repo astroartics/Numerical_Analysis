@@ -40,10 +40,16 @@ int main()
         }
     }
     Matrix L(n, n), U(n, n);
-    AMat.CroutsMethod(L, U, n);
-    AMat.DooLittlesMethod(L, U, n);
-    L.displayMat();
-    U.displayMat();
+    if (AMat.CroutsMethod(L, U, n) != -1)
+    {
+        L.displayMat();
+        U.displayMat();
+    }
+    if (AMat.DooLittlesMethod(L, U, n) != -1)
+    {
+        L.displayMat();
+        U.displayMat();
+    }
 }
 
 /*

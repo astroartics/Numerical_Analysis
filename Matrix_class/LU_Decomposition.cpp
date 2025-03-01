@@ -34,12 +34,13 @@ int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
                 if (L.mat[i][i] == 0)
                 {
                     cout << "Zero in denominator!" << endl;
-                    exit(0);
+                    return -1;
                 }
                 U.mat[i][j] = (this->mat[i][j] - sum) / L.mat[i][i];
             }
         }
     }
+    return 1;
 }
 
 int Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
@@ -74,12 +75,13 @@ int Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
                 if (U.mat[i][i] == 0)
                 {
                     cout << "Zero in denominator!" << endl;
-                    exit(0);
+                    return -1;
                 }
                 L.mat[j][i] = (this->mat[j][i] - sum) / U.mat[i][i];
             }
         }
     }
+    return 1;
 }
 
 void Matrix::CholeskiMethod(Matrix &, Matrix &, int)
