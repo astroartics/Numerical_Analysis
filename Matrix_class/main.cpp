@@ -63,8 +63,11 @@ int main()
             BMat.mat[i][j] = tempB[i][j];
         }
     }
+    cout << endl;
     if (BMat.CholeskiMethod(L2, n) != -1)
     {
+        L2.displayMat();
+        L2 = L2.transpose();
         L2.displayMat();
     }
 }
