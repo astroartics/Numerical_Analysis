@@ -18,7 +18,8 @@ void Matrix::determinant(int n)
                         cout << mat[k][l] << " ";
                     }
                 }
-                // cout << endl;
+                if (k != i)
+                    cout << endl;
             }
             cout << "\n\n";
         }
