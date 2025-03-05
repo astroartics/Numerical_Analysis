@@ -39,4 +39,6 @@ public:
     int CroutsMethod(Matrix &, Matrix &, int);
     int DooLittlesMethod(Matrix &, Matrix &, int);
     int CholeskiMethod(Matrix &, int);
+
+    void determinant(int n);
 };
