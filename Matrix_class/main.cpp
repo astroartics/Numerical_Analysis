@@ -52,7 +52,7 @@ int main()
     }
 
     n = 3;
-    Matrix BMat(3, 3), L2(n, n);
+    Matrix BMat(n, n), L2(n, n);
     double tempB[3][3] = {{6, 15, 55}, {15, 55, 225}, {55, 225, 979}};
 
     cout << endl;
@@ -70,6 +70,8 @@ int main()
         L2 = L2.transpose();
         L2.displayMat();
     }
+
+    BMat.determinant(n);
 }
 
 /*

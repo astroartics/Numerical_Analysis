@@ -40,5 +40,5 @@ public:
     int DooLittlesMethod(Matrix &, Matrix &, int);
     int CholeskiMethod(Matrix &, int);
 
-    void determinant(int n);
+    void determinant(int);
 };
