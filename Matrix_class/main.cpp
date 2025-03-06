@@ -72,16 +72,41 @@ int main()
     }
 
     n = 4;
-    Matrix CMat(n, n);
-    double tempC[4][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+    // double tempD[4][5] = {{10, 7, 8, 7, 32}, {7, 5, 6, 5, 23}, {8, 6, 10, 9, 33}, {7, 5, 9, 10, 31}};
+    double tempD[4][5] = {{10, 7, 8.1, 7.2, 32}, {7.08, 5.04, 6, 5, 23}, {8, 5.98, 9.89, 9, 33}, {6.99, 4.99, 9, 9.92, 31}};
+    // double tempD[4][5] = {{10, 7, 8, 7, 32.1}, {7, 5, 6, 5, 22.9}, {8, 6, 10, 9, 33.1}, {7, 5, 9, 10, 30.9}};
+    double **matb = new double *[n];
+    for (int i = 0; i < n; i++)
+    {
+        matb[i] = new double[n + 1];
+    }
     for (int i = 0; i < n; ++i)
     {
-        for (int j = 0; j < n; ++j)
+        for (int j = 0; j < n + 1; ++j)
         {
-            CMat.mat[i][j] = tempC[i][j];
+            matb[i][j] = tempD[i][j];
         }
     }
-    CMat.determinant(n);
+
+    Matrix DMat(matb, n, n + 1);
+    DMat.displayMat();
+    double *ans = DMat.GaussianElimination(n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << "x" << (i + 1) << " : " << ans[i] << endl;
+    }
+
+    // n = 4;
+    // Matrix CMat(n, n);
+    // double tempC[4][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     for (int j = 0; j < n; ++j)
+    //     {
+    //         CMat.mat[i][j] = tempC[i][j];
+    //     }
+    // }
+    // CMat.determinant(n);
 }
 
 /*

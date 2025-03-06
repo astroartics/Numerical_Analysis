@@ -33,7 +33,7 @@ public:
 
     void basicPivoting(int, int);
     void upperTriangular(int);
-    void backSubstitution(int);
+    double *backSubstitution(int);
     double *GaussianElimination(int);
 
     int CroutsMethod(Matrix &, Matrix &, int);

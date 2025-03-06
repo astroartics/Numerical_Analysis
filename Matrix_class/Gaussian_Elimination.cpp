@@ -65,43 +65,43 @@ void Matrix::upperTriangular(int n)
         }
     }
 
-    // Making the diagonal elements 1
-    for (int i = 0; i < n; i++)
-    {
-        int diagonalEle = mat[i][i];
-        for (int j = i; j <= n; j++)
-        {
-            mat[i][j] /= diagonalEle;
-        }
-    }
+    // // Making the diagonal elements 1
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int diagonalEle = mat[i][i];
+    //     for (int j = i; j <= n; j++)
+    //     {
+    //         mat[i][j] /= diagonalEle;
+    //     }
+    // }
 
     backSubstitution(n);
 }
 
-void Matrix::backSubstitution(int n)
+double *Matrix::backSubstitution(int n)
 {
+    static double *x = new double[n];
     for (int i = n - 1; i >= 0; i--)
     {
-        mat[i][i] = mat[i][n];
+        // mat[i][i] = mat[i][n];
+        x[i] = mat[i][n];
 
         for (int j = i + 1; j < n; j++)
         {
-            mat[i][i] -= (mat[i][j] * mat[j][j]);
+            // mat[i][i] -= (mat[i][j] * mat[j][j]);
+            x[i] -= (mat[i][j] * x[j]);
         }
+        x[i] /= mat[i][i];
     }
+
+    return x;
 }
 
 double *Matrix::GaussianElimination(int n)
 {
-    static double *result = new double[n];
-
     upperTriangular(n);
-    backSubstitution(n);
 
-    for (int i = 0; i < n; i++)
-    {
-        result[i] = mat[i][i];
-    }
+    double *result = backSubstitution(n);
 
     return result;
 }
