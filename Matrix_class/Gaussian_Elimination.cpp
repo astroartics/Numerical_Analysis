@@ -65,30 +65,19 @@ void Matrix::upperTriangular(int n)
         }
     }
 
-    // // Making the diagonal elements 1
-    // for (int i = 0; i < n; i++)
-    // {
-    //     int diagonalEle = mat[i][i];
-    //     for (int j = i; j <= n; j++)
-    //     {
-    //         mat[i][j] /= diagonalEle;
-    //     }
-    // }
-
     backSubstitution(n);
 }
 
 double *Matrix::backSubstitution(int n)
 {
     static double *x = new double[n];
+
     for (int i = n - 1; i >= 0; i--)
     {
-        // mat[i][i] = mat[i][n];
         x[i] = mat[i][n];
 
         for (int j = i + 1; j < n; j++)
         {
-            // mat[i][i] -= (mat[i][j] * mat[j][j]);
             x[i] -= (mat[i][j] * x[j]);
         }
         x[i] /= mat[i][i];
