@@ -28,6 +28,7 @@ void Matrix::basicPivoting(int n, int currIndex)
         exit(0);
     }
 
+    // Swapping the rows (current zero element row and with corresponding non-zero row)
     int temp[n + 1];
     for (int i = 0; i <= n; i++)
     {
