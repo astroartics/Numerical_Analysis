@@ -48,20 +48,21 @@ void Matrix::basicPivoting(int n, int currIndex)
 
 void Matrix::upperTriangular(int n)
 {
+    Matrix m = *this;
     for (int i = 0; i < n - 1; i++) // Going till the last row
     {
-        if (this->mat[i][i] == 0)
+        if (mat[i][i] == 0)
         {
             basicPivoting(n, i);
         }
 
         for (int j = i + 1; j < n; j++) // Going till the last row after ith row
         {
-            double ratio = this->mat[j][i] / this->mat[i][i]; // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element on the diagonal will be 1).
-            for (int k = 0; k <= n; k++)                      // Going from the first column till the last
+            double ratio = mat[j][i] / mat[i][i]; // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element on the diagonal will be 1).
+            for (int k = 0; k <= n; k++)          // Going from the first column till the last
             {
-                this->mat[j][k] -= (ratio * this->mat[i][k]); // Diagonal element i.e. when i==k, mat[i][k] becomes 1 after multiplying it with the ratio, and then the entire jth row is subtracted from the current pivot row.
-                                                              // Multiplying the ratio with the entire previous row elements ans subtracting from the current row to make the elements below current element 0.
+                mat[j][k] -= (ratio * mat[i][k]); // Diagonal element i.e. when i==k, mat[i][k] becomes 1 after multiplying it with the ratio, and then the entire jth row is subtracted from the current pivot row.
+                                                  // Multiplying the ratio with the entire previous row elements ans subtracting from the current row to make the elements below current element 0.
             }
         }
     }
@@ -70,7 +71,7 @@ void Matrix::upperTriangular(int n)
     {
         for (int j = 0; j <= n; j++)
         {
-            cout << this->mat[i][j] << " ";
+            cout << mat[i][j] << " ";
         }
         cout << endl;
     }
