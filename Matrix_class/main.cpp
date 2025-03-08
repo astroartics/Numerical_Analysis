@@ -4,91 +4,95 @@ using namespace std;
 
 int main()
 {
-    int n = 3;
+    // int n = 3;
 
     // double tempMat[4][5] = {{4, 8, 4, 0, 8}, {1, 5, 4, -3, -4}, {1, 4, 7, 2, 10}, {1, 3, 0, -2, -4}};
-    double tempMat[3][4] = {{1, 0, 1, 5}, {2, 0, 4, -1}, {0, 3, 1, 2}};
-    double **matrix = new double *[n];
-    for (int i = 0; i < n; i++)
-    {
-        matrix[i] = new double[n + 1];
-    }
-    for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n + 1; ++j)
-        {
-            matrix[i][j] = tempMat[i][j];
-        }
-    }
+    // double tempMat[3][4] = {{1, 0, 1, 5}, {2, 0, 4, -1}, {0, 3, 1, 2}};
+    // double **matrix = new double *[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     matrix[i] = new double[n + 1];
+    // }
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     for (int j = 0; j < n + 1; ++j)
+    //     {
+    //         matrix[i][j] = tempMat[i][j];
+    //     }
+    // }
 
-    Matrix mat(matrix, n, n + 1);
-    double *result = mat.GaussianElimination(n);
-    for (int i = 0; i < n; i++)
-    {
-        cout << "x" << (i + 1) << " : " << result[i] << endl;
-    }
+    // Matrix mat(matrix, n, n + 1);
+    // double *result = mat.GaussianElimination(n);
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << "x" << (i + 1) << " : " << result[i] << endl;
+    // }
 
-    n = 2;
-    Matrix AMat(2, 2);
-    double tempA[2][2] = {{2, 5}, {1, 2}};
+    // n = 2;
+    // Matrix AMat(2, 2);
+    // double tempA[2][2] = {{2, 5}, {1, 2}};
 
-    for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n; ++j)
-        {
-            AMat.mat[i][j] = tempA[i][j];
-        }
-    }
-    Matrix L(n, n), U(n, n);
-    if (AMat.CroutsMethod(L, U, n) != -1)
-    {
-        L.displayMat();
-        U.displayMat();
-    }
-    if (AMat.DooLittlesMethod(L, U, n) != -1)
-    {
-        L.displayMat();
-        U.displayMat();
-    }
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     for (int j = 0; j < n; ++j)
+    //     {
+    //         AMat.mat[i][j] = tempA[i][j];
+    //     }
+    // }
+    // Matrix L(n, n), U(n, n);
+    // if (AMat.CroutsMethod(L, U, n) != -1)
+    // {
+    //     L.displayMat();
+    //     U.displayMat();
+    // }
+    // if (AMat.DooLittlesMethod(L, U, n) != -1)
+    // {
+    //     L.displayMat();
+    //     U.displayMat();
+    // }
 
-    n = 3;
-    Matrix BMat(n, n), L2(n, n);
-    double tempB[3][3] = {{6, 15, 55}, {15, 55, 225}, {55, 225, 979}};
+    // n = 3;
+    // Matrix BMat(n, n), L2(n, n);
+    // double tempB[3][3] = {{6, 15, 55}, {15, 55, 225}, {55, 225, 979}};
 
-    cout << endl;
-    for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n; ++j)
-        {
-            BMat.mat[i][j] = tempB[i][j];
-        }
-    }
-    cout << endl;
-    if (BMat.CholeskiMethod(L2, n) != -1)
-    {
-        L2.displayMat();
-        L2 = L2.transpose();
-        L2.displayMat();
-    }
+    // cout << endl;
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     for (int j = 0; j < n; ++j)
+    //     {
+    //         BMat.mat[i][j] = tempB[i][j];
+    //     }
+    // }
+    // cout << endl;
+    // if (BMat.CholeskiMethod(L2, n) != -1)
+    // {
+    //     L2.displayMat();
+    //     L2 = L2.transpose();
+    //     L2.displayMat();
+    // }
 
-    n = 4;
+    // n = 4;
     // double tempD[4][5] = {{10, 7, 8, 7, 32}, {7, 5, 6, 5, 23}, {8, 6, 10, 9, 33}, {7, 5, 9, 10, 31}};
-    double tempD[4][5] = {{10, 7, 8.1, 7.2, 32}, {7.08, 5.04, 6, 5, 23}, {8, 5.98, 9.89, 9, 33}, {6.99, 4.99, 9, 9.92, 31}};
+    // double tempD[4][5] = {{10, 7, 8.1, 7.2, 32}, {7.08, 5.04, 6, 5, 23}, {8, 5.98, 9.89, 9, 33}, {6.99, 4.99, 9, 9.92, 31}};
     // double tempD[4][5] = {{10, 7, 8, 7, 32.1}, {7, 5, 6, 5, 22.9}, {8, 6, 10, 9, 33.1}, {7, 5, 9, 10, 30.9}};
-    double **matb = new double *[n];
-    for (int i = 0; i < n; i++)
-    {
-        matb[i] = new double[n + 1];
-    }
-    for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n + 1; ++j)
-        {
-            matb[i][j] = tempD[i][j];
-        }
-    }
+    // double **matb = new double *[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     matb[i] = new double[n + 1];
+    // }
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     for (int j = 0; j < n + 1; ++j)
+    //     {
+    //         matb[i][j] = tempD[i][j];
+    //     }
+    // }
 
-    Matrix DMat(matb, n, n + 1);
+    // Matrix DMat(matb, n, n + 1);
+
+    int n = 4;
+    cout << endl;
+    Matrix DMat("GaussMatrix.txt");
     DMat.displayMat();
     double *ans = DMat.GaussianElimination(n);
     for (int i = 0; i < n; i++)
