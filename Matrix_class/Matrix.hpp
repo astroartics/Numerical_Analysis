@@ -31,8 +31,8 @@ public:
 
     Matrix transpose();
 
-    void basicPivoting(int, int);
-    void upperTriangular(int);
+    void basicPivoting(int);
+    void upperTriangular();
     double *backSubstitution(int);
     double *GaussianElimination(int);
 
