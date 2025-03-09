@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <fstream>
+#include <vector>
 
 class Matrix
 {
@@ -41,4 +42,6 @@ public:
     int CroutsMethod(Matrix &, Matrix &);
     int DooLittlesMethod(Matrix &, Matrix &);
     int CholeskiMethod(Matrix &);
+
+    int determinant(std::vector<double>, int, int, int);
 };

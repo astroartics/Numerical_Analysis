@@ -2,26 +2,30 @@
 
 using namespace std;
 
-void Matrix::determinant(int n)
+int Matrix::determinant(vector<double> temp, int m, int n, int det)
 {
-    cout << "\n\n";
-    for (int i = 0; i < n; i++)
+    if (temp.size() == 1)
     {
-        for (int j = 0; j < n; j++)
-        {
-            for (int k = 0; k < n; k++)
-            {
-                for (int l = 0; l < n; l++)
-                {
-                    if (k != i && l != j)
-                    {
-                        cout << mat[k][l] << " ";
-                    }
-                }
-                if (k != i)
-                    cout << endl;
-            }
-            cout << "\n\n";
-        }
+        return temp[0];
     }
+    else
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                if (i != m && j != n)
+                {
+                    temp.push_back(mat[i][j]);
+                }
+            }
+        }
+
+        for (int i = 0; i < temp.size(); i++)
+            cout << "Temp : " << temp[i] << endl;
+
+        det += (pow(-1, n) * mat[m][n] * determinant(temp, m, n + 1, det));
+    }
+
+    return det;
 }
