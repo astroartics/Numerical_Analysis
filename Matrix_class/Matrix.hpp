@@ -43,5 +43,5 @@ public:
     int DooLittlesMethod(Matrix &, Matrix &);
     int CholeskiMethod(Matrix &);
 
-    int determinant(std::vector<double>, int, int, int);
+    int determinant(double **, int);
 };

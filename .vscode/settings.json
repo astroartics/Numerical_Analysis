@@ -4,7 +4,8 @@
         "complex": "cpp",
         "iostream": "cpp",
         "string": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "cmath": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

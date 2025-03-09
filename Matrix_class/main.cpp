@@ -44,8 +44,7 @@ int main()
     Matrix CMat("DiagonallyDominantMat.txt");
     cout << CMat.isDiagonallyDominant() << "\n\n";
 
-    vector<double> temp;
-    cout << AMat.determinant(temp, 0, 0, 0) << endl;
+    cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
 }
 
 /*

@@ -2,30 +2,37 @@
 
 using namespace std;
 
-int Matrix::determinant(vector<double> temp, int m, int n, int det)
+int Matrix::determinant(double **mat, int n)
 {
-    if (temp.size() == 1)
+    int det = 0;
+    double **temp = new double *[rows];
+    for (int i = 0; i < rows; i++)
     {
-        return temp[0];
+        temp[i] = new double[cols];
     }
-    else
+
+    if (n == 1) // If minors for all elements have been found, return the last element
+        return mat[0][0];
+
+    for (int x = 0; x < cols; x++) // For covering the first row
     {
-        for (int i = 0; i < rows; i++)
+        int p = 0;
+        // 'i and j for loops' are for getting the minor of the current element
+        for (int i = 1; i < rows; i++) // Will start from the next row of the current element so as to avoid the current row
         {
+            int q = 0;
             for (int j = 0; j < cols; j++)
             {
-                if (i != m && j != n)
-                {
-                    temp.push_back(mat[i][j]);
-                }
+                if (j == x) // Will avoid the elements of the current column
+                    continue;
+
+                temp[p][q] = mat[i][j]; // Storing the minor in temp
+                q++;
             }
+            p++;
         }
 
-        for (int i = 0; i < temp.size(); i++)
-            cout << "Temp : " << temp[i] << endl;
-
-        det += (pow(-1, n) * mat[m][n] * determinant(temp, m, n + 1, det));
+        det += (pow(-1, x) * mat[0][x] * determinant(temp, n - 1));
     }
-
     return det;
 }
