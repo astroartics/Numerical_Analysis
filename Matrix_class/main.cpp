@@ -38,6 +38,11 @@ int main()
         L2 = L2.transpose();
         L2.displayMat();
     }
+    cout << endl;
+
+    // Diagonally Dominant
+    Matrix CMat("DiagonallyDominantMat.txt");
+    cout << CMat.isDiagonallyDominant() << endl;
 }
 
 /*

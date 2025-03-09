@@ -28,6 +28,7 @@ public:
 
     bool isIdentity();
     bool isSymmetric();
+    bool isDiagonallyDominant();
 
     Matrix transpose();
 
