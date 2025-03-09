@@ -37,7 +37,7 @@ public:
     Matrix upperTriangularMat();
     double *GaussianElimination();
 
-    int CroutsMethod(Matrix &, Matrix &, int);
-    int DooLittlesMethod(Matrix &, Matrix &, int);
-    int CholeskiMethod(Matrix &, int);
+    int CroutsMethod(Matrix &, Matrix &);
+    int DooLittlesMethod(Matrix &, Matrix &);
+    int CholeskiMethod(Matrix &);
 };

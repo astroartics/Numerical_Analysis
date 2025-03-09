@@ -2,19 +2,19 @@
 
 using namespace std;
 
-int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
+int Matrix::CroutsMethod(Matrix &L, Matrix &U)
 {
     // Row first
     // A = L * U (where diagonal elements of U are 1)
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < rows; i++)
     {
         U.mat[i][i] = 1; // Unit upper triangular matrix
     }
 
     double sum = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = i; j < n; j++)
+        for (int j = i; j < cols; j++)
         {
             sum = 0;
             for (int k = 0; k < i; k++)
@@ -24,7 +24,7 @@ int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
             L.mat[j][i] = this->mat[j][i] - sum; // L[j][i] = A[j][i] -  ∑ (L[j][k] * U[k][i]
         }
 
-        for (int j = i; j < n; j++)
+        for (int j = i; j < cols; j++)
         {
             if (i < j)
             {
@@ -46,19 +46,19 @@ int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
     return 1;
 }
 
-int Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
+int Matrix::DooLittlesMethod(Matrix &L, Matrix &U)
 {
     // Column first
     // A = L * U (where diagonal elements of L are 1)
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < rows; i++)
     {
         L.mat[i][i] = 1; // Unit lower triangular matrix
     }
 
     double sum = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = i; j < n; j++)
+        for (int j = i; j < cols; j++)
         {
             sum = 0;
             for (int k = 0; k < i; k++)
@@ -68,7 +68,7 @@ int Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
             U.mat[i][j] = this->mat[i][j] - sum; // U[i][j] = A[i][j] -  ∑ (L[i][k] * U[k][j]
         }
 
-        for (int j = i; j < n; j++)
+        for (int j = i; j < rows; j++)
         {
             if (i != j)
             {
@@ -89,13 +89,13 @@ int Matrix::DooLittlesMethod(Matrix &L, Matrix &U, int n)
     return 1;
 }
 
-int Matrix::CholeskiMethod(Matrix &L, int n)
+int Matrix::CholeskiMethod(Matrix &L)
 {
     // A = L * L(transpose)
     if ((*this).isSymmetric())
     {
         double sum = 0;
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j <= i; j++)
             {

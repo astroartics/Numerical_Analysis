@@ -13,58 +13,31 @@ int main()
     }
     Matrix upperT = DMat.upperTriangularMat();
     upperT.displayMat();
+    cout << endl;
 
     // LU Decomposition
-    Matrix AMat("LUMatrix.txt");
-    cout << endl;
+    Matrix AMat("LUMatrix1.txt");
     Matrix L(AMat.rows, AMat.rows), U(AMat.rows, AMat.rows);
-    if (AMat.CroutsMethod(L, U, 2) != -1)
+    if (AMat.CroutsMethod(L, U) != -1)
     {
         L.displayMat();
         U.displayMat();
     }
-    if (AMat.DooLittlesMethod(L, U, 2) != -1)
+    if (AMat.DooLittlesMethod(L, U) != -1)
     {
         L.displayMat();
         U.displayMat();
     }
 
-    // n = 3;
-    // Matrix BMat(n, n), L2(n, n);
-    // double tempB[3][3] = {{6, 15, 55}, {15, 55, 225}, {55, 225, 979}};
-
-    // cout << endl;
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     for (int j = 0; j < n; ++j)
-    //     {
-    //         BMat.mat[i][j] = tempB[i][j];
-    //     }
-    // }
-    // cout << endl;
-    // if (BMat.CholeskiMethod(L2, n) != -1)
-    // {
-    //     L2.displayMat();
-    //     L2 = L2.transpose();
-    //     L2.displayMat();
-    // }
-
-    // n = 4;
-    // double tempD[4][5] = {{10, 7, 8, 7, 32}, {7, 5, 6, 5, 23}, {8, 6, 10, 9, 33}, {7, 5, 9, 10, 31}};
-    // double tempD[4][5] = {{10, 7, 8.1, 7.2, 32}, {7.08, 5.04, 6, 5, 23}, {8, 5.98, 9.89, 9, 33}, {6.99, 4.99, 9, 9.92, 31}};
-    // double tempD[4][5] = {{10, 7, 8, 7, 32.1}, {7, 5, 6, 5, 22.9}, {8, 6, 10, 9, 33.1}, {7, 5, 9, 10, 30.9}};
-    // double **matb = new double *[n];
-    // for (int i = 0; i < n; i++)
-    // {
-    //     matb[i] = new double[n + 1];
-    // }
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     for (int j = 0; j < n + 1; ++j)
-    //     {
-    //         matb[i][j] = tempD[i][j];
-    //     }
-    // }
+    cout << endl;
+    Matrix BMat("LUMatrix2.txt");
+    Matrix L2(BMat.rows, BMat.rows);
+    if (BMat.CholeskiMethod(L2) != -1)
+    {
+        L2.displayMat();
+        L2 = L2.transpose();
+        L2.displayMat();
+    }
 }
 
 /*
