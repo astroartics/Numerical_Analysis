@@ -94,7 +94,7 @@ int main()
     cout << endl;
     Matrix DMat("GaussMatrix.txt");
     DMat.displayMat();
-    double *ans = DMat.GaussianElimination(n);
+    double *ans = DMat.GaussianElimination();
     for (int i = 0; i < n; i++)
     {
         cout << "x" << (i + 1) << " : " << ans[i] << endl;

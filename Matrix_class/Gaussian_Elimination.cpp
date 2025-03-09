@@ -46,6 +46,21 @@ void Matrix::basicPivoting(int currIndex)
     }
 }
 
+Matrix Matrix::diagonal1()
+{
+    Matrix m = (*this);
+    for (int i = 0; i < rows; i++)
+    {
+        double diagonalEle = m.mat[i][i];
+        for (int j = 0; j <= rows; j++)
+        {
+            m.mat[i][j] /= diagonalEle;
+        }
+    }
+
+    return m;
+}
+
 void Matrix::upperTriangular()
 {
     Matrix m = *this;
@@ -67,27 +82,19 @@ void Matrix::upperTriangular()
         }
     }
 
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j <= rows; j++)
-        {
-            cout << mat[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    backSubstitution(rows);
+    backSubstitution();
+    diagonal1();
 }
 
-double *Matrix::backSubstitution(int n)
+double *Matrix::backSubstitution()
 {
-    static double *x = new double[n];
+    static double *x = new double[rows];
 
-    for (int i = n - 1; i >= 0; i--)
+    for (int i = rows - 1; i >= 0; i--)
     {
-        x[i] = mat[i][n];
+        x[i] = mat[i][rows];
 
-        for (int j = i + 1; j < n; j++)
+        for (int j = i + 1; j < rows; j++)
         {
             x[i] -= (mat[i][j] * x[j]);
         }
@@ -97,11 +104,11 @@ double *Matrix::backSubstitution(int n)
     return x;
 }
 
-double *Matrix::GaussianElimination(int n)
+double *Matrix::GaussianElimination()
 {
     upperTriangular();
 
-    double *result = backSubstitution(n);
+    double *result = backSubstitution();
 
     return result;
 }
