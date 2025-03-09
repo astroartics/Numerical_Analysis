@@ -4,52 +4,30 @@ using namespace std;
 
 int main()
 {
-    // int n = 3;
+    Matrix DMat("GaussMatrix.txt");
+    DMat.displayMat();
+    double *ans = DMat.GaussianElimination();
+    for (int i = 0; i < DMat.rows; i++)
+    {
+        cout << "x" << (i + 1) << " : " << ans[i] << endl;
+    }
+    Matrix upperT = DMat.upperTriangularMat();
+    upperT.displayMat();
 
-    // double tempMat[4][5] = {{4, 8, 4, 0, 8}, {1, 5, 4, -3, -4}, {1, 4, 7, 2, 10}, {1, 3, 0, -2, -4}};
-    // double tempMat[3][4] = {{1, 0, 1, 5}, {2, 0, 4, -1}, {0, 3, 1, 2}};
-    // double **matrix = new double *[n];
-    // for (int i = 0; i < n; i++)
-    // {
-    //     matrix[i] = new double[n + 1];
-    // }
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     for (int j = 0; j < n + 1; ++j)
-    //     {
-    //         matrix[i][j] = tempMat[i][j];
-    //     }
-    // }
-
-    // Matrix mat(matrix, n, n + 1);
-    // double *result = mat.GaussianElimination(n);
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << "x" << (i + 1) << " : " << result[i] << endl;
-    // }
-
-    // n = 2;
-    // Matrix AMat(2, 2);
-    // double tempA[2][2] = {{2, 5}, {1, 2}};
-
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     for (int j = 0; j < n; ++j)
-    //     {
-    //         AMat.mat[i][j] = tempA[i][j];
-    //     }
-    // }
-    // Matrix L(n, n), U(n, n);
-    // if (AMat.CroutsMethod(L, U, n) != -1)
-    // {
-    //     L.displayMat();
-    //     U.displayMat();
-    // }
-    // if (AMat.DooLittlesMethod(L, U, n) != -1)
-    // {
-    //     L.displayMat();
-    //     U.displayMat();
-    // }
+    // LU Decomposition
+    Matrix AMat("LUMatrix.txt");
+    cout << endl;
+    Matrix L(AMat.rows, AMat.rows), U(AMat.rows, AMat.rows);
+    if (AMat.CroutsMethod(L, U, 2) != -1)
+    {
+        L.displayMat();
+        U.displayMat();
+    }
+    if (AMat.DooLittlesMethod(L, U, 2) != -1)
+    {
+        L.displayMat();
+        U.displayMat();
+    }
 
     // n = 3;
     // Matrix BMat(n, n), L2(n, n);
@@ -87,18 +65,6 @@ int main()
     //         matb[i][j] = tempD[i][j];
     //     }
     // }
-
-    // Matrix DMat(matb, n, n + 1);
-
-    int n = 4;
-    cout << endl;
-    Matrix DMat("GaussMatrix.txt");
-    DMat.displayMat();
-    double *ans = DMat.GaussianElimination();
-    for (int i = 0; i < n; i++)
-    {
-        cout << "x" << (i + 1) << " : " << ans[i] << endl;
-    }
 }
 
 /*

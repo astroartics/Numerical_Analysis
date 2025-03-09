@@ -26,7 +26,7 @@ int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
 
         for (int j = i; j < n; j++)
         {
-            if (i != j)
+            if (i < j)
             {
                 sum = 0;
                 for (int k = 0; k < i; k++)
@@ -42,6 +42,7 @@ int Matrix::CroutsMethod(Matrix &L, Matrix &U, int n)
             }
         }
     }
+
     return 1;
 }
 

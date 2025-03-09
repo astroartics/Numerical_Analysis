@@ -46,7 +46,7 @@ void Matrix::basicPivoting(int currIndex)
     }
 }
 
-Matrix Matrix::diagonal1()
+Matrix Matrix::upperTriangularMat()
 {
     Matrix m = (*this);
     for (int i = 0; i < rows; i++)
@@ -83,7 +83,7 @@ void Matrix::upperTriangular()
     }
 
     backSubstitution();
-    diagonal1();
+    upperTriangularMat();
 }
 
 double *Matrix::backSubstitution()
