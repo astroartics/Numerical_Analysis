@@ -2,13 +2,13 @@
 
 using namespace std;
 
-int Matrix::determinant(double **mat, int n)
+int Matrix::determinant(long double **mat, int n)
 {
     int det = 0;
-    double **temp = new double *[rows];
+    long double **temp = new long double *[rows];
     for (int i = 0; i < rows; i++)
     {
-        temp[i] = new double[cols];
+        temp[i] = new long double[cols];
     }
 
     if (n == 1) // If minors for all elements have been found, return the last element

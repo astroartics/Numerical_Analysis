@@ -2,6 +2,6 @@
 
 using namespace std;
 
-int Matrix::adjoint(double **mat, int n)
+int Matrix::adjoint(long double **mat, int n)
 {
 }

@@ -4,17 +4,6 @@ using namespace std;
 
 int main()
 {
-    Matrix DMat("GaussMatrix.txt");
-    DMat.displayMat();
-    double *ans = DMat.GaussianElimination();
-    for (int i = 0; i < DMat.rows; i++)
-    {
-        cout << "x" << (i + 1) << " : " << ans[i] << endl;
-    }
-    Matrix upperT = DMat.upperTriangularMat();
-    upperT.displayMat();
-    cout << endl;
-
     // LU Decomposition
     Matrix AMat("LUMatrix1.txt");
     Matrix L(AMat.rows, AMat.rows), U(AMat.rows, AMat.rows);
@@ -45,6 +34,9 @@ int main()
     cout << CMat.isDiagonallyDominant() << "\n\n";
 
     cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
+
+    Matrix fMat49("49l.txt");
+    fMat49.displayMat();
 }
 
 /*
@@ -147,4 +139,15 @@ int main()
 
     Matrix transpose = mat.transpose();
     transpose.displayMat();
+
+    Matrix DMat("GaussMatrix.txt");
+    DMat.displayMat();
+    double *ans = DMat.GaussianElimination();
+    for (int i = 0; i < DMat.rows; i++)
+    {
+        cout << "x" << (i + 1) << " : " << ans[i] << endl;
+    }
+    Matrix upperT = DMat.upperTriangularMat();
+    upperT.displayMat();
+    cout << endl;
 */

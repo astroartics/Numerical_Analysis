@@ -2,14 +2,14 @@
 
 using namespace std;
 
-double **Matrix::createMatrix()
+long double **Matrix::createMatrix()
 {
     if (rows > 0 && cols > 0)
     {
-        mat = new double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
+        mat = new long double *[this->rows]; // Double pointer pointing to the first element of array of pointers -> that points to the rows of the matrix
         for (int i = 0; i < this->rows; i++)
         {
-            mat[i] = new double[this->cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
+            mat[i] = new long double[this->cols]; // mat[i] pointer points to the first element of the ith row with 'cols' columns.
         }
         if (!mat)
         {
@@ -45,7 +45,7 @@ Matrix::Matrix(int r, int c)
     mat = createMatrix();
 }
 
-Matrix::Matrix(double **other, int r, int c) // Constructor for converting a matrix to an object
+Matrix::Matrix(long double **other, int r, int c) // Constructor for converting a matrix to an object
 {
     this->rows = r;
     this->cols = c;
@@ -109,10 +109,10 @@ void Matrix::displayMat()
 // Copy constructor
 Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols) // Member initializer list (the part after ':') initializes the data members of the new object
 {
-    mat = new double *[rows];
+    mat = new long double *[rows];
     for (int i = 0; i < rows; ++i)
     {
-        mat[i] = new double[cols];
+        mat[i] = new long double[cols];
         copy(other.mat[i], other.mat[i] + cols, mat[i]); // Copying complete ith row (ith row till (i+cols)th column) of 'other' matrix to ith row of mat
         // copy(begin, end, copy_to)
     }
@@ -134,10 +134,10 @@ Matrix &Matrix::operator=(const Matrix &other)
         rows = other.rows;
         cols = other.cols;
 
-        mat = new double *[rows];
+        mat = new long double *[rows];
         for (int i = 0; i < rows; i++)
         {
-            mat[i] = new double[cols];
+            mat[i] = new long double[cols];
             copy(other.mat[i], other.mat[i] + cols, mat[i]);
         }
     }

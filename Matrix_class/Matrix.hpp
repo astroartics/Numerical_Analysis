@@ -6,15 +6,15 @@ class Matrix
 {
 public:
     int rows, cols;
-    double **mat;
+    long double **mat;
 
     Matrix();
     Matrix(int, int);
-    Matrix(double **, int, int);
+    Matrix(long double **, int, int);
     Matrix(std::string);
     Matrix(const Matrix &);
     Matrix &operator=(const Matrix &);
-    double **createMatrix();
+    long double **createMatrix();
     void displayMat();
     ~Matrix();
 
@@ -43,6 +43,6 @@ public:
     int DooLittlesMethod(Matrix &, Matrix &);
     int CholeskiMethod(Matrix &);
 
-    int determinant(double **, int);
-    int adjoint(double **, int);
+    int determinant(long double **, int);
+    int adjoint(long double **, int);
 };
