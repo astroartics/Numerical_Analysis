@@ -44,4 +44,5 @@ public:
     int CholeskiMethod(Matrix &);
 
     int determinant(double **, int);
+    int adjoint(double **, int);
 };
