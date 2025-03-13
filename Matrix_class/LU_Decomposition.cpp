@@ -4,7 +4,7 @@ using namespace std;
 
 int Matrix::CroutsMethod(Matrix &L, Matrix &U)
 {
-    // Row first
+    // Column first : One whole column of L is given values first, then column is incremented
     // A = L * U (where diagonal elements of U are 1)
     for (int i = 0; i < rows; i++)
     {
@@ -48,7 +48,7 @@ int Matrix::CroutsMethod(Matrix &L, Matrix &U)
 
 int Matrix::DooLittlesMethod(Matrix &L, Matrix &U)
 {
-    // Column first
+    // Row first : One whole row of U is given values first, then row is incremented
     // A = L * U (where diagonal elements of L are 1)
     for (int i = 0; i < rows; i++)
     {
