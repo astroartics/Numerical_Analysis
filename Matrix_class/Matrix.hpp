@@ -35,9 +35,9 @@ public:
 
     void basicPivoting(int);
     void upperTriangular();
-    double *backSubstitution();
+    Matrix backSubstitution();
     Matrix upperTriangularMat();
-    double *GaussianElimination();
+    Matrix GaussianElimination();
 
     int CroutsMethod(Matrix &, Matrix &);
     int DooLittlesMethod(Matrix &, Matrix &);

@@ -86,29 +86,30 @@ void Matrix::upperTriangular()
     upperTriangularMat();
 }
 
-double *Matrix::backSubstitution()
+Matrix Matrix::backSubstitution()
 {
-    static double *x = new double[rows];
+    // static long double *x = new long double[rows];
+    Matrix x(1, rows);
 
     for (int i = rows - 1; i >= 0; i--)
     {
-        x[i] = mat[i][rows];
+        x.mat[0][i] = mat[i][rows];
 
         for (int j = i + 1; j < rows; j++)
         {
-            x[i] -= (mat[i][j] * x[j]);
+            x.mat[0][i] -= (mat[i][j] * x.mat[0][j]);
         }
-        x[i] /= mat[i][i];
+        x.mat[0][i] /= mat[i][i];
     }
 
     return x;
 }
 
-double *Matrix::GaussianElimination()
+Matrix Matrix::GaussianElimination()
 {
     upperTriangular();
 
-    double *result = backSubstitution();
+    Matrix result = backSubstitution();
 
     return result;
 }

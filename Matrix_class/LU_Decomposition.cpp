@@ -110,7 +110,7 @@ int Matrix::CholeskiMethod(Matrix &L)
                 }
                 else
                 {
-                    if (i > j)
+                    if (i > j) // Ignoring upper triangle as all elements are 0
                     {
                         sum = 0;
                         for (int k = 0; k < j; k++)

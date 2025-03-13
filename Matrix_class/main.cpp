@@ -37,6 +37,8 @@ int main()
 
     // Matrix fMat49("49l.txt");
     // fMat49.displayMat();
+    // Matrix ans = fMat49.GaussianElimination();
+    // ans.displayMat();
 }
 
 /*
