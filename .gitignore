@@ -1,2 +1,13 @@
 output
 Matrix_class/matOp
+Matrix_class/Add_Sub.o
+Matrix_class/Determinant.o
+Matrix_class/DiagonallyDominant.o
+Matrix_class/Gaussian_Elimination.o
+Matrix_class/Identity_Symmetric.o
+Matrix_class/LU_Decomposition.o
+Matrix_class/Transpose.o
+Matrix_class/Multiply.o
+Matrix_class/Matrix.o
+Matrix_class/matop
+Matrix_class/main.o

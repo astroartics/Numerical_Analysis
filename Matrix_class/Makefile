@@ -1,7 +1,10 @@
 CC=g++
 DEPS=Matrix.hpp
 TARGET=matop
-OBJS=main.cpp Matrix.cpp Add_Sub.cpp Identity_Symmetric.cpp Multiply.cpp Gaussian_Elimination.cpp Transpose.cpp LU_Decomposition.cpp DiagonallyDominant.cpp Determinant.cpp
+OBJS=main.o Matrix.o Add_Sub.o Identity_Symmetric.o Multiply.o Gaussian_Elimination.o Transpose.o LU_Decomposition.o DiagonallyDominant.o Determinant.o
 
 %o: %.cpp $(DEPS)
-	$(CC)
+	$(CC) -o $@ $<
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^
