@@ -35,8 +35,8 @@ int main()
 
     cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
 
-    Matrix fMat49("49l.txt");
-    fMat49.displayMat();
+    // Matrix fMat49("49l.txt");
+    // fMat49.displayMat();
 }
 
 /*

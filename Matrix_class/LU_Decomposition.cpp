@@ -131,7 +131,7 @@ int Matrix::CholeskiMethod(Matrix &L)
     else
     {
         cout << "Matrix is not symmetric" << endl;
-        exit(0);
+        return -1;
     }
     return 1;
 }
