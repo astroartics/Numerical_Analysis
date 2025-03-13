@@ -51,7 +51,7 @@ Matrix Matrix::upperTriangularMat()
     Matrix m = (*this);
     for (int i = 0; i < rows; i++)
     {
-        double diagonalEle = m.mat[i][i];
+        long double diagonalEle = m.mat[i][i];
         for (int j = 0; j <= rows; j++)
         {
             m.mat[i][j] /= diagonalEle;
@@ -73,8 +73,8 @@ void Matrix::upperTriangular()
 
         for (int j = i + 1; j < rows; j++) // Going till the last row after ith row
         {
-            double ratio = mat[j][i] / mat[i][i]; // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element on the diagonal will be 1).
-            for (int k = 0; k <= rows; k++)       // Going from the first column till the last
+            long double ratio = mat[j][i] / mat[i][i]; // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element on the diagonal will be 1).
+            for (int k = 0; k <= rows; k++)            // Going from the first column till the last
             {
                 mat[j][k] -= (ratio * mat[i][k]); // Diagonal element i.e. when i==k, mat[i][k] becomes 1 after multiplying it with the ratio, and then the entire jth row is subtracted from the current pivot row.
                                                   // Multiplying the ratio with the entire previous row elements ans subtracting from the current row to make the elements below current element 0.
@@ -88,7 +88,6 @@ void Matrix::upperTriangular()
 
 Matrix Matrix::backSubstitution()
 {
-    // static long double *x = new long double[rows];
     Matrix x(1, rows);
 
     for (int i = rows - 1; i >= 0; i--)
