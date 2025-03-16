@@ -36,10 +36,12 @@ int main()
     cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
 
     Matrix fMat49("49l.txt");
-    // fMat49.displayMat();
-    Matrix ans(1, fMat49.rows);
-    ans = fMat49.GaussianElimination();
+    Matrix ans = fMat49.GaussianElimination();
     ans.displayMat();
+
+    Matrix DMat("GaussMatrix.txt");
+    Matrix a = DMat.GaussianElimination();
+    a.displayMat();
 }
 
 /*

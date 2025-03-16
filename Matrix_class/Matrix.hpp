@@ -36,7 +36,7 @@ public:
     void basicPivoting(int);
     void upperTriangular();
     Matrix backSubstitution();
-    Matrix upperTriangularMat();
+    void upperTriangularMat();
     Matrix GaussianElimination();
 
     int CroutsMethod(Matrix &, Matrix &);
