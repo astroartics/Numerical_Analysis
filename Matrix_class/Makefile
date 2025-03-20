@@ -1,10 +1,11 @@
 CC=g++
+CCFLAGS=-I.
 DEPS=Matrix.hpp
 TARGET=matop
-OBJS=main.o Matrix.o Add_Sub.o Identity_Symmetric.o Multiply.o Gaussian_Elimination.o Transpose.o LU_Decomposition.o DiagonallyDominant.o Determinant.o
+OBJS=main.o Matrix.o Add_Sub.o Identity_Symmetric.o Multiply.o Gaussian_Elimination.o Transpose.o LU_Decomposition.o DiagonallyDominant.o Determinant.o Gauss_Jacobi_Seidel.o
 
 %.o: %.cpp $(DEPS)
-	$(CC) -o $@ $<
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $^
+	$(CC) -o $@ $(OBJS)

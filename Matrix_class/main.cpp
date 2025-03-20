@@ -4,44 +4,20 @@ using namespace std;
 
 int main()
 {
-    // LU Decomposition
-    Matrix AMat("LUMatrix1.txt");
-    Matrix L(AMat.rows, AMat.rows), U(AMat.rows, AMat.rows);
-    if (AMat.CroutsMethod(L, U) != -1)
-    {
-        L.displayMat();
-        U.displayMat();
-    }
-    if (AMat.DooLittlesMethod(L, U) != -1)
-    {
-        L.displayMat();
-        U.displayMat();
-    }
-
-    cout << endl;
-    Matrix BMat("LUMatrix2.txt");
-    Matrix L2(BMat.rows, BMat.rows);
-    if (BMat.CholeskiMethod(L2) != -1)
-    {
-        L2.displayMat();
-        L2 = L2.transpose();
-        L2.displayMat();
-    }
-    cout << endl;
-
     // Diagonally Dominant
     Matrix CMat("DiagonallyDominantMat.txt");
     cout << CMat.isDiagonallyDominant() << "\n\n";
 
+    Matrix BMat("LUMatrix2.txt");
     cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
 
-    Matrix fMat49("49l.txt");
-    Matrix ans = fMat49.GaussianElimination();
-    ans.displayMat();
+    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
+    // result.displayMat();
 
-    Matrix DMat("GaussMatrix.txt");
-    Matrix a = DMat.GaussianElimination();
-    a.displayMat();
+    Matrix result = Gauss_JS.GaussSeidelMethod(Gauss_JS.rows, b);
+    result.displayMat();
 }
 
 /*
@@ -154,5 +130,37 @@ int main()
     }
     Matrix upperT = DMat.upperTriangularMat();
     upperT.displayMat();
+    cout << endl;
+
+    Matrix fMat49("49l.txt");
+    Matrix ans = fMat49.GaussianElimination();
+    ans.displayMat();
+
+    Matrix DMat("GaussMatrix.txt");
+    Matrix a = DMat.GaussianElimination();
+    a.displayMat();
+
+    Matrix AMat("LUMatrix1.txt");
+    Matrix L(AMat.rows, AMat.rows), U(AMat.rows, AMat.rows);
+    if (AMat.CroutsMethod(L, U) != -1)
+    {
+        L.displayMat();
+        U.displayMat();
+    }
+    if (AMat.DooLittlesMethod(L, U) != -1)
+    {
+        L.displayMat();
+        U.displayMat();
+    }
+
+    cout << endl;
+    Matrix BMat("LUMatrix2.txt");
+    Matrix L2(BMat.rows, BMat.rows);
+    if (BMat.CholeskiMethod(L2) != -1)
+    {
+        L2.displayMat();
+        L2 = L2.transpose();
+        L2.displayMat();
+    }
     cout << endl;
 */

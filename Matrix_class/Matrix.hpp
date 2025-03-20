@@ -45,4 +45,20 @@ public:
 
     int determinant(long double **, int);
     int adjoint(long double **, int);
+
+    double vectorDistance(Matrix &, Matrix &, int);
+    Matrix GaussJacobiMethod(int, Matrix);
+    Matrix GaussSeidelMethod(int, Matrix);
+    // double xn(double y, double z)
+    // {
+    //     return ((7 + y - z) / 4);
+    // }
+    // double yn(double x, double z)
+    // {
+    //     return ((-21 - (4 * x) - z) / (-8));
+    // }
+    // double zn(double x, double y)
+    // {
+    //     return ((15 + (2 * x) - y) / 5);
+    // }
 };
