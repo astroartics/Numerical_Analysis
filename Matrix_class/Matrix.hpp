@@ -5,7 +5,7 @@
 class Matrix
 {
 public:
-    int rows, cols;
+    long int rows, cols;
     long double **mat;
 
     Matrix();
@@ -36,7 +36,6 @@ public:
     void basicPivoting(int);
     void upperTriangular();
     Matrix backSubstitution();
-    void upperTriangularMat();
     Matrix GaussianElimination();
 
     int CroutsMethod(Matrix &, Matrix &);
@@ -49,16 +48,4 @@ public:
     double vectorDistance(Matrix &, Matrix &, int);
     Matrix GaussJacobiMethod(int, Matrix);
     Matrix GaussSeidelMethod(int, Matrix);
-    // double xn(double y, double z)
-    // {
-    //     return ((7 + y - z) / 4);
-    // }
-    // double yn(double x, double z)
-    // {
-    //     return ((-21 - (4 * x) - z) / (-8));
-    // }
-    // double zn(double x, double y)
-    // {
-    //     return ((15 + (2 * x) - y) / 5);
-    // }
 };

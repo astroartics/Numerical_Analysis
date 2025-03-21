@@ -11,3 +11,4 @@ Matrix_class/Multiply.o
 Matrix_class/Matrix.o
 Matrix_class/matop
 Matrix_class/main.o
+Matrix_class/Gauss_Jacobi_Seidel.o

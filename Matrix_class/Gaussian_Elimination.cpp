@@ -46,18 +46,6 @@ void Matrix::basicPivoting(int currIndex)
     }
 }
 
-void Matrix::upperTriangularMat()
-{
-    for (int i = 0; i < rows; i++)
-    {
-        long double diagonalEle = mat[i][i];
-        for (int j = 0; j <= rows; j++)
-        {
-            mat[i][j] /= diagonalEle;
-        }
-    }
-}
-
 Matrix Matrix::backSubstitution()
 {
     Matrix x(1, rows);
@@ -77,69 +65,37 @@ Matrix Matrix::backSubstitution()
 
 void Matrix::upperTriangular()
 {
-    // upperTriangularMat();
-    // displayMat();
+    long double diagonalEle = mat[0][0];
+    for (int j = 0; j <= rows; j++)
+    {
+        mat[0][j] /= diagonalEle;
+    }
 
-    for (int i = 0; i < rows - 1; i++) // Going till the last row
+    for (int i = 0; i < rows - 1; i++)
     {
         if (mat[i][i] == 0)
         {
             basicPivoting(i);
         }
 
-        for (int j = i + 1; j < rows; j++) // Going till the last row after ith row
+        for (int j = i + 1; j < rows; j++)
         {
-            // long double ratio = mat[j][i];
-            long double ratio = (mat[j][i] / mat[i][i]); // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element on the diagonal will be 1).
-            for (int k = i; k <= rows; k++)              // Going from the first column till the last
+            long double eleBelowDiagonal = mat[j][i];
+
+            for (int k = i; k <= rows; k++)
             {
-                mat[j][k] -= (ratio * mat[i][k]); // Diagonal element i.e. when i==k, mat[i][k] becomes 1 after multiplying it with the ratio, and then the entire jth row is subtracted from the current pivot row.
-                                                  // Multiplying the ratio with the entire previous row elements ans subtracting from the current row to make the elements below current element 0.
+                mat[j][k] -= (eleBelowDiagonal * mat[i][k]);
+            }
+
+            // Making diagonal element 1
+            diagonalEle = mat[j][j];
+            for (int m = 0; m <= rows; m++)
+            {
+                mat[j][m] /= diagonalEle;
             }
         }
     }
-    upperTriangularMat();
 }
-
-// Matrix Matrix::upperTriangular()
-// {
-//     Matrix m = *this;
-
-//     for (int i = 0; i < rows; i++)
-//     {
-//         long double diagonalEle = m.mat[i][i];
-//         for (int j = 0; j <= rows; j++)
-//         {
-//             m.mat[i][j] /= diagonalEle;
-//         }
-//     }
-//     m.displayMat();
-
-//     for (int i = 0; i < rows - 1; i++) // Going till the last row
-//     {
-//         if (m.mat[i][i] == 0)
-//         {
-//             basicPivoting(i);
-//         }
-
-//         for (int j = i + 1; j < rows; j++) // Going till the last row after ith row
-//         {
-//             int ele = mat[j][i];
-//             // long double ratio = mat[j][i] / mat[i][i]; // Taking the ratio of the element in the row below the diagonal element and the diagonal element so that it can be subtracted with the row elements below the current row (ultimately subtracting the element in row below with itself, as the element on the diagonal will be 1).
-//             for (int k = 0; k <= rows; k++) // Going from the first column till the last
-//             {
-//                 m.mat[j][k] -= ele * m.mat[i][k]; // Diagonal element i.e. when i==k, mat[i][k] becomes 1 after multiplying it with the ratio, and then the entire jth row is subtracted from the current pivot row.
-//                 // Multiplying the ratio with the entire previous row elements ans subtracting from the current row to make the elements below current element 0.
-//             }
-//         }
-//         cout << endl;
-//         m.displayMat();
-//     }
-
-//     return m;
-//     // backSubstitution();
-//     // upperTriangularMat();
-// }
 
 Matrix Matrix::GaussianElimination()
 {

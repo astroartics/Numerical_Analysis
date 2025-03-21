@@ -5,19 +5,20 @@ using namespace std;
 int main()
 {
     // Diagonally Dominant
-    Matrix CMat("DiagonallyDominantMat.txt");
-    cout << CMat.isDiagonallyDominant() << "\n\n";
+    // Matrix CMat("DiagonallyDominantMat.txt");
+    // cout << CMat.isDiagonallyDominant(0) << "\n\n";
 
-    Matrix BMat("LUMatrix2.txt");
-    cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
+    // Matrix BMat("LUMatrix2.txt");
+    // cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
 
-    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
-    Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    // Matrix b("Gauss_Jacobi_Seidel_b.txt");
     // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
     // result.displayMat();
 
-    Matrix result = Gauss_JS.GaussSeidelMethod(Gauss_JS.rows, b);
-    result.displayMat();
+    Matrix DMat("49l.txt");
+    Matrix a = DMat.GaussianElimination();
+    a.displayMat();
 }
 
 /*
