@@ -56,7 +56,7 @@ Matrix Matrix::GaussJacobiMethod(int varCount, Matrix b)
     }
     else
     {
-        cout << "Matrix is not diagonally dominant" << endl;
+        cout << "Matrix cannot be converted to a diagonally dominant matrix" << endl;
         exit(0);
     }
     return curr;
@@ -92,7 +92,7 @@ Matrix Matrix::GaussSeidelMethod(int varCount, Matrix b)
     }
     else
     {
-        cout << "Matrix is not diagonally dominant" << endl;
+        cout << "Matrix cannot be converted to a diagonally dominant matrix" << endl;
         exit(0);
     }
     return curr;

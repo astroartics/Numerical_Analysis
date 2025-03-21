@@ -31,6 +31,7 @@ public:
     bool isIdentity();
     bool isSymmetric();
     bool isDiagonallyDominant();
+    int makeDiagonallyDominant(int);
 
     Matrix transpose();
 

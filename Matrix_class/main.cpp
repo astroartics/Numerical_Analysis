@@ -4,17 +4,20 @@ using namespace std;
 
 int main()
 {
-    Matrix DMat("225left.txt");
-    Matrix b("225right.txt");
-    for (int i = 0; i < DMat.rows; i++)
-    {
-        DMat.mat[i][DMat.cols - 1] = b.mat[i][0];
-    }
+    // Matrix DMat("225left.txt");
+    // Matrix b("225right.txt");
+    // for (int i = 0; i < DMat.rows; i++)
+    // {
+    //     DMat.mat[i][DMat.cols - 1] = b.mat[i][0];
+    // }
 
-    Matrix a = DMat.GaussianElimination();
-    a.displayMat();
+    // Matrix a = DMat.GaussianElimination();
+    // a.displayMat();
 
-    a.outputToFile("Outputs/49x49.txt");
+    // a.outputToFile("Outputs/49x49.txt");
+
+    Matrix CMat("DiagonallyDominantMat.txt");
+    CMat.isDiagonallyDominant();
 }
 
 /*
