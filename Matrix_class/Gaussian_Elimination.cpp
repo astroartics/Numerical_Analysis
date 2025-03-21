@@ -65,33 +65,28 @@ Matrix Matrix::backSubstitution()
 
 void Matrix::upperTriangular()
 {
-    long double diagonalEle = mat[0][0];
-    for (int j = 0; j <= rows; j++)
-    {
-        mat[0][j] /= diagonalEle;
-    }
-
-    for (int i = 0; i < rows - 1; i++)
+    for (int i = 0; i < rows; i++)
     {
         if (mat[i][i] == 0)
         {
             basicPivoting(i);
         }
 
+        // Making diagonal element 1 by dividing entire row by that diagonal element
+        long double diagonalEle = mat[i][i];
+        mat[i][i] = 1;
+        for (int m = 1; m < cols; m++)
+        {
+            mat[i][m] /= diagonalEle;
+        }
+
         for (int j = i + 1; j < rows; j++)
         {
             long double eleBelowDiagonal = mat[j][i];
 
-            for (int k = i; k <= rows; k++)
+            for (int k = i; k < cols; k++)
             {
                 mat[j][k] -= (eleBelowDiagonal * mat[i][k]);
-            }
-
-            // Making diagonal element 1
-            diagonalEle = mat[j][j];
-            for (int m = 0; m <= rows; m++)
-            {
-                mat[j][m] /= diagonalEle;
             }
         }
     }

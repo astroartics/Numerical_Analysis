@@ -94,6 +94,24 @@ Matrix::Matrix(string filename)
     }
 }
 
+void Matrix::outputToFile(string filename)
+{
+    ofstream file(filename);
+    if (!file)
+    {
+        cout << "Error opening the matrix file!" << endl;
+        exit(0);
+    }
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            file << mat[i][j] << endl;
+        }
+    }
+}
+
 void Matrix::displayMat()
 {
     for (int i = 0; i < this->rows; ++i)

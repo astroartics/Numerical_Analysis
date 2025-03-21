@@ -4,21 +4,17 @@ using namespace std;
 
 int main()
 {
-    // Diagonally Dominant
-    // Matrix CMat("DiagonallyDominantMat.txt");
-    // cout << CMat.isDiagonallyDominant(0) << "\n\n";
+    Matrix DMat("225left.txt");
+    Matrix b("225right.txt");
+    for (int i = 0; i < DMat.rows; i++)
+    {
+        DMat.mat[i][DMat.cols - 1] = b.mat[i][0];
+    }
 
-    // Matrix BMat("LUMatrix2.txt");
-    // cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
-
-    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
-    // Matrix b("Gauss_Jacobi_Seidel_b.txt");
-    // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
-    // result.displayMat();
-
-    Matrix DMat("49l.txt");
     Matrix a = DMat.GaussianElimination();
     a.displayMat();
+
+    a.outputToFile("Outputs/49x49.txt");
 }
 
 /*
@@ -164,4 +160,16 @@ int main()
         L2.displayMat();
     }
     cout << endl;
+
+    // Diagonally Dominant
+    // Matrix CMat("DiagonallyDominantMat.txt");
+    // cout << CMat.isDiagonallyDominant() << "\n\n";
+
+    // Matrix BMat("LUMatrix2.txt");
+    // cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
+
+    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    // Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
+    // result.displayMat();
 */

@@ -12,6 +12,7 @@ public:
     Matrix(int, int);
     Matrix(long double **, int, int);
     Matrix(std::string);
+    void outputToFile(std::string);
     Matrix(const Matrix &);
     Matrix &operator=(const Matrix &);
     long double **createMatrix();
