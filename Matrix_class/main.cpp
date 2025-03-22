@@ -4,18 +4,6 @@ using namespace std;
 
 int main()
 {
-    // Matrix DMat("225left.txt");
-    // Matrix b("225right.txt");
-    // for (int i = 0; i < DMat.rows; i++)
-    // {
-    //     DMat.mat[i][DMat.cols - 1] = b.mat[i][0];
-    // }
-
-    // Matrix a = DMat.GaussianElimination();
-    // a.displayMat();
-
-    // a.outputToFile("Outputs/49x49.txt");
-
     Matrix CMat("Gauss_Jacobi_Seidel_Matrix.txt");
     // cout << CMat.isDiagonallyDominant();
 
@@ -180,4 +168,16 @@ int main()
     // Matrix b("Gauss_Jacobi_Seidel_b.txt");
     // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
     // result.displayMat();
+
+    // Matrix DMat("225left.txt");
+    // Matrix b("225right.txt");
+    // for (int i = 0; i < DMat.rows; i++)
+    // {
+    //     DMat.mat[i][DMat.cols - 1] = b.mat[i][0];
+    // }
+
+    // Matrix a = DMat.GaussianElimination();
+    // a.displayMat();
+
+    // a.outputToFile("Outputs/49x49.txt");
 */
