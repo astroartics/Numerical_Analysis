@@ -61,13 +61,12 @@ int Matrix::makeDiagonallyDominant(int currRow)
                 }
             }
         }
-        if (diagonallyDominantRow == 1)
+        if (diagonallyDominantRow)
             break;
     }
 
     if (diagonallyDominantRow == 0)
     {
-        cout << "false";
         return -1;
     }
 

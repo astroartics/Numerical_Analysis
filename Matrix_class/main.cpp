@@ -16,8 +16,13 @@ int main()
 
     // a.outputToFile("Outputs/49x49.txt");
 
-    Matrix CMat("DiagonallyDominantMat.txt");
-    CMat.isDiagonallyDominant();
+    Matrix CMat("Gauss_Jacobi_Seidel_Matrix.txt");
+    // cout << CMat.isDiagonallyDominant();
+
+    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
+    result.displayMat();
 }
 
 /*
