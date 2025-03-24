@@ -10,3 +10,5 @@
   - Matrix addition, subtraction, multiplication
   - isSymmetric, isIdentity, isDiagonallyDominant
   - LU Decomposition - Choleski, Crout's, DooLittle's
+  - Gaussian Elimination
+  - Gauss Jacobi and Gauss Seidel methods
