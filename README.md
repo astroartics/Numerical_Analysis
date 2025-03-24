@@ -7,3 +7,6 @@
   - Newton Raphson Method
   - Fixed Point Method
 - Matrix class
+  - Matrix addition, subtraction, multiplication
+  - isSymmetric, isIdentity, isDiagonallyDominant
+  - LU Decomposition - Choleski, Crout's, DooLittle's
