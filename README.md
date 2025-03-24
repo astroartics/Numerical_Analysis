@@ -6,3 +6,4 @@
   - Bisection Method
   - Newton Raphson Method
   - Fixed Point Method
+- Matrix class
