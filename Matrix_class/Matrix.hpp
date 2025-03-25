@@ -44,7 +44,9 @@ public:
     int DooLittlesMethod(Matrix &, Matrix &);
     int CholeskiMethod(Matrix &);
 
-    int determinant(long double **, int);
+    double determinant(long double **, int);
+    void lowerTriangular();
+    double det(long double **);
     int adjoint(long double **, int);
 
     double vectorDistance(Matrix &, Matrix &, int);

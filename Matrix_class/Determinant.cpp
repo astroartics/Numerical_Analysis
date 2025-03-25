@@ -2,9 +2,9 @@
 
 using namespace std;
 
-int Matrix::determinant(long double **mat, int n)
+double Matrix::determinant(long double **mat, int n)
 {
-    int det = 0;
+    double det = 0;
     long double **temp = new long double *[rows];
     for (int i = 0; i < rows; i++)
     {
@@ -35,4 +35,33 @@ int Matrix::determinant(long double **mat, int n)
         det += (pow(-1, x) * mat[0][x] * determinant(temp, n - 1));
     }
     return det;
+}
+
+void Matrix::lowerTriangular()
+{
+    for (int i = 0; i < rows - 1; i++)
+    {
+        for (int j = i + 1; j < rows; j++)
+        {
+            long double ratio = (mat[i][j] / mat[i][i]);
+
+            for (int k = 0; k < cols; k++)
+            {
+                mat[j][k] -= (mat[i][k] * ratio);
+            }
+        }
+    }
+}
+
+double Matrix::det(long double **mat)
+{
+    lowerTriangular();
+
+    long double d = 1;
+    for (long int i = 0; i < rows; i++)
+    {
+        d *= mat[i][i];
+    }
+
+    return d;
 }
