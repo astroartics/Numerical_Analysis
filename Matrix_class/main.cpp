@@ -4,14 +4,6 @@ using namespace std;
 
 int main()
 {
-    // Matrix CMat("Gauss_Jacobi_Seidel_Matrix.txt");
-    // cout << CMat.isDiagonallyDominant();
-
-    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
-    // Matrix b("Gauss_Jacobi_Seidel_b.txt");
-    // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
-    // result.displayMat();
-
     Matrix BMat("LUMatrix2.txt");
     cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
     cout << BMat.det(BMat.mat) << endl;
@@ -184,4 +176,12 @@ int main()
     // a.displayMat();
 
     // a.outputToFile("Outputs/49x49.txt");
+
+    // Matrix CMat("Gauss_Jacobi_Seidel_Matrix.txt");
+    // cout << CMat.isDiagonallyDominant();
+
+    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    // Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
+    // result.displayMat();
 */
