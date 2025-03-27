@@ -5,8 +5,11 @@ using namespace std;
 int main()
 {
     Matrix xi("xi.txt"), fi("fi.txt");
-    xi.displayMat();
-    xi.leastSquaresLine(fi);
+    Matrix result = xi.leastSquaresLine(fi);
+    result.displayMat();
+
+    result = xi.leastSquaresParabola(fi);
+    result.displayMat();
 }
 
 /*

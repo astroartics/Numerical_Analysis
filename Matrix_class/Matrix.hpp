@@ -54,5 +54,6 @@ public:
     Matrix GaussSeidelMethod(int, Matrix);
 
     long double residualSumSquares(Matrix, Matrix);
-    long double leastSquaresLine(Matrix);
+    Matrix leastSquaresLine(Matrix);
+    Matrix leastSquaresParabola(Matrix);
 };
