@@ -53,5 +53,6 @@ public:
     Matrix GaussJacobiMethod(int, Matrix);
     Matrix GaussSeidelMethod(int, Matrix);
 
+    long double residualSumSquares(Matrix, Matrix);
     long double leastSquaresLine(Matrix);
 };

@@ -2,6 +2,20 @@
 
 using namespace std;
 
+long double Matrix::residualSumSquares(Matrix fi, Matrix yi)
+{
+    long double fi_yi_sq = 0;
+
+    for (int i = 0; i < cols; i++)
+    {
+        fi_yi_sq += pow((fi.mat[0][i] - yi.mat[0][i]), 2);
+    }
+
+    long double rms = sqrt(fi_yi_sq / cols);
+
+    return rms;
+}
+
 long double Matrix::leastSquaresLine(Matrix fi)
 {
     ofstream ax_b_mat("ax_b_mat.txt");
@@ -31,7 +45,14 @@ long double Matrix::leastSquaresLine(Matrix fi)
 
     Matrix eqn("ax_b_mat.txt");
     Matrix result = eqn.GaussianElimination();
-    result.displayMat();
+
+    Matrix yi(1, cols);
+    for (int i = 0; i < cols; i++)
+    {
+        yi.mat[0][i] = (result.mat[0][0] * mat[0][i]) + result.mat[0][1];
+    }
+
+    residualSumSquares(fi, yi);
 
     return 0;
 }
