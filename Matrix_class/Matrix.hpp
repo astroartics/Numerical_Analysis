@@ -52,4 +52,6 @@ public:
     double vectorDistance(Matrix &, Matrix &, int);
     Matrix GaussJacobiMethod(int, Matrix);
     Matrix GaussSeidelMethod(int, Matrix);
+
+    long double leastSquaresLine(Matrix);
 };

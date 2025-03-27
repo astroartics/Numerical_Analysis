@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-    Matrix BMat("LUMatrix2.txt");
-    cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
-    cout << BMat.det(BMat.mat) << endl;
+    Matrix xi("xi.txt"), fi("fi.txt");
+    xi.displayMat();
+    xi.leastSquaresLine(fi);
 }
 
 /*
@@ -184,4 +184,8 @@ int main()
     // Matrix b("Gauss_Jacobi_Seidel_b.txt");
     // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
     // result.displayMat();
+
+    Matrix BMat("LUMatrix2.txt");
+    cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
+    cout << BMat.det(BMat.mat) << endl;
 */
