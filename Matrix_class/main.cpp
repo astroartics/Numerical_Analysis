@@ -1,14 +1,17 @@
 #include "Matrix.hpp"
+#include "Interpolation.hpp"
 
 using namespace std;
 
 int main()
 {
-    Matrix xi("xi.txt"), fi("fi.txt");
-    Matrix result = xi.leastSquaresLine(fi);
-    result.displayMat();
+    Matrix fi("fi.txt");
 
-    result = xi.leastSquaresParabola(fi);
+    // result = xi.leastSquaresParabola(fi);
+    // result.displayMat();
+
+    Interpolation xi("xi.txt");
+    Matrix result = xi.leastSquaresLine(fi);
     result.displayMat();
 }
 

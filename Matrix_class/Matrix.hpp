@@ -52,8 +52,4 @@ public:
     double vectorDistance(Matrix &, Matrix &, int);
     Matrix GaussJacobiMethod(int, Matrix);
     Matrix GaussSeidelMethod(int, Matrix);
-
-    long double residualSumSquares(Matrix, Matrix);
-    Matrix leastSquaresLine(Matrix);
-    Matrix leastSquaresParabola(Matrix);
 };
