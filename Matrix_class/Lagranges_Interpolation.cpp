@@ -14,10 +14,11 @@ long double Interpolation::LagrangesInterpolation(long double x, Matrix fi)
             {
                 numerator *= (x - m.mat[0][j]);
                 denominator *= (m.mat[0][i] - m.mat[0][j]);
-                cout << (x - m.mat[0][j]) << "\t" << (m.mat[0][i] - m.mat[0][j]) << endl;
+                // cout << (x - m.mat[0][j]) << "\t" << (m.mat[0][i] - m.mat[0][j]) << endl;
             }
         }
         fi_add += (fi.mat[0][i] * (numerator / denominator));
+        cout << (numerator) << " " << (denominator) << endl;
     }
 
     // result = numerator / denominator;

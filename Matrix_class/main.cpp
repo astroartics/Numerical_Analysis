@@ -12,7 +12,7 @@ int main()
     // cout << xi.RMS << endl;
     // xi.yi.displayMat();
 
-    long double res = xi.LagrangesInterpolation(2, fi);
+    long double res = xi.LagrangesInterpolation(3, fi);
     cout << res << endl;
 }
 
