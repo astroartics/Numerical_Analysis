@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long double Interpolation::residualSumSquares(Matrix fi, Matrix yi)
+void Interpolation::residualSumSquares(Matrix fi, Matrix yi)
 {
     long double fi_yi_sq = 0;
 
@@ -11,9 +11,7 @@ long double Interpolation::residualSumSquares(Matrix fi, Matrix yi)
         fi_yi_sq += pow((fi.mat[0][i] - yi.mat[0][i]), 2);
     }
 
-    long double rms = sqrt(fi_yi_sq / m.cols);
-
-    return rms;
+    RMS = sqrt(fi_yi_sq / m.cols);
 }
 
 Matrix Interpolation::leastSquaresLine(Matrix fi)
@@ -46,13 +44,15 @@ Matrix Interpolation::leastSquaresLine(Matrix fi)
     Matrix eqn("ax_b_mat.txt");
     Matrix result = eqn.GaussianElimination();
 
-    Matrix yi(1, m.cols);
+    Matrix y(1, m.cols);
     for (int i = 0; i < m.cols; i++)
     {
-        yi.mat[0][i] = (result.mat[0][0] * m.mat[0][i]) + result.mat[0][1];
+        y.mat[0][i] = (result.mat[0][0] * m.mat[0][i]) + result.mat[0][1];
     }
 
-    residualSumSquares(fi, yi);
+    yi = y;
+
+    residualSumSquares(fi, y);
 
     return result;
 }
@@ -96,13 +96,15 @@ Matrix Interpolation::leastSquaresParabola(Matrix fi)
     Matrix eqn("ax_b_mat.txt");
     Matrix result = eqn.GaussianElimination();
 
-    Matrix yi(1, m.cols);
+    Matrix y(1, m.cols);
     for (int i = 0; i < m.cols; i++)
     {
-        yi.mat[0][i] = (result.mat[0][0] * pow(m.mat[0][i], 2)) + (result.mat[0][1] * m.mat[0][i]) + result.mat[0][2];
+        y.mat[0][i] = (result.mat[0][0] * pow(m.mat[0][i], 2)) + (result.mat[0][1] * m.mat[0][i]) + result.mat[0][2];
     }
 
-    residualSumSquares(fi, yi);
+    yi = y;
+
+    residualSumSquares(fi, y);
 
     return result;
 }

@@ -5,13 +5,12 @@ using namespace std;
 int main()
 {
     Matrix fi("fi.txt");
-
-    // result = xi.leastSquaresParabola(fi);
-    // result.displayMat();
-
     Interpolation xi("xi.txt");
-    Matrix result = xi.leastSquaresLine(fi);
+    // Matrix result = xi.leastSquaresLine(fi);
+    Matrix result = xi.leastSquaresParabola(fi);
     result.displayMat();
+    cout << xi.RMS << endl;
+    xi.yi.displayMat();
 }
 
 /*
