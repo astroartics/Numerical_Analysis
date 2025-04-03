@@ -19,4 +19,6 @@ public:
     void residualSumSquares(Matrix, Matrix);
     Matrix leastSquaresLine(Matrix);
     Matrix leastSquaresParabola(Matrix);
+
+    long double LagrangesInterpolation(long double, Matrix);
 };

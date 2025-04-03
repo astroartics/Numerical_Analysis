@@ -7,10 +7,13 @@ int main()
     Matrix fi("fi.txt");
     Interpolation xi("xi.txt");
     // Matrix result = xi.leastSquaresLine(fi);
-    Matrix result = xi.leastSquaresParabola(fi);
-    result.displayMat();
-    cout << xi.RMS << endl;
-    xi.yi.displayMat();
+    // Matrix result = xi.leastSquaresParabola(fi);
+    // result.displayMat();
+    // cout << xi.RMS << endl;
+    // xi.yi.displayMat();
+
+    long double res = xi.LagrangesInterpolation(2, fi);
+    cout << res << endl;
 }
 
 /*
