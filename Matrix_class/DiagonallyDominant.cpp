@@ -46,19 +46,15 @@ int Matrix::makeDiagonallyDominant(int currRow)
     {
         for (j = i + 1; j < rows; j++)
         {
-            if (i != j)
+            sum = 0;
+            for (int k = 0; k < cols; k++)
             {
-                sum = 0;
-                for (int k = 0; k < cols; k++)
-                {
-
-                    sum += mat[j][k];
-                }
-                if ((abs(mat[i][i]) >= abs(sum)))
-                {
-                    diagonallyDominantRow = 1;
-                    break;
-                }
+                sum += mat[j][k];
+            }
+            if ((abs(mat[i][i]) >= abs(sum)))
+            {
+                diagonallyDominantRow = 1;
+                break;
             }
         }
         if (diagonallyDominantRow)

@@ -14,6 +14,10 @@ int main()
 
     // long double res = xi.LagrangesInterpolation(3, fi);
     // cout << res << endl;
+
+    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    Gauss_JS.makeDiagonallyDominant(0);
+    Gauss_JS.displayMat();
 }
 
 /*
