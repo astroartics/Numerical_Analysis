@@ -19,6 +19,5 @@ long double Interpolation::LagrangesInterpolation(long double x, Matrix fi)
         result += (fi.mat[0][i] * ratio);
     }
 
-    cout << result << endl;
     return result;
 }

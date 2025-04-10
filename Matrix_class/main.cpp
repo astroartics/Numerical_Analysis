@@ -6,18 +6,8 @@ int main()
 {
     Matrix fi("fi.txt");
     Interpolation xi("xi.txt");
-    // Matrix result = xi.leastSquaresLine(fi);
-    // Matrix result = xi.leastSquaresParabola(fi);
-    // result.displayMat();
-    // cout << xi.RMS << endl;
-    // xi.yi.displayMat();
 
-    long double res = xi.LagrangesInterpolation(2, fi);
-    cout << res << endl;
-
-    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
-    // Gauss_JS.makeDiagonallyDominant(0);
-    // Gauss_JS.displayMat();
+    cout << xi.LagrangesInterpolation(2, fi) << endl;
 }
 
 /*
