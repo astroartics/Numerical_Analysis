@@ -12,12 +12,12 @@ int main()
     // cout << xi.RMS << endl;
     // xi.yi.displayMat();
 
-    // long double res = xi.LagrangesInterpolation(3, fi);
-    // cout << res << endl;
+    long double res = xi.LagrangesInterpolation(2, fi);
+    cout << res << endl;
 
-    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
-    Gauss_JS.makeDiagonallyDominant(0);
-    Gauss_JS.displayMat();
+    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    // Gauss_JS.makeDiagonallyDominant(0);
+    // Gauss_JS.displayMat();
 }
 
 /*

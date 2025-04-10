@@ -20,5 +20,5 @@ public:
     Matrix leastSquaresLine(Matrix);
     Matrix leastSquaresParabola(Matrix);
 
-    // long double LagrangesInterpolation(long double, Matrix);
+    long double LagrangesInterpolation(long double, Matrix);
 };
