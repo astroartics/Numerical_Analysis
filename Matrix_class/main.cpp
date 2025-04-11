@@ -7,10 +7,10 @@ int main()
     Matrix fi("fi.txt");
     Interpolation xi("xi.txt");
 
-    cout << xi.LagrangesInterpolation(2, fi) << endl;
-
-    Interpolation i;
-    cout << i.ChebyshevApproximation(3, 4) << endl;
+    Matrix result = xi.exponentialFit(fi);
+    result.displayMat();
+    xi.yi.displayMat();
+    cout << xi.RMS << endl;
 }
 
 /*
@@ -196,4 +196,10 @@ int main()
     Matrix result = xi.leastSquaresLine(fi);
     result.displayMat();
     cout << xi.RMS << endl;
+
+    Matrix fi("fi.txt");
+    Interpolation xi("xi.txt");
+    cout << xi.LagrangesInterpolation(2, fi) << endl;
+    Interpolation i;
+    cout << i.ChebyshevApproximation(3, 4) << endl;
 */
