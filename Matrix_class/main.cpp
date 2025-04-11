@@ -8,6 +8,9 @@ int main()
     Interpolation xi("xi.txt");
 
     cout << xi.LagrangesInterpolation(2, fi) << endl;
+
+    Interpolation i;
+    cout << i.ChebyshevApproximation(3, 4) << endl;
 }
 
 /*
@@ -189,4 +192,8 @@ int main()
     Matrix BMat("LUMatrix2.txt");
     cout << BMat.determinant(BMat.mat, BMat.cols) << endl;
     cout << BMat.det(BMat.mat) << endl;
+
+    Matrix result = xi.leastSquaresLine(fi);
+    result.displayMat();
+    cout << xi.RMS << endl;
 */

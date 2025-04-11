@@ -13,3 +13,4 @@ Matrix_class/matop
 Matrix_class/main.o
 Matrix_class/Gauss_Jacobi_Seidel.o
 Matrix_class/Lagranges_Interpolation.o
+Matrix_class/ChebyshevPolynomial.o

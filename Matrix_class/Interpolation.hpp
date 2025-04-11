@@ -6,6 +6,15 @@ public:
     Matrix m, yi;
     long double RMS;
 
+    Interpolation()
+    {
+        RMS = 0.0;
+        m.rows = 1;
+        m.cols = 1;
+        m.createMatrix();
+        yi = m;
+    }
+
     Interpolation(std::string filename)
     {
         Matrix temp(filename);
@@ -21,4 +30,6 @@ public:
     Matrix leastSquaresParabola(Matrix);
 
     long double LagrangesInterpolation(long double, Matrix);
+
+    long double ChebyshevApproximation(long double, int);
 };
