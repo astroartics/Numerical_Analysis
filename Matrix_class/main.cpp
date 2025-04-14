@@ -6,6 +6,7 @@ int main()
 {
     Matrix fi("fi.txt");
     Interpolation xi("xi.txt");
+    xi.m.displayMat();
 
     ofstream file("fi.txt");
     file << "1 11" << endl;
@@ -15,8 +16,12 @@ int main()
         file << function << " ";
     }
 
-    long double result = xi.LagrangesInterpolation(2.0, fi);
-    cout << "Result : " << result << endl;
+    ofstream file2("opLagrange.txt");
+    for (long double x = -1.0; x < 1.2; x += 0.2)
+    {
+        long double result = xi.LagrangesInterpolation(x, fi);
+        file2 << result << " ";
+    }
 }
 
 /*
