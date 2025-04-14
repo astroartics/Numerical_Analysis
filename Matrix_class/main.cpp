@@ -8,11 +8,15 @@ int main()
     Interpolation xi("xi.txt");
 
     ofstream file("fi.txt");
-    for (long double x = -1.0; x <= 1; x += 0.2)
+    file << "1 11" << endl;
+    for (long double x = -1.0; x < 1.2; x += 0.2)
     {
         long double function = (1.0 / (1.0 + (12.0 * pow(x, 2))));
         file << function << " ";
     }
+
+    long double result = xi.LagrangesInterpolation(2.0, fi);
+    cout << "Result : " << result << endl;
 }
 
 /*
