@@ -15,3 +15,4 @@ Matrix_class/Gauss_Jacobi_Seidel.o
 Matrix_class/Lagranges_Interpolation.o
 Matrix_class/ChebyshevPolynomial.o
 Matrix_class/Exponential_Power_Fit.o
+Matrix_class/Lagranges_Interpolation.o
