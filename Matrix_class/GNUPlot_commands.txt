@@ -1,0 +1,7 @@
+plot 'data.txt' w lp lt rgb "blue" pt 7 ps 1.5 lw 2 title 'My Data'
+where,
+lt rgb "blue" – line color
+pt 7 – point type
+ps 1.5 – point size
+lw 2 – line width
+title 'My Data' – legend title
