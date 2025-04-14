@@ -33,4 +33,5 @@ public:
     long double LagrangesInterpolation(long double, Matrix);
 
     long double ChebyshevApproximation(long double, int);
+    Matrix ChebyshevCoefficients(int);
 };

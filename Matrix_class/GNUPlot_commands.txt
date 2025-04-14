@@ -5,3 +5,5 @@ pt 7 – point type
 ps 1.5 – point size
 lw 2 – line width
 title 'My Data' – legend title
+
+plot "data1.txt" using 1:2 with points lc rgb "red" pt 7 ps 1.5 title "Lagrange's Interpolation Data", "data2.txt" using 1:2 with points lc rgb "green" pt 5 ps 1.5 title "Chebyshev Interpolation Data",(1/(1+12*x*x)) w l lc rgb "black" title "Original Function (1/(1+12x²))"

@@ -6,12 +6,25 @@ int main()
 {
     Matrix fi("fi.txt");
     Interpolation xi("xi.txt");
+    int N = 11;
+    long double pt = -1.0;
 
-    ofstream file2("opLagrange.txt");
-    for (long double x = -1.0; x < 1.2; x += 0.2)
+    ofstream gnuDataLagranges("gnuDataLagranges.txt");
+    ofstream gnuDataChebyshev("gnuDataChebyshev.txt");
+
+    // Result using Lagrange's interpolation on points with difference 0.2
+    for (int i = 0; i < N; i++)
     {
-        long double result = xi.LagrangesInterpolation(x, fi);
-        file2 << x << " " << result << endl;
+        long double result = xi.LagrangesInterpolation(pt, fi);
+        gnuDataLagranges << xi.m.mat[0][i] << " " << result << endl;
+        pt += 0.2;
+    }
+
+    // Values using Chebyshev and Lagrange's method.
+    Matrix fx = xi.ChebyshevCoefficients(N);
+    for (int i = 0; i < N; i++)
+    {
+        gnuDataChebyshev << xi.m.mat[0][i] << " " << fx.mat[0][i] << endl;
     }
 }
 
