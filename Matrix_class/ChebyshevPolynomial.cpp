@@ -18,7 +18,7 @@ long double Interpolation::ChebyshevApproximation(long double x, int t)
     return result;
 }
 
-long double f(long double x)
+long double Interpolation::f(long double x)
 {
     return (1.0 / (1 + (12 * pow(x, 2))));
 }

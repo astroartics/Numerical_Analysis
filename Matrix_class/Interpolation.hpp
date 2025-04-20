@@ -34,4 +34,5 @@ public:
 
     long double ChebyshevApproximation(long double, int);
     Matrix ChebyshevCoefficients(int);
+    long double f(long double);
 };
