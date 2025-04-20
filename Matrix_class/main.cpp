@@ -31,7 +31,6 @@ int main()
     for (long double j = -1.0; j < 1.01; j += 0.01)
     {
         long double result = xi.LagrangesInterpolation(j, f);
-        cout << j << "\t" << result << endl;
         gnuDataLagranges << j << " " << result << endl;
     }
 

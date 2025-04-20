@@ -83,7 +83,6 @@ Matrix::Matrix(string filename)
 
     mat = createMatrix();
 
-    cout << "Rows : " << this->rows << endl;
     for (int i = 0; i < this->rows; ++i)
     {
         getline(matFile, firstLine);
@@ -92,7 +91,6 @@ Matrix::Matrix(string filename)
         for (int j = 0; j < this->cols; ++j)
         {
             sStream >> mat[i][j];
-            std::cout << "mat[" << i << "][" << j << "] = " << mat[i][j] << std::endl;
         }
     }
 }
