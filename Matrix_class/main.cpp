@@ -5,20 +5,19 @@ using namespace std;
 int main()
 {
     int N = 11;
-    // long double pt = -1.0;
 
     ofstream fi("fi.txt");
     ofstream x("xi.txt");
-    x << "1 11" << endl;
+    x << "1 " << N << endl;
     for (long double j = -1.0; j < 1.2; j += 0.2)
     {
         x << j << " ";
     }
+
     x.close();
     Interpolation xi("xi.txt");
-    // xi.m.displayMat();
 
-    fi << "1 11" << endl;
+    fi << "1 " << N << endl;
 
     for (long double j = -1.0; j < 1.2; j += 0.2)
     {
@@ -27,7 +26,6 @@ int main()
 
     fi.close();
     Matrix f("fi.txt");
-    f.displayMat();
 
     ofstream gnuDataLagranges("gnuDataLagranges.txt");
     for (long double j = -1.0; j < 1.01; j += 0.01)
@@ -37,28 +35,13 @@ int main()
         gnuDataLagranges << j << " " << result << endl;
     }
 
-    // gnuDataLagranges.close();
-
-    // ofstream gnuDataLagranges("gnuDataLagranges.txt");
-    // ofstream gnuDataChebyshev("gnuDataChebyshev.txt");
-
-    // Result using Lagrange's interpolation on points with difference 0.2
-    // for (int i = 0; i < N; i++)
-    // {
-    //     long double result = xi.LagrangesInterpolation(pt, fi);
-    //     gnuDataLagranges << xi.m.mat[0][i] << " " << result << endl;
-    //     pt += 0.2;
-    // }
-
-    // ofstream f_i("fi.txt");
     fi.open("fi.txt");
-    fi << "1 11" << endl;
+    fi << "1 " << N << endl;
 
     x.open("xi.txt");
-    x << "1 11" << endl;
+    x << "1 " << N << endl;
 
-    // Values using Chebyshev and Lagrange's method.
-    Matrix fx = xi.ChebyshevCoefficients(N);
+    f = xi.ChebyshevCoefficients(N);
 
     for (int i = 0; i < N; i++)
     {
@@ -67,34 +50,18 @@ int main()
 
     for (int i = 0; i < N; i++)
     {
-        fi << fx.mat[0][i] << " ";
+        fi << f.mat[0][i] << " ";
     }
 
     ofstream gnuDataChebyshev("gnuDataChebyshev.txt");
-    // for (long double j = -1.0; j < 1.01; j += 0.01)
-    // {
-    //     long double result = xi.LagrangesInterpolation(j, fx);
-    //     cout << j << "\t" << result << endl;
-    //     gnuDataChebyshev << j << " " << result << endl;
-    // }
-
-    // for (int i = 0; i < N; i++)
-    // {
-    //     f_i << fx.mat[0][i] << endl;
-    // }
-
-    // fx.displayMat();
-    // xi.m.displayMat();
-
-    // for (long double j = -1.0; j < 1.01; j += 0.01)
-    // {
-    //     long double result = xi.LagrangesInterpolation(j, fx);
-    //     cout << j << "\t" << result << endl;
-    //     gnuDataLagranges << j << " " << result << endl;
-    // }
+    for (long double j = -1.0; j < 1.01; j += 0.01)
+    {
+        long double result = xi.LagrangesInterpolation(j, f);
+        gnuDataChebyshev << j << " " << result << endl;
+    }
 
     gnuDataLagranges.close();
-    // gnuDataChebyshev.close();
+    gnuDataChebyshev.close();
 }
 
 /*
