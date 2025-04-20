@@ -20,7 +20,7 @@ public:
         Matrix temp(filename);
         m = temp;
         RMS = 0.0;
-        yi.rows = 1;
+        yi.rows = m.rows;
         yi.cols = m.cols;
         yi.createMatrix();
     }

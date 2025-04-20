@@ -36,6 +36,7 @@ Matrix::Matrix()
 {
     rows = 0;
     cols = 0;
+    mat = nullptr;
 }
 
 Matrix::Matrix(int r, int c)
@@ -82,6 +83,7 @@ Matrix::Matrix(string filename)
 
     mat = createMatrix();
 
+    cout << "Rows : " << this->rows << endl;
     for (int i = 0; i < this->rows; ++i)
     {
         getline(matFile, firstLine);
@@ -90,6 +92,7 @@ Matrix::Matrix(string filename)
         for (int j = 0; j < this->cols; ++j)
         {
             sStream >> mat[i][j];
+            std::cout << "mat[" << i << "][" << j << "] = " << mat[i][j] << std::endl;
         }
     }
 }
@@ -141,12 +144,16 @@ Matrix &Matrix::operator=(const Matrix &other)
 {
     if (this != &other) // Avoiding assigning same object to itself which will create errors after de-allocating memory
     {
-        // De-allocating memory for the current object as it is to be filled with new values of the 'other' object
-        for (int i = 0; i < this->rows; i++)
+        if (mat != nullptr)
         {
-            delete[] this->mat[i];
+            // De-allocating memory for the current object as it is to be filled with new values of the 'other' object
+            for (int i = 0; i < this->rows; i++)
+            {
+                delete[] this->mat[i];
+            }
+            delete[] this->mat;
+            mat = nullptr;
         }
-        delete[] this->mat;
 
         // Creating new object
         rows = other.rows;
@@ -164,12 +171,13 @@ Matrix &Matrix::operator=(const Matrix &other)
 
 Matrix::~Matrix()
 {
-    if (mat != NULL)
+    if (mat != nullptr)
     {
         for (int i = 0; i < this->rows; i++)
         {
             delete[] this->mat[i]; // De-allocating the memory held by row pointers first
         }
         delete[] this->mat; // Then de-allocating the memory held by the double pointer
+        mat = nullptr;
     }
 }

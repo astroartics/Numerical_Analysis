@@ -29,7 +29,7 @@ Matrix Interpolation::ChebyshevCoefficients(int N)
 
     for (int i = 0; i < N; i++)
     {
-        m.mat[0][i] = cos(((2.0 * i + 1.0) / N) * (M_PI / 2.0));
+        this->m.mat[0][i] = cos(((2.0 * i + 1.0) / N) * (M_PI / 2.0));
         fi.mat[0][i] = f(m.mat[0][i]);
     }
 
