@@ -64,13 +64,13 @@ Matrix Interpolation::powerFit(Matrix fi)
 
     ax_b_mat << 2 << " " << 3 << endl;
 
-    long double xi_sum = 0, zi_lny_sum = 0.0, xi_sq_sum = 0, xi_zi_sum = 0;
+    long double xi_sum = 0, fi_sum = 0.0, ln_x_sum = 0.0, ln_y_sum = 0;
     for (int i = 0; i < m.cols; i++)
     {
         xi_sum += m.mat[0][i];
-        zi_lny_sum += log(fi.mat[0][i]);
-        xi_sq_sum += (m.mat[0][i] * m.mat[0][i]);
-        xi_zi_sum += (log(fi.mat[0][i]) * m.mat[0][i]);
+        ln_x_sum += log(fi.mat[0][i]);
+        ln_y_sum += (m.mat[0][i] * m.mat[0][i]);
+        fi_sum += (log(fi.mat[0][i]) * m.mat[0][i]);
     }
 
     // cout << xi_sq_sum << " ";
@@ -80,12 +80,12 @@ Matrix Interpolation::powerFit(Matrix fi)
     // cout << m.cols << " ";
     // cout << fi_sum << endl;
 
-    ax_b_mat << xi_sq_sum << " ";
+    ax_b_mat << ln_y_sum << " ";
     ax_b_mat << xi_sum << " ";
-    ax_b_mat << xi_zi_sum << endl;
+    ax_b_mat << fi_sum << endl;
     ax_b_mat << xi_sum << " ";
     ax_b_mat << m.cols << " ";
-    ax_b_mat << zi_lny_sum << endl;
+    ax_b_mat << ln_x_sum << endl;
 
     Matrix eqn("ax_b_mat.txt");
     Matrix result = eqn.GaussianElimination();

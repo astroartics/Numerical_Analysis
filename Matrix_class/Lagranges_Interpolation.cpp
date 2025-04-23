@@ -25,3 +25,43 @@ long double Interpolation::LagrangesInterpolation(long double x, Matrix fi)
 
     return result;
 }
+
+long double Interpolation::SplineInterpolation(long double x, Matrix fi)
+{
+    long double ratio = 1.0, result = 0.0;
+    int splineCount = 2;
+
+    long int rows = (m.rows > m.cols ? m.rows : m.cols);
+
+    for (int i = 0; i < rows / 2; i++)
+    {
+        ratio = 1.0;
+        for (int j = 0; j < rows / 2; j++)
+        {
+            if (i != j)
+            {
+                ratio *= (x - m.mat[0][j]) / (m.mat[0][i] - m.mat[0][j]);
+            }
+        }
+        result += (fi.mat[0][i] * ratio);
+    }
+
+    result = 0.0;
+
+    for (int i = (rows / 2); i < rows; i++)
+    {
+        ratio = 1.0;
+        for (int j = (rows / 2); j < rows; j++)
+        {
+            if (i != j)
+            {
+                ratio *= (x - m.mat[0][j]) / (m.mat[0][i] - m.mat[0][j]);
+            }
+        }
+        result += (fi.mat[0][i] * ratio);
+    }
+
+    cout << result << endl;
+
+    return result;
+}
