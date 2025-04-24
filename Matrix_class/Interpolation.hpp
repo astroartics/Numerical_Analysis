@@ -29,6 +29,7 @@ public:
     Matrix leastSquaresLine(Matrix);
     Matrix leastSquaresParabola(Matrix);
     Matrix exponentialFit(Matrix);
+    Matrix powerFit(Matrix);
 
     long double LagrangesInterpolation(long double, Matrix);
 
