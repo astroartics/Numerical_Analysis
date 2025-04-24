@@ -33,10 +33,10 @@ long double Interpolation::SplineInterpolation(long double x, Matrix fi)
 
     long int rows = (m.rows > m.cols ? m.rows : m.cols);
 
-    for (int i = 0; i < rows / 2; i++)
+    for (int i = 0; i <= rows / 2; i++)
     {
         ratio = 1.0;
-        for (int j = 0; j < rows / 2; j++)
+        for (int j = 0; j <= rows / 2; j++)
         {
             if (i != j)
             {
@@ -46,6 +46,7 @@ long double Interpolation::SplineInterpolation(long double x, Matrix fi)
         result += (fi.mat[0][i] * ratio);
     }
 
+    cout << result << endl;
     result = 0.0;
 
     for (int i = (rows / 2); i < rows; i++)
