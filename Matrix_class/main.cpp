@@ -12,71 +12,77 @@ int main()
     0.0783886 0.0914983 0.127325 0.221852 0.512169 1 0.512169 0.221852 0.127325 0.0914983 0.0783886
     */
 
-    // int N = 11;
+    int N = 11;
 
-    // ofstream fi("fi.txt");
-    // ofstream x("xi.txt");
-    // x << "1 " << N << endl;
-    // for (long double j = -1.0; j < 1.2; j += 0.2)
-    // {
-    //     x << j << " ";
-    // }
+    ofstream fi("fi.txt");
+    ofstream x("xi.txt");
+    x << "1 " << N << endl;
+    for (long double j = -1.0; j < 1.2; j += 0.2)
+    {
+        x << j << " ";
+    }
 
-    // x.close();
-    // Interpolation xi("xi.txt");
-
-    // fi << "1 " << N << endl;
-
-    // for (long double j = -1.0; j < 1.2; j += 0.2)
-    // {
-    //     fi << xi.f(j) << " ";
-    // }
-
-    // fi.close();
-    // Matrix f("fi.txt");
-
-    // ofstream gnuDataLagranges("gnuDataLagranges.txt");
-    // for (long double j = -1.0; j < 1.01; j += 0.01)
-    // {
-    //     long double result = xi.LagrangesInterpolation(j, f);
-    //     gnuDataLagranges << j << " " << result << endl;
-    // }
-
-    // fi.open("fi.txt");
-    // fi << "1 " << N << endl;
-
-    // x.open("xi.txt");
-    // x << "1 " << N << endl;
-
-    // f = xi.ChebyshevCoefficients(N);
-
-    // for (int i = 0; i < N; i++)
-    // {
-    //     x << xi.m.mat[0][i] << " ";
-    // }
-
-    // for (int i = 0; i < N; i++)
-    // {
-    //     fi << f.mat[0][i] << " ";
-    // }
-
-    // ofstream gnuDataChebyshev("gnuDataChebyshev.txt");
-    // for (long double j = -1.0; j < 1.01; j += 0.01)
-    // {
-    //     long double result = xi.LagrangesInterpolation(j, f);
-    //     gnuDataChebyshev << j << " " << result << endl;
-    // }
-
-    // gnuDataLagranges.close();
-    // gnuDataChebyshev.close();
-
+    x.close();
     Interpolation xi("xi.txt");
-    Matrix fi("fi.txt");
-    Matrix result = xi.SplineInterpolation(1, fi);
-    result.displayMat();
 
-    result = xi.leastSquaresParabola(fi);
-    result.displayMat();
+    fi << "1 " << N << endl;
+
+    for (long double j = -1.0; j < 1.2; j += 0.2)
+    {
+        fi << xi.f(j) << " ";
+    }
+
+    fi.close();
+    Matrix f("fi.txt");
+
+    ofstream gnuDataLagranges("gnuDataLagranges.txt");
+    for (long double j = -1.0; j < 1.01; j += 0.01)
+    {
+        long double result = xi.LagrangesInterpolation(j, f);
+        gnuDataLagranges << j << " " << result << endl;
+    }
+
+    fi.open("fi.txt");
+    fi << "1 " << N << endl;
+
+    x.open("xi.txt");
+    x << "1 " << N << endl;
+
+    f = xi.ChebyshevCoefficients(N);
+
+    for (int i = 0; i < N; i++)
+    {
+        x << xi.m.mat[0][i] << " ";
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        fi << f.mat[0][i] << " ";
+    }
+
+    ofstream gnuDataChebyshev("gnuDataChebyshev.txt");
+    for (long double j = -1.0; j < 1.01; j += 0.01)
+    {
+        long double result = xi.LagrangesInterpolation(j, f);
+        gnuDataChebyshev << j << " " << result << endl;
+    }
+
+    gnuDataLagranges.close();
+    gnuDataChebyshev.close();
+
+    // ofstream splineResult1("splineResult1.txt");
+    // ofstream splineResult2("splineResult2.txt");
+    // Interpolation xi("xi.txt");
+    // Matrix fi("fi.txt");
+    // // Matrix result = xi.SplineInterpolation(1, fi);
+    // // result.displayMat();
+
+    // for (long double j = -1.0; j < 1.01; j += 0.01)
+    // {
+    //     Matrix result = xi.SplineInterpolation(j, fi);
+    //     splineResult1 << j << " " << result.mat[0][0] << endl;
+    //     splineResult2 << j << " " << result.mat[0][1] << endl;
+    // }
 }
 
 /*
