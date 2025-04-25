@@ -74,6 +74,9 @@ int main()
     Matrix fi("fi.txt");
     Matrix result = xi.SplineInterpolation(1, fi);
     result.displayMat();
+
+    result = xi.leastSquaresParabola(fi);
+    result.displayMat();
 }
 
 /*
