@@ -72,7 +72,8 @@ int main()
 
     Interpolation xi("xi.txt");
     Matrix fi("fi.txt");
-    xi.SplineInterpolation(1, fi);
+    Matrix result = xi.SplineInterpolation(1, fi);
+    result.displayMat();
 }
 
 /*

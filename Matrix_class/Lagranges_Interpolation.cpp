@@ -26,10 +26,11 @@ long double Interpolation::LagrangesInterpolation(long double x, Matrix fi)
     return result;
 }
 
-long double Interpolation::SplineInterpolation(long double x, Matrix fi)
+Matrix Interpolation::SplineInterpolation(long double x, Matrix fi)
 {
-    long double ratio = 1.0, result = 0.0;
+    long double ratio = 1.0;
     int splineCount = 2;
+    Matrix result(1, splineCount);
 
     long int rows = (m.rows > m.cols ? m.rows : m.cols);
 
@@ -43,11 +44,10 @@ long double Interpolation::SplineInterpolation(long double x, Matrix fi)
                 ratio *= (x - m.mat[0][j]) / (m.mat[0][i] - m.mat[0][j]);
             }
         }
-        result += (fi.mat[0][i] * ratio);
+        result.mat[0][0] += (fi.mat[0][i] * ratio);
     }
 
-    cout << result << endl;
-    result = 0.0;
+    // cout << result.mat[0][0] << endl;
 
     for (int i = (rows / 2); i < rows; i++)
     {
@@ -59,10 +59,10 @@ long double Interpolation::SplineInterpolation(long double x, Matrix fi)
                 ratio *= (x - m.mat[0][j]) / (m.mat[0][i] - m.mat[0][j]);
             }
         }
-        result += (fi.mat[0][i] * ratio);
+        result.mat[0][1] += (fi.mat[0][i] * ratio);
     }
 
-    cout << result << endl;
+    // cout << result.mat[0][1] << endl;
 
     return result;
 }
