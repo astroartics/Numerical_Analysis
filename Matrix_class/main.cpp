@@ -72,10 +72,10 @@ int main()
 
     // ofstream splineResult1("splineResult1.txt");
     // ofstream splineResult2("splineResult2.txt");
-    // Interpolation xi("xi.txt");
-    // Matrix fi("fi.txt");
-    // Matrix result = xi.SplineInterpolation(1, fi);
-    // // result.displayMat();
+    Interpolation xi("xi.txt");
+    Matrix fi("fi.txt");
+    Matrix result = xi.SplineInterpolation(2, fi, 3);
+    result.displayMat();
 
     // for (long double j = -1.0; j < 1.01; j += 0.01)
     // {

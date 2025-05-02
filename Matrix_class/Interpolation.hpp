@@ -32,7 +32,7 @@ public:
     Matrix powerFit(Matrix);
 
     long double LagrangesInterpolation(long double, Matrix);
-    Matrix SplineInterpolation(long double, Matrix);
+    Matrix SplineInterpolation(long double, Matrix, int);
 
     long double ChebyshevApproximation(long double, int);
     Matrix ChebyshevCoefficients(int);
