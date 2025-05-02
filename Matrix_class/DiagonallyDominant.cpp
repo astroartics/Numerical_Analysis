@@ -18,7 +18,10 @@ bool Matrix::isDiagonallyDominant()
             }
             if (!(abs(mat[i][i]) >= abs(sum)))
             {
-                if (makeDiagonallyDominant(i) == -1)
+                // if (i == rows - 1)
+                //     return false;
+
+                if (!makeDiagonallyDominant(i))
                 {
                     return false;
                 }
@@ -37,8 +40,10 @@ bool Matrix::isDiagonallyDominant()
     }
 }
 
-int Matrix::makeDiagonallyDominant(int currRow)
+bool Matrix::makeDiagonallyDominant(int currRow)
 {
+    // cout << currRow << "\n\n";
+
     int j = 0, sum = 0;
     int diagonallyDominantRow = 0;
 
@@ -51,8 +56,12 @@ int Matrix::makeDiagonallyDominant(int currRow)
             {
                 sum += mat[j][k];
             }
-            if ((abs(mat[i][i]) >= abs(sum)))
+
+            // cout << abs(mat[j][i]) << "\n\n";
+
+            if ((abs(mat[j][i]) >= abs(sum)))
             {
+                // cout << "HERE\n\n";
                 diagonallyDominantRow = 1;
                 break;
             }
@@ -63,7 +72,8 @@ int Matrix::makeDiagonallyDominant(int currRow)
 
     if (diagonallyDominantRow == 0)
     {
-        return -1;
+        cout << "HERE\n\n";
+        return false;
     }
 
     // Swapping the rows (current zero element row and with corresponding non-zero row)
@@ -83,5 +93,7 @@ int Matrix::makeDiagonallyDominant(int currRow)
         mat[j][i] = temp[i];
     }
 
-    return 1;
+    displayMat();
+
+    return true;
 }

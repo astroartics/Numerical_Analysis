@@ -72,10 +72,11 @@ int main()
 
     // ofstream splineResult1("splineResult1.txt");
     // ofstream splineResult2("splineResult2.txt");
-    Interpolation xi("xi.txt");
-    Matrix fi("fi.txt");
-    Matrix result = xi.SplineInterpolation(2, fi, 4);
-    result.displayMat();
+
+    // Interpolation xi("xi.txt");
+    // Matrix fi("fi.txt");
+    // Matrix result = xi.SplineInterpolation(2, fi, 4);
+    // result.displayMat();
 
     // for (long double j = -1.0; j < 1.01; j += 0.01)
     // {
@@ -83,6 +84,11 @@ int main()
     //     splineResult1 << j << " " << result.mat[0][0] << endl;
     //     splineResult2 << j << " " << result.mat[0][1] << endl;
     // }
+
+    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
+    result.displayMat();
 }
 
 /*
