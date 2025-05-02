@@ -42,7 +42,7 @@ bool Matrix::isDiagonallyDominant()
 
 bool Matrix::makeDiagonallyDominant(int currRow)
 {
-    cout << currRow << "\n\n";
+    // cout << currRow << "\n\n";
 
     int j = 0, sum = 0;
     int diagonallyDominantRow = 0;
@@ -58,7 +58,7 @@ bool Matrix::makeDiagonallyDominant(int currRow)
                     sum += mat[j][k];
             }
 
-            cout << abs(mat[j][i]) << "\n\n";
+            // cout << abs(mat[j][i]) << "\n\n";
 
             if ((abs(mat[j][i]) > abs(sum)))
             {
@@ -94,7 +94,7 @@ bool Matrix::makeDiagonallyDominant(int currRow)
         mat[j][i] = temp.mat[i][0];
     }
 
-    displayMat();
+    // displayMat();
 
     return true;
 }
