@@ -29,7 +29,7 @@ long double Interpolation::LagrangesInterpolation(long double x, Matrix fi)
 // Matrix Interpolation::SplineInterpolation(long double x, Matrix fi, int splineCount)
 // {
 //     long double ratio = 1.0;
-//     int splineCount = 2;
+//     // int splineCount = 2;
 //     Matrix result(1, splineCount);
 
 //     long int rows = (m.rows > m.cols ? m.rows : m.cols);

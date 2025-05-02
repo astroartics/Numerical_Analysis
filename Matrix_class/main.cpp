@@ -74,7 +74,7 @@ int main()
     // ofstream splineResult2("splineResult2.txt");
     Interpolation xi("xi.txt");
     Matrix fi("fi.txt");
-    Matrix result = xi.SplineInterpolation(2, fi, 3);
+    Matrix result = xi.SplineInterpolation(2, fi, 4);
     result.displayMat();
 
     // for (long double j = -1.0; j < 1.01; j += 0.01)
