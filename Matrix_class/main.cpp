@@ -77,10 +77,10 @@ int main()
     //     splineResult2 << j << " " << result.mat[0][1] << endl;
     // }
 
-    Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
-    Matrix b("Gauss_Jacobi_Seidel_b.txt");
-    Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
-    result.displayMat();
+    // Matrix Gauss_JS("Gauss_Jacobi_Seidel_Matrix.txt");
+    // Matrix b("Gauss_Jacobi_Seidel_b.txt");
+    // Matrix result = Gauss_JS.GaussJacobiMethod(Gauss_JS.rows, b);
+    // result.displayMat();
 }
 
 /*

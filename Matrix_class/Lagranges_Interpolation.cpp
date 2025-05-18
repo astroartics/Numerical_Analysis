@@ -41,13 +41,13 @@ Matrix Interpolation::SplineInterpolation(long double x, Matrix fi, int splineCo
     {
         int endIndex = startIndex + pointsPerSpline - 1;
 
-        // Distributing remaining points
+        // Distributing remaining points among first splines
         if (s < remainder)
             endIndex += 1;
 
         // So that we don’t go out of bounds
         if (endIndex >= totalPoints)
-            endIndex = totalPoints - 1;
+            endIndex = totalPoints - 1; // Last index of x
 
         // Checking if x falls in this spline interval, else it cannot be interpolated
         if (x >= m.mat[0][startIndex] && x <= m.mat[0][endIndex])
