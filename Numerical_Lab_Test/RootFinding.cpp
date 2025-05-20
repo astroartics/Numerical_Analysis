@@ -205,8 +205,6 @@ vector<double> RootFinding::BisectionMethod(int lb, int ub, int printItr)
             }
 
             // return c;
-
-            // cout << "SIZE : " << roots.size() << endl;
         } while (roots.size() != 4);
     }
     else
