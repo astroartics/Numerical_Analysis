@@ -1,4 +1,4 @@
-<h1 align="center"> This repository contains the libraries that we are creating for the Numerical Analysis course for Jan-Apr 2025</h1>
+<h1 align="center"> This repository contains the libraries that we have created for the Numerical Analysis course for Jan-Apr 2025</h1>
 
 <h3 align="center"> It contains most commonly used matrix related functions, operations on complex numbers, some root finding methods and some interpolation techniques implemented from scratch. </h3>
 
