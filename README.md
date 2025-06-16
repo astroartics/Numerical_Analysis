@@ -24,3 +24,5 @@
   - Chebyshev Approximation
   - Exponential fit
   - Least squares line and parabola
+
+> Interpolation class is included inside Matrix class folder as the equations in interpolation have been solved using matrix class function - Gaussian Elimination, and the interpolation input values are being stored as a matrix using an object of the Matrix class.
